@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKA ENGLISH PRACTICE 2025 - 30 Soal Baru (Acuan Resmi TKA 2025)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            950: '#172554'
+                        },
+                        accent: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .passage-content p {
+            margin-bottom: 0.85rem;
+            line-height: 1.65;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="h-full text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <div id="app" class="min-h-screen flex flex-col justify-between">
+        <!-- HEADER DYNAMIC -->
+        <header id="navbar" class="bg-brand-900 text-white shadow-md sticky top-0 z-30 transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="goHomeConfirm()">
+                    <div class="bg-accent-500 text-brand-900 p-2 rounded-xl font-black text-xl leading-none shadow">
+                        TKA
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-lg leading-tight tracking-wide">TKA ENGLISH 2025</h1>
+                        <p class="text-xs text-brand-100 hidden sm:block">Paket 30 Soal Baru Standar Resmi SMA/MA/SMK</p>
+                    </div>
+                </div>
+
+                <!-- Test Header Status -->
+                <div id="test-header-status" class="hidden flex items-center space-x-3 sm:space-x-4">
+                    <span id="mode-badge" class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-800 text-brand-100 border border-brand-700 hidden sm:inline-block">
+                        Mode Latihan
+                    </span>
+
+                    <!-- Countdown Timer -->
+                    <div class="flex items-center space-x-2 bg-brand-950 px-3 py-1.5 rounded-xl border border-brand-700 text-accent-400 font-mono font-bold text-sm sm:text-base">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="timer-display">90:00</span>
+                    </div>
+
+                    <!-- Finish Button -->
+                    <button onclick="confirmSubmitTest()" class="bg-accent-500 hover:bg-accent-400 text-brand-900 font-extrabold px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow-md transform active:scale-95">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Kumpulkan</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTAINER -->
+        <main class="flex-grow">
+            <!-- 1. LANDING PAGE / HOME VIEW -->
+            <section id="view-home" class="max-w-5xl mx-auto px-4 py-8 sm:py-12 animate-fadeIn">
+                <!-- Hero Card -->
+                <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-8 relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-white pointer-events-none">
+                        <i class="fa-solid fa-graduation-cap text-[240px]"></i>
+                    </div>
+                    <div class="relative z-10 max-w-2xl">
+                        <span class="inline-block px-3 py-1 bg-accent-500/20 text-accent-400 border border-accent-500/30 rounded-full text-xs font-semibold mb-4">
+                            Model Standar TKA 2025 - 30 Nomor Baru
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-3 leading-tight">
+                            Simulasi 30 Soal TKA Bahasa Inggris
+                        </h2>
+                        <p class="text-brand-100 text-sm sm:text-base leading-relaxed mb-6">
+                            Latihan komprehensif dengan teks dan pertanyaan baru: Pilihan Ganda, Pilihan Ganda Kompleks (MCMA), serta Tabel Pernyataan Benar/Salah (Kategori) tanpa kunci terisi otomatis.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="showStartModal()" class="bg-accent-500 hover:bg-accent-400 text-brand-900 font-extrabold px-6 py-3.5 rounded-xl text-base shadow-lg hover:shadow-xl transition flex items-center gap-2 transform active:scale-95">
+                                <i class="fa-solid fa-circle-play text-lg"></i> Mulai Ujian (30 Soal)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-brand-50 text-brand-600 rounded-xl text-xl shrink-0">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">30 Soal Murni Baru</h3>
+                            <p class="text-xs text-slate-600">Disesuaikan dengan kisi-kisi resmi tanpa mengulang soal referensi lama.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-amber-50 text-amber-600 rounded-xl text-xl shrink-0">
+                            <i class="fa-solid fa-square-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Interaktif Kosong</h3>
+                            <p class="text-xs text-slate-600">Soal tabel Benar/Salah & Kategori benar-benar netral (kosong) sampai diisi pengguna.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl text-xl shrink-0">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1">Waktu 90 Menit</h3>
+                            <p class="text-xs text-slate-600">Alokasi waktu ideal untuk pengerjaan 30 nomor teks panjang dan analisis.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. TEST INTERFACE VIEW -->
+            <section id="view-test" class="hidden max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-6 animate-fadeIn">
+                <!-- Top Progress Bar Container -->
+                <div class="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200 shadow-sm mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progres:</span>
+                        <div class="w-full sm:w-48 bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
+                            <div id="progress-bar-fill" class="bg-brand-600 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <span id="progress-text" class="text-xs font-black text-brand-900 min-w-[50px]">0/30</span>
+                    </div>
+
+                    <!-- Quick Navigation Action Buttons -->
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                        <button onclick="toggleFlag()" id="btn-flag" class="px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-800 text-xs font-semibold hover:bg-amber-100 transition flex items-center gap-1.5">
+                            <i class="fa-regular fa-bookmark"></i>
+                            <span id="flag-text">Tandai Ragu</span>
+                        </button>
+                        <button onclick="toggleQuestionGrid()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-slate-50 text-slate-700 text-xs font-semibold hover:bg-slate-100 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                            <span>Daftar Soal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Grid Split (Passage Left - Question Right) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    
+                    <!-- Left Column: Reading Passage Container -->
+                    <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col max-h-[70vh] lg:max-h-[75vh]">
+                        <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center justify-between shrink-0">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-file-lines text-brand-600"></i> Reading Passage / Text
+                            </span>
+                            <span id="passage-title" class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">
+                                Text
+                            </span>
+                        </div>
+                        <div id="passage-container" class="p-4 sm:p-6 overflow-y-auto passage-content text-sm sm:text-base text-slate-700 leading-relaxed select-text space-y-3">
+                            <!-- Reading text dynamically injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Question & Options Container -->
+                    <div class="lg:col-span-6 flex flex-col space-y-4">
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+                            <div>
+                                <!-- Question Header -->
+                                <div class="flex flex-col gap-2 mb-4 pb-3 border-b border-slate-100">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-extrabold text-brand-700 uppercase tracking-wider">
+                                            Soal Nomor <span id="q-number-display" class="text-lg text-brand-900 font-black">1</span> Dari <span id="q-total-display">30</span>
+                                        </span>
+                                        <span id="q-format-tag" class="text-[11px] font-bold px-2.5 py-1 bg-brand-50 text-brand-800 rounded-md border border-brand-200">
+                                            Pilihan Ganda
+                                        </span>
+                                    </div>
+                                    <span id="q-indicator-tag" class="text-[11px] text-slate-600 italic">
+                                        Indikator
+                                    </span>
+                                </div>
+
+                                <!-- Question Text -->
+                                <div id="question-text" class="text-slate-900 font-medium text-sm sm:text-base mb-6 leading-relaxed">
+                                    <!-- Question prompt here -->
+                                </div>
+
+                                <!-- Interactive Input Container -->
+                                <div id="options-container" class="space-y-3 mb-6">
+                                    <!-- Options injected here -->
+                                </div>
+
+                                <!-- Instant Explanation Box Removed for Pure Practice/Testing -->
+                            </div>
+
+                            <!-- Bottom Navigation Controls -->
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
+                                <button onclick="prevQuestion()" id="btn-prev" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-semibold text-xs sm:text-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                                    <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+                                </button>
+
+                                <button onclick="nextQuestion()" id="btn-next" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow transition flex items-center gap-2 transform active:scale-95">
+                                    <span>Selanjutnya</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. RESULT & EXPLANATION VIEW -->
+            <section id="view-result" class="hidden max-w-5xl mx-auto px-4 py-8 animate-fadeIn">
+                <!-- Result Summary Banner -->
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-8 mb-8">
+                    <div class="text-center max-w-xl mx-auto mb-8">
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs mb-2">
+                            Ujian Selesai
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Hasil Evaluasi 30 Soal TKA Bahasa Inggris</h2>
+                        <p class="text-slate-500 text-xs sm:text-sm mt-1">Laporan pencapaian skor dan analisis kompetensi berdasarkan standar TKA SMA/SMK.</p>
+                    </div>
+
+                    <!-- Main Score Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-brand-50 border border-brand-100 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-brand-700 uppercase">Skor TKA</span>
+                            <span id="res-score" class="text-3xl sm:text-4xl font-black text-brand-900 mt-1">100</span>
+                            <span id="res-max-score" class="text-[10px] text-brand-600 font-medium">Skala 100 - 800 Poin</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-emerald-700 uppercase">Benar</span>
+                            <span id="res-correct" class="text-3xl sm:text-4xl font-black text-emerald-600 mt-1">0</span>
+                            <span class="text-[10px] text-emerald-600 font-medium">+23.3 Poin / Soal</span>
+                        </div>
+                        <div class="bg-rose-50 border border-rose-100 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-rose-700 uppercase">Salah / Kurang</span>
+                            <span id="res-wrong" class="text-3xl sm:text-4xl font-black text-rose-600 mt-1">0</span>
+                            <span class="text-[10px] text-rose-600 font-medium">Evaluasi Ulang</span>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-slate-600 uppercase">Kosong</span>
+                            <span id="res-empty" class="text-3xl sm:text-4xl font-black text-slate-700 mt-1">0</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Belum Diisi</span>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Details -->
+                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mb-6">
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <h4 class="font-extrabold text-slate-900 text-sm mb-1">Kategori Kemampuan Akademik: <span id="res-category-badge" class="px-2.5 py-0.5 rounded-full text-xs font-black bg-brand-100 text-brand-800 ml-1">Kategori</span></h4>
+                                <p id="res-evaluation-text" class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
+                                    Akurasi Jawaban: <span id="res-accuracy" class="font-bold text-brand-700">0%</span>
+                                </p>
+                            </div>
+                            <button onclick="resetAndRestart()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2 transform active:scale-95 shrink-0">
+                                <i class="fa-solid fa-rotate-right"></i> Ulangi Latihan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Section Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-brand-600"></i>
+                        Kunci Jawaban & Pembahasan Lengkap (30 Soal)
+                    </h3>
+                </div>
+
+                <!-- Explanations List Rendered Here -->
+                <div id="explanations-list" class="space-y-6">
+                    <!-- Dynamic evaluation items injected here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+            <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-1">
+                <p class="font-bold text-slate-700">TKA ENGLISH PRACTICE 2025 &copy; Paket 30 Soal Baru Standar TKA SMA/MA/SMK</p>
+                <p>Materi Pembahasan Mengikuti Panduan Pemahaman Tekstual, Inferensial & Evaluasi.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL: START TEST OPTIONS -->
+    <div id="modal-start" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fadeIn">
+            <h3 class="text-xl font-black text-slate-900 mb-2">Pilih Mode Pengerjaan (30 Soal)</h3>
+            <p class="text-xs text-slate-500 mb-6">Pilih mode pengerjaan yang sesuai dengan kebutuhan belajarmu saat ini.</p>
+
+            <div class="space-y-4 mb-6">
+                <!-- Option 1: Practice Mode -->
+                <label class="block p-4 border-2 border-slate-200 rounded-2xl hover:border-brand-500 cursor-pointer transition relative group">
+                    <input type="radio" name="select-mode" value="practice" checked class="sr-only peer">
+                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
+                    <div class="flex items-start gap-3 relative z-10">
+                        <div class="p-2.5 bg-brand-100 text-brand-700 rounded-xl shrink-0">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Mode Latihan Interaktif</h4>
+                            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Pembahasan dapat dicek langsung setelah kamu memilih/mengisi jawaban.</p>
+                        </div>
+                    </div>
+                </label>
+
+                <!-- Option 2: Simulation Mode -->
+                <label class="block p-4 border-2 border-slate-200 rounded-2xl hover:border-brand-500 cursor-pointer transition relative group">
+                    <input type="radio" name="select-mode" value="simulation" class="sr-only peer">
+                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
+                    <div class="flex items-start gap-3 relative z-10">
+                        <div class="p-2.5 bg-amber-100 text-amber-700 rounded-xl shrink-0">
+                            <i class="fa-solid fa-stopwatch text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Mode Simulasi Ujian</h4>
+                            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Timer 90 menit berjalan. Hasil dan pembahasan disajikan setelah pengumpulan.</p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end gap-3">
+                <button onclick="closeStartModal()" class="px-4 py-2 text-slate-600 text-xs font-bold hover:bg-slate-100 rounded-xl transition">Batal</button>
+                <button onclick="initiateTest()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow transition">Mulai Ujian</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: QUESTION NAVIGATION GRID -->
+    <div id="modal-grid" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] flex flex-col animate-fadeIn">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                <h3 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-th text-brand-600"></i> Navigasi 30 Soal
+                </h3>
+                <button onclick="toggleQuestionGrid()" class="text-slate-400 hover:text-slate-600 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="text-xs text-slate-500 mb-4 flex flex-wrap gap-4">
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-brand-600 inline-block"></span> Terjawab</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span> Ragu-ragu</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-100 border border-slate-300 inline-block"></span> Belum Isi</span>
+            </div>
+
+            <!-- Grid Numbers -->
+            <div id="grid-buttons-container" class="grid grid-cols-5 sm:grid-cols-6 gap-2.5 overflow-y-auto p-1 mb-4">
+                <!-- Dynamic numbers injected here -->
+            </div>
+
+            <button onclick="toggleQuestionGrid()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+                Tutup Navigasi
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC & 30 NEW TKA QUESTIONS -->
+    <script>
+        /* ==========================================================================
+           1. 30 NEW AUTHENTIC TKA READING PASSAGES & QUESTION BANK
+           ========================================================================== */
+        const passagesData = {
+            doc_fable_falcon: {
+                title: "Text 1: The King and the Trained Falcon (Narrative)",
+                text: `<p class="font-bold text-brand-900 mb-2">The King and the Trained Falcon</p>
+                <p>Long ago, a powerful king owned a trained hunting falcon that he treasured above all his possessions. The falcon wore a golden cup attached to its leg so the king could easily provide water during long journeys through arid mountains.</p>
+                <p>One scorching afternoon, after hours of riding, the king became overwhelmed with extreme thirst. He noticed water dripping steadily down a rocky cliff from an unseen spring above. Taking the golden cup from his falcon’s leg, he filled it with the cold dripping water and raised it to his lips.</p>
+                <p>Just as he was about to drink, the falcon suddenly fluttered its wings forcefully and knocked the cup from his hand, spilling every drop onto the dry ground. Annoyed, the king scooped up another cupful, but again the bird struck the cup away.</p>
+                <p>Blinded by intense thirst and anger, the king drew his dagger and struck the bird down. Dripping with sweat, he decided to climb to the top of the cliff to drink directly from the spring. Upon reaching the summit, he discovered a giant venomous viper lying dead in the pool, its poisonous venom polluting the water supply.</p>
+                <p>Overwhelmed with remorse, the king realized the falcon had sacrificed itself to save his life. Carrying his faithful bird back down, he vowed never again to make rash decisions in anger.</p>`
+            },
+            doc_digital_literacy: {
+                title: "Infographic: Digital Literacy in Modern Schools (Procedure/Guide)",
+                text: `<div class="bg-brand-50/50 p-4 rounded-xl border border-brand-200 text-xs sm:text-sm space-y-2">
+                    <p class="font-bold text-brand-900 text-base">5 Key Steps to Practice Cyber Safety & Digital Literacy</p>
+                    <ol class="list-decimal pl-4 space-y-1.5 font-medium text-slate-700">
+                        <li><strong>Verify Source Credibility:</strong> Check whether news articles come from verified educational or journalistic publishers before sharing.</li>
+                        <li><strong>Create Strong Multi-Factor Passwords:</strong> Combine uppercase letters, numbers, and symbols across different school accounts.</li>
+                        <li><strong>Evaluate Online Information Critically:</strong> Compare information across multiple trustworthy sources to detect bias or misinformation.</li>
+                        <li><strong>Protect Personal Identifiable Data:</strong> Avoid sharing phone numbers, home addresses, or passwords in public educational forums.</li>
+                        <li><strong>Report Cyberbullying Immediately:</strong> Notify school administrators or platform managers when encountering toxic online interactions.</li>
+                    </ol>
+                </div>`
+            },
+            doc_ant_pigeon: {
+                title: "Text 3: The Clever Ant and the Pigeon (Narrative)",
+                text: `<p class="font-bold text-brand-900 mb-2">The Clever Ant and the Pigeon</p>
+                <p>On a hot summer day, a tiny ant was searching for water along a slippery riverbank. While attempting to sip from the rushing current, he slipped and was swept away by the swift stream. Desperate for help, the ant struggled helplessly in the deep water.</p>
+                <p>Sitting on a tree branch overlooking the river, a friendly pigeon noticed the ant drowning. Feeling deep compassion, the pigeon quickly plucked a broad leaf and dropped it directly into the water near the ant. The ant climbed onto the floating leaf and safely drifted back to dry land.</p>
+                <p>Not long after, a hunter crept silently through the woods, carrying a net to trap the sleeping pigeon. Seeing the imminent danger to his savior, the ant crawled rapidly onto the hunter's exposed heel and bit him as hard as he could.</p>
+                <p>The hunter cried out in pain, dropping his trap net to the ground. The sudden noise alerted the pigeon, who instantly spread her wings and flew away to safety. From that day on, the two creatures remained devoted allies.</p>`
+            },
+            doc_renewable_energy: {
+                title: "Text 4: Solar & Wind Power Transition (Analytical Exposition)",
+                text: `<p class="font-bold text-brand-900 mb-2">Accelerating the Global Clean Energy Transition</p>
+                <p>The transition toward renewable energy sources like solar photovoltaic panels and wind turbines is no longer just an environmental goal; it is an economic necessity. Traditional fossil fuels release massive amounts of carbon dioxide, driving severe global weather disruptions and deteriorating public health.</p>
+                <p>However, critics frequently point out that solar and wind technologies suffer from intermittency—solar panels produce no electricity at night, and wind turbines rely on variable weather patterns. To overcome these limitations, engineers are deploying massive battery storage networks and smart grids that store excess energy during peak generation hours for later use.</p>
+                <p>In conclusion, despite the high initial infrastructure costs, investing in clean energy creates long-term economic resilience, lowers healthcare costs, and protects delicate ecosystems worldwide.</p>`
+            },
+            doc_coral_reefs: {
+                title: "Text 5: Ocean Ecosystem Preservation (Informative Text)",
+                text: `<p class="font-bold text-brand-900 mb-2">The Ecological Importance of Coral Reefs</p>
+                <p>Coral reefs cover less than 1% of the ocean floor, yet they support nearly 25% of all marine species, functioning as vibrant underwater cities. These intricate structures protect coastal communities from devastating storms by absorbing wave energy and slowing surging tides.</p>
+                <p>Regrettably, ocean warming caused by climate change leads to severe coral bleaching. When ocean temperatures remain unnaturally high, corals expel the colorful algae living inside their tissues, turning completely white and starving. Marine biologists emphasize that enforcing marine protected areas and curbing industrial ocean pollution are indispensable steps to prevent total coral reef collapse.</p>`
+            }
+        };
+
+        const rawQuestions = [
+            // --- PASSAGE 1: KING & FALCON (Q1 - Q6) ---
+            {
+                id: 1,
+                passageId: "doc_fable_falcon",
+                format: "single",
+                indicator: "Pemahaman Tekstual: Menyusun ringkasan cerita naratif",
+                question: "Which option best summarizes the plot of 'The King and the Trained Falcon'?",
+                options: [
+                    "A king gets lost in the mountains, loses his falcon, and finds water at a local village spring.",
+                    "A king tries to drink dripping water, but his falcon knocks the cup away to prevent him from consuming deadly snake venom.",
+                    "A hunting falcon attacks its owner out of wild instinct, forcing the king to defend himself with a dagger.",
+                    "A king travels through dry mountains, feeds his thirsty falcon with poisoned water, and regrets his choice.",
+                    "A falcon escapes its golden cup cage, leads the king up a dangerous cliff, and helps him slay a giant viper."
+                ],
+                answer: 1,
+                quote: "The falcon had knocked the cup away... he discovered a giant venomous viper... the falcon sacrificed itself to save his life.",
+                explanation: "Ringkasan alur utama mengikuti fakta bahwa sang raja hendak minum air dari tebing, tetapi elangnya berulang kali membuang cangkir tersebut untuk menyelamatkan raja dari racun ular yang mencemari mata air."
+            },
+            {
+                id: 2,
+                passageId: "doc_fable_falcon",
+                format: "mcma",
+                indicator: "Pemahaman Tekstual: Menyimpulkan pesan moral cerita naratif",
+                question: "Which moral lessons are strongly conveyed in this story? (Select ALL correct answers!)",
+                options: [
+                    "Never make hasty decisions or act violently while blinded by anger.",
+                    "Always trust the intentions of loyal companions, even if their actions seem strange.",
+                    "Avoid traveling through dry mountain ranges without carrying excess water.",
+                    "Regret comes too late when anger drives impulsive choices.",
+                    "Wild animals can never truly adapt to living with human royalty."
+                ],
+                answer: [0, 1, 3],
+                quote: "He vowed never again to make rash decisions in anger... overwhelmed with remorse...",
+                explanation: "Pesan moral cerita meliputi larangan mengambil keputusan terburu-buru saat marah (A), pentingnya percaya pada niat baik sahabat/hewan setia (B), dan kesadaran bahwa penyesalan datang terlambat akibat tindakan impulsif (D)."
+            },
+            {
+                id: 3,
+                passageId: "doc_fable_falcon",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Menganalisis penyebab tindakan tokoh",
+                question: "Why did the king react with violence towards his beloved falcon?",
+                options: [
+                    "He believed the falcon was trying to steal his golden cup.",
+                    "He was exhausted, severely dehydrated, and overwhelmed by sudden frustration.",
+                    "He noticed the falcon was infected with snake venom.",
+                    "He wanted to test if another falcon could replace it.",
+                    "The falcon flew away with his hunting equipment."
+                ],
+                answer: 1,
+                quote: "Blinded by intense thirst and anger, the king drew his dagger...",
+                explanation: "Raja bertindak brutal karena staminanya terkuras, mengalami dehidrasi berat, dan terpancing emosi yang intens saat minumannya terus-menerus ditumpahkan."
+            },
+            {
+                id: 4,
+                passageId: "doc_fable_falcon",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
+                question: "Determine whether each statement below is TRUE or FALSE based on the text.",
+                categories: ["TRUE", "FALSE"],
+                items: [
+                    { id: "p1_1", text: "The golden cup on the falcon's leg was used to carry drinking water during trips.", correct: "TRUE" },
+                    { id: "p1_2", text: "The king discovered that the water was contaminated by a dead poisonous viper.", correct: "TRUE" },
+                    { id: "p1_3", text: "The falcon intentionally knocked the cup away because it wanted to drink first.", correct: "FALSE" }
+                ],
+                explanation: "Pernyataan 1 & 2 terbukti benar pada paragraf 1 dan 4. Pernyataan 3 salah karena elang melakukannya demi menyelamatkan raja dari racun ular."
+            },
+            {
+                id: 5,
+                passageId: "doc_fable_falcon",
+                format: "mcma",
+                indicator: "Evaluasi & Apresiasi: Menilai karakter tokoh utama",
+                question: "Which traits accurately describe the king at different stages of the story? (Select ALL correct answers!)",
+                options: [
+                    "Impulsive when driven by rage and physical discomfort.",
+                    "Cruel and heartless toward animals throughout his entire life.",
+                    "Capable of deep remorse and self-reflection after realizing his mistake.",
+                    "Careless about his personal health and hygiene.",
+                    "Loving toward his hunting falcon prior to the incident."
+                ],
+                answer: [0, 2, 4],
+                quote: "treasured above all his possessions... blinded by intense thirst and anger... overwhelmed with remorse...",
+                explanation: "Sifat raja meliputi: Impulsif/emosional saat marah (A), mampu menyesali kesalahan secara mendalam (C), dan sangat menyayangi elangnya sebelum insiden tersebut (E)."
+            },
+            {
+                id: 6,
+                passageId: "doc_fable_falcon",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Memprediksi tindakan masa depan tokoh",
+                question: "What would the king most likely do in future challenging situations based on his vow?",
+                options: [
+                    "He would completely stop keeping trained animals for hunting.",
+                    "He would pause to analyze situations calmly before reacting in anger.",
+                    "He would avoid drinking water from mountain springs altogether.",
+                    "He would delegate all decision-making duties to his advisors.",
+                    "He would carry multiple golden cups on every journey."
+                ],
+                answer: 1,
+                quote: "He vowed never again to make rash decisions in anger.",
+                explanation: "Berdasarkan ikrar untuk tidak bertindak terburu-buru saat marah, di masa depan raja akan lebih bersikap tenang dan berpikir jernih sebelum mengambil keputusan."
+            },
+
+            // --- PASSAGE 2: DIGITAL LITERACY INFOGRAPHIC (Q7 - Q12) ---
+            {
+                id: 7,
+                passageId: "doc_digital_literacy",
+                format: "single",
+                indicator: "Pemahaman Tekstual: Mengidentifikasi langkah eksplisit infografis",
+                question: "According to the infographic, how should students verify whether online news is accurate?",
+                options: [
+                    "By counting how many users liked or shared the news post.",
+                    "By checking whether the source belongs to a verified educational or news publisher.",
+                    "By asking friends in online chat forums for their opinions.",
+                    "By creating multi-factor passwords for their accounts.",
+                    "By reporting the author of the post directly to internet service providers."
+                ],
+                answer: 1,
+                quote: "Step 1: Check whether news articles come from verified educational or journalistic publishers...",
+                explanation: "Petunjuk eksplisit nomor 1 mewajibkan verifikasi penerbit berita melalui lembaga pendidikan atau jurnalistik terverifikasi."
+            },
+            {
+                id: 8,
+                passageId: "doc_digital_literacy",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Pengelompokan Kategori Tindakan",
+                question: "Classify each digital action below as either 'Safe Online Habit' or 'Unsafe Online Practice'.",
+                categories: ["Safe Online Habit", "Unsafe Online Practice"],
+                items: [
+                    { id: "p2_1", text: "Comparing information across multiple reputable sources before sharing.", correct: "Safe Online Habit" },
+                    { id: "p2_2", text: "Posting your home address and phone number on public student forums.", correct: "Unsafe Online Practice" },
+                    { id: "p2_3", text: "Using the same simple password for all educational logins.", correct: "Unsafe Online Practice" }
+                ],
+                explanation: "Membandingkan sumber terpercaya (Safe). Membagikan alamat/telepon dan menggunakan sandi tunggal yang lemah (Unsafe)."
+            },
+            {
+                id: 9,
+                passageId: "doc_digital_literacy",
+                format: "mcma",
+                indicator: "Pemahaman Inferensial: Menyimpulkan tujuan penulisan infografis",
+                question: "What are the main intentions of the author in publishing this infographic? (Select ALL correct answers!)",
+                options: [
+                    "To guide students toward responsible and safe internet usage.",
+                    "To persuade schools to ban all digital devices in classrooms.",
+                    "To reduce the spread of misinformation and cyber threats among youth.",
+                    "To promote commercial security software products to families.",
+                    "To build critical thinking skills when consuming online data."
+                ],
+                answer: [0, 2, 4],
+                quote: "5 Key Steps to Practice Cyber Safety & Digital Literacy...",
+                explanation: "Tujuan utama infografis adalah memandu penggunaan internet secara aman (A), menekan penyebaran disinformasi & ancaman siber (C), serta membentuk pola pikir kritis (E)."
+            },
+            {
+                id: 10,
+                passageId: "doc_digital_literacy",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Implikasi tidak mematuhi panduan",
+                question: "What is a likely consequence if a student neglects Step 4 (Protect Personal Identifiable Data)?",
+                options: [
+                    "Their computer hardware will physically stop functioning.",
+                    "They might become vulnerable to identity theft or online scam attempts.",
+                    "Their academic grades will automatically decrease.",
+                    "They will no longer be allowed to use school library books.",
+                    "Their social media accounts will receive automatic verification badges."
+                ],
+                answer: 1,
+                quote: "Avoid sharing phone numbers, home addresses, or passwords in public educational forums.",
+                explanation: "Mengabaikan perlindungan data pribadi dapat mengakibatkan pencurian identitas, kejahatan siber, atau penipuan daring."
+            },
+            {
+                id: 11,
+                passageId: "doc_digital_literacy",
+                format: "mcma",
+                indicator: "Evaluasi & Apresiasi: Penerapan langkah dalam kehidupan nyata",
+                question: "Which scenario(s) demonstrate proper application of the infographic's recommendations? (Select ALL correct answers!)",
+                options: [
+                    "Anita combines numbers, symbols, and capital letters for her school portal password.",
+                    "Budi immediately forwards a sensational headline without checking its publisher.",
+                    "Citra reports abusive comment threads on a school learning app to her teacher.",
+                    "Deni uses his birthday as a universal password across five separate applications.",
+                    "Eka cross-checks a viral scientific claim with two official research websites."
+                ],
+                answer: [0, 2, 4],
+                quote: "Steps 2, 3, and 5 cover strong passwords, critical evaluation, and reporting cyberbullying.",
+                explanation: "Penerapan yang benar ditunjukkan oleh Anita (sandi kuat - Opsi A), Citra (melaporkan perundungan siber - Opsi C), dan Eka (verifikasi silang berita - Opsi E)."
+            },
+            {
+                id: 12,
+                passageId: "doc_digital_literacy",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
+                question: "Determine whether each statement regarding password security is TRUE or FALSE according to the guide.",
+                categories: ["TRUE", "FALSE"],
+                items: [
+                    { id: "p2_4", text: "Passwords should combine uppercase letters, numbers, and symbols.", correct: "TRUE" },
+                    { id: "p2_5", text: "It is safe to share account passwords in student study forums.", correct: "FALSE" }
+                ],
+                explanation: "Langkah ke-2 secara spesifik mewajibkan kombinasi karakter unik dan melarang pembagian sandi di forum publik."
+            },
+
+            // --- PASSAGE 3: CLEVER ANT & PIGEON (Q13 - Q18) ---
+            {
+                id: 13,
+                passageId: "doc_ant_pigeon",
+                format: "single",
+                indicator: "Pemahaman Tekstual: Menyusun urutan kejadian kronologis",
+                question: "Which sequence correctly reflects the chronological order of events in 'The Clever Ant and the Pigeon'?",
+                options: [
+                    "Hunter traps pigeon -> Ant bites hunter -> Leaf drops in water -> Pigeon flies away.",
+                    "Ant falls into river -> Pigeon drops leaf to save ant -> Hunter tries to net pigeon -> Ant bites hunter's heel -> Pigeon escapes.",
+                    "Pigeon sees hunter -> Ant jumps onto leaf -> Hunter drops net -> Ant swims across rushing stream.",
+                    "Ant bites hunter -> Pigeon drops leaf into river -> Ant climbs tree branch -> Hunter leaves forest.",
+                    "Hunter catches ant -> Pigeon scares hunter away -> Ant falls in river -> Pigeon drops leaf."
+                ],
+                answer: 1,
+                quote: "Sequence: Ant slipped -> Pigeon dropped leaf -> Hunter arrived -> Ant bit heel -> Pigeon flew away.",
+                explanation: "Urutan kronologis cerita yang tepat adalah: Semut jatuh ke sungai -> Burung merpati menjatuhkan daun -> Pemburu datang membawa jaring -> Semut menggigit tumit pemburu -> Merpati terbang bebas."
+            },
+            {
+                id: 14,
+                passageId: "doc_ant_pigeon",
+                format: "mcma",
+                indicator: "Pemahaman Tekstual: Menyimpulkan pesan moral naratif",
+                question: "What main messages are reflected in the story of the ant and the pigeon? (Select ALL correct answers!)",
+                options: [
+                    "No act of kindness, no matter how small, is ever wasted.",
+                    "One good deed deserves another in return.",
+                    "Always stay away from rivers during hot summer afternoons.",
+                    "Size does not limit your ability to help someone in danger.",
+                    "Hunters should never be allowed in forest reserves."
+                ],
+                answer: [0, 1, 3],
+                quote: "The ant bit the hunter's heel to save his savior... creatures remained devoted allies.",
+                explanation: "Pesan moral fabel meliputi: Kebaikan sekecil apapun tidak pernah sia-sia (A), Kebaikan dibalas dengan kebaikan (B), dan Ukuran tubuh tidak membatasi kemampuan menolong (D)."
+            },
+            {
+                id: 15,
+                passageId: "doc_ant_pigeon",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
+                question: "Determine whether each statement below is TRUE or FALSE based on the narrative.",
+                categories: ["TRUE", "FALSE"],
+                items: [
+                    { id: "p3_1", text: "The pigeon used a broad leaf to rescue the drowning ant.", correct: "TRUE" },
+                    { id: "p3_2", text: "The hunter successfully captured the pigeon in his net.", correct: "FALSE" },
+                    { id: "p3_3", text: "The ant bit the hunter's heel to distract him and create noise.", correct: "TRUE" }
+                ],
+                explanation: "Pernyataan 1 & 3 benar. Pernyataan 2 salah karena pemburu gagal menangkap burung merpati akibat jeritannya yang memicu peringatan."
+            },
+            {
+                id: 16,
+                passageId: "doc_ant_pigeon",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Memahami motivasi tindakan semut",
+                question: "Why did the ant decide to bite the hunter's heel despite being tiny and fragile?",
+                options: [
+                    "The ant was hungry and mistook the heel for food.",
+                    "The ant wanted to avenge all ants that had been stepped on.",
+                    "The ant felt a deep sense of gratitude and urgency to save the pigeon.",
+                    "The pigeon chirped loudly to command the ant to attack.",
+                    "The hunter attempted to crush the ant's nest."
+                ],
+                answer: 2,
+                quote: "Seeing the imminent danger to his savior, the ant crawled rapidly...",
+                explanation: "Semut bertindak cepat karena dorongan rasa terima kasih yang mendalam dan tekad untuk menyelamatkan penolongnya."
+            },
+            {
+                id: 17,
+                passageId: "doc_ant_pigeon",
+                format: "mcma",
+                indicator: "Evaluasi & Apresiasi: Menilai hubungan antar karakter",
+                question: "Which dynamics best describe the relationship between the ant and the pigeon? (Select ALL correct answers!)",
+                options: [
+                    "Mutual respect built on selfless actions.",
+                    "A rivalry over limited forest food resources.",
+                    "Reciprocal empathy across different species.",
+                    "A temporary partnership driven purely by financial gain.",
+                    "Loyal friendship forged through crisis."
+                ],
+                answer: [0, 2, 4],
+                quote: "From that day on, the two creatures remained devoted allies.",
+                explanation: "Hubungan kedua hewan didasari oleh rasa saling menghormati (A), empati timbal balik (C), serta persahabatan yang kokoh setelah melewati ancaman bahaya (E)."
+            },
+            {
+                id: 18,
+                passageId: "doc_ant_pigeon",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Hasil alternatif jika semut tidak bertindak",
+                question: "What would have most likely happened if the ant had ignored the hunter?",
+                options: [
+                    "The hunter would have accidentally fallen into the river.",
+                    "The pigeon would have been trapped in the hunter's net.",
+                    "The pigeon would have dropped another leaf onto the hunter.",
+                    "The hunter would have adopted the pigeon as a pet.",
+                    "The rushing stream would have flooded the entire forest."
+                ],
+                answer: 1,
+                quote: "carrying a net to trap the sleeping pigeon... dropped his trap net when bitten.",
+                explanation: "Tanpa gigitan semut yang memicu jeritan pemburu, burung merpati yang sedang tertidur pasti akan tertangkap di dalam jaring."
+            },
+
+            // --- PASSAGE 4: RENEWABLE ENERGY EXPOSITION (Q19 - Q24) ---
+            {
+                id: 19,
+                passageId: "doc_renewable_energy",
+                format: "single",
+                indicator: "Pemahaman Tekstual: Gagasan utama teks eksposisi",
+                question: "What is the primary thesis statement presented in Text 4?",
+                options: [
+                    "Fossil fuel prices will remain lower than clean energy indefinitely.",
+                    "Transitioning to renewable energy is both an environmental and economic necessity.",
+                    "Wind turbines are unsuitable for generating electricity in modern cities.",
+                    "Battery storage networks are too expensive to be deployed globally.",
+                    "Global weather disruptions are unrelated to carbon emissions."
+                ],
+                answer: 1,
+                quote: "The transition toward renewable energy... is no longer just an environmental goal; it is an economic necessity.",
+                explanation: "Tesis utama artikel secara tegas menyatakan bahwa transisi energi terbarukan merupakan kebutuhan lingkungan sekaligus ekonomi."
+            },
+            {
+                id: 20,
+                passageId: "doc_renewable_energy",
+                format: "mcma",
+                indicator: "Pemahaman Tekstual: Tantangan dan solusi energi terbarukan",
+                question: "According to the text, what solutions address the intermittency of solar and wind power? (Select ALL correct answers!)",
+                options: [
+                    "Deploying large-scale battery storage networks.",
+                    "Increasing the burning of coal during cloudy days.",
+                    "Integrating smart grid systems to store excess energy.",
+                    "Banning all electrical usage during nighttime hours.",
+                    "Utilizing stored energy during peak demand times."
+                ],
+                answer: [0, 2, 4],
+                quote: "engineers are deploying massive battery storage networks and smart grids that store excess energy...",
+                explanation: "Solusi tantangan intermittency meliputi: Jaringan baterai penyimpanan berskala besar (A), integrasi jaringan pintar/smart grid (C), dan pemanfaatan cadangan energi saat beban puncak (E)."
+            },
+            {
+                id: 21,
+                passageId: "doc_renewable_energy",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
+                question: "Determine whether each claim below is TRUE or FALSE according to Text 4.",
+                categories: ["TRUE", "FALSE"],
+                items: [
+                    { id: "p4_1", text: "Solar panels can generate equal amounts of electricity at night.", correct: "FALSE" },
+                    { id: "p4_2", text: "Fossil fuel combustion releases massive amounts of carbon dioxide.", correct: "TRUE" },
+                    { id: "p4_3", text: "Clean energy investments help lower long-term national healthcare costs.", correct: "TRUE" }
+                ],
+                explanation: "Pernyataan 1 salah (panel surya tidak menghasilkan listrik malam hari). Pernyataan 2 & 3 benar sesuai paragraf 1 dan 3."
+            },
+            {
+                id: 22,
+                passageId: "doc_renewable_energy",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Menafsirkan makna implisit teks",
+                question: "Why does the author mention 'lowering healthcare costs' in the conclusion?",
+                options: [
+                    "Because solar panels are used to power all modern hospital equipment directly.",
+                    "Because reduced carbon pollution improves air quality and decreases respiratory illnesses.",
+                    "Because wind turbine companies fund public health insurance programs.",
+                    "Because fossil fuel companies will pay for hospital bills.",
+                    "Because battery storage systems reduce physical stress for workers."
+                ],
+                answer: 1,
+                quote: "Fossil fuels release CO2... deteriorating public health. Clean energy lowers healthcare costs...",
+                explanation: "Pengurangan polusi akibat energi bersih memperbaiki kualitas udara, yang berdampak langsung pada menurunnya angka penyakit pernapasan dan biaya kesehatan."
+            },
+            {
+                id: 23,
+                passageId: "doc_renewable_energy",
+                format: "mcma",
+                indicator: "Evaluasi & Apresiasi: Penilaian argumen penulis",
+                question: "Which evidence-based arguments does the author use to support renewable energy adoption? (Select ALL correct answers!)",
+                options: [
+                    "Clean energy creates long-term economic resilience.",
+                    "Renewable installations require zero upfront financial capital.",
+                    "Fossil fuels drive severe global weather disruptions.",
+                    "Smart grids eliminate the need for electrical wires.",
+                    "Ecosystems receive better protection when carbon emissions decrease."
+                ],
+                answer: [0, 2, 4],
+                quote: "fossil fuels drive severe weather... investing creates resilience... protects delicate ecosystems.",
+                explanation: "Argumen pendukung yang valid adalah ketahanan ekonomi jangka panjang (A), dampak buruk fosil pada cuaca ekstrem (C), dan perlindungan ekosistem dari emisi karbon (E)."
+            },
+            {
+                id: 24,
+                passageId: "doc_renewable_energy",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Pengelompokan Jenis Energi",
+                question: "Categorize each energy source listed below as either 'Renewable' or 'Non-Renewable'.",
+                categories: ["Renewable Energy", "Non-Renewable Energy"],
+                items: [
+                    { id: "p4_4", text: "Solar Photovoltaic Power", correct: "Renewable Energy" },
+                    { id: "p4_5", text: "Traditional Coal Burning", correct: "Non-Renewable Energy" },
+                    { id: "p4_6", text: "Wind Turbine Generation", correct: "Renewable Energy" }
+                ],
+                explanation: "Energi surya dan angin tergolong Renewable. Pembakaran batu bara tergolong Non-Renewable."
+            },
+
+            // --- PASSAGE 5: CORAL REEF ECOSYSTEMS (Q25 - Q30) ---
+            {
+                id: 25,
+                passageId: "doc_coral_reefs",
+                format: "single",
+                indicator: "Pemahaman Tekstual: Mengidentifikasi fakta spesifik teks",
+                question: "Despite covering less than 1% of the ocean floor, coral reefs support what percentage of marine species?",
+                options: [
+                    "Nearly 10%",
+                    "Nearly 25%",
+                    "Approximately 50%",
+                    "Over 75%",
+                    "Exactly 90%"
+                ],
+                answer: 1,
+                quote: "Coral reefs cover less than 1% of the ocean floor, yet they support nearly 25% of all marine species...",
+                explanation: "Teks menyebutkan secara eksplisit bahwa terumbu karang menopang hampir 25% dari seluruh spesies laut."
+            },
+            {
+                id: 26,
+                passageId: "doc_coral_reefs",
+                format: "mcma",
+                indicator: "Pemahaman Tekstual: Penyebab dan proses coral bleaching",
+                question: "Based on Text 5, what triggers the process of coral bleaching? (Select ALL correct answers!)",
+                options: [
+                    "Unnaturally high ocean water temperatures.",
+                    "Excessive wave energy during coastal storms.",
+                    "Corals expelling the colorful algae living in their tissues.",
+                    "Ocean warming caused by climate change.",
+                    "Absorbing too many marine nutrients from deep waters."
+                ],
+                answer: [0, 2, 3],
+                quote: "ocean warming caused by climate change... ocean temperatures remain unnaturally high, corals expel colorful algae...",
+                explanation: "Penyebab & proses bleaching meliputi: Suhu air laut yang tinggi (A), karang mengeluarkan alga dari jaringannya (C), serta pemanasan global akibat perubahan iklim (D)."
+            },
+            {
+                id: 27,
+                passageId: "doc_coral_reefs",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
+                question: "Determine whether each statement below is TRUE or FALSE according to Text 5.",
+                categories: ["TRUE", "FALSE"],
+                items: [
+                    { id: "p5_1", text: "Coral reefs help protect coastal communities by absorbing harsh wave energy.", correct: "TRUE" },
+                    { id: "p5_2", text: "Bleached corals turn completely white and begin to starve.", correct: "TRUE" },
+                    { id: "p5_3", text: "Industrial ocean pollution has zero impact on coral reef survival.", correct: "FALSE" }
+                ],
+                explanation: "Pernyataan 1 & 2 benar sesuai paragraf 1 dan 2. Pernyataan 3 salah karena polusi industri merupakan ancaman utama yang wajib ditekan."
+            },
+            {
+                id: 28,
+                passageId: "doc_coral_reefs",
+                format: "single",
+                indicator: "Pemahaman Inferensial: Implikasi hilangnya terumbu karang bagi manusia",
+                question: "How would coastal human settlements most likely be affected if coral reefs vanished?",
+                options: [
+                    "Coastal towns would suffer increased destruction from surging storm waves and erosion.",
+                    "Coastal towns would experience an increase in freshwater drinking supplies.",
+                    "Ocean tides would completely cease moving worldwide.",
+                    "Fishing industries would experience an immediate surge in fish populations.",
+                    "Seaside weather would permanently remain calm and sunny."
+                ],
+                answer: 0,
+                quote: "These structures protect coastal communities from devastating storms by absorbing wave energy...",
+                explanation: "Tanpa terumbu karang yang meredam gelombang, pemukiman pesisir akan mengalami tingkat kerusakan parah akibat hantaman ombak badai dan erosi."
+            },
+            {
+                id: 29,
+                passageId: "doc_coral_reefs",
+                format: "mcma",
+                indicator: "Evaluasi & Apresiasi: Solusi pelestarian terumbu karang",
+                question: "Which conservation measures are recommended by marine biologists in the text? (Select ALL correct answers!)",
+                options: [
+                    "Enforcing marine protected conservation areas.",
+                    "Building artificial concrete walls across all ocean floors.",
+                    "Curbing industrial ocean pollution.",
+                    "Relocating all marine species to freshwater lakes.",
+                    "Reducing activities that drive global ocean warming."
+                ],
+                answer: [0, 2, 4],
+                quote: "enforcing marine protected areas and curbing industrial ocean pollution... climate change...",
+                explanation: "Rekomendasi biolog meliputi: Menegakkan kawasan konservasi laut terindungi (A), menekan polusi industri laut (C), serta mengurangi penyebab pemanasan suhu laut (E)."
+            },
+            {
+                id: 30,
+                passageId: "doc_coral_reefs",
+                format: "category",
+                indicator: "Pemahaman Tekstual: Klasifikasi Fungsi Ekologis Terumbu Karang",
+                question: "Classify each statement as either an 'Ecological Benefit' or an 'Environmental Threat' to coral reefs.",
+                categories: ["Ecological Benefit", "Environmental Threat"],
+                items: [
+                    { id: "p5_4", text: "Providing habitat shelter for 25% of ocean marine species.", correct: "Ecological Benefit" },
+                    { id: "p5_5", text: "Uncontrolled industrial runoff polluting coastal waters.", correct: "Environmental Threat" },
+                    { id: "p5_6", text: "Absorbing high wave impact during severe tropical storms.", correct: "Ecological Benefit" }
+                ],
+                explanation: "Menyediakan habitat dan meredam gelombang badai adalah Ecological Benefit. Polusi limbah industri adalah Environmental Threat."
+            }
+        ];
+
+        /* ==========================================================================
+           2. APPLICATION STATE MANAGEMENT
+           ========================================================================== */
+        let state = {
+            mode: 'practice', 
+            questions: [],    
+            currentIndex: 0,  
+            userAnswers: {},  // Map: questionId -> value (Single: idx, MCMA: Array of idxs, Category: Map of itemId->val)
+            flagged: {},      
+            timeRemaining: 5400, // 90 minutes
+            timerInterval: null,
+            testFinished: false
+        };
+
+        /* ==========================================================================
+           3. LIFECYCLE & NAVIGATION LOGIC
+           ========================================================================== */
+        function showStartModal() {
+            document.getElementById('modal-start').classList.remove('hidden');
+        }
+
+        function closeStartModal() {
+            document.getElementById('modal-start').classList.add('hidden');
+        }
+
+        function initiateTest() {
+            const selectedMode = document.querySelector('input[name="select-mode"]:checked').value;
+            state.mode = selectedMode;
+            closeStartModal();
+
+            // Initialize State
+            state.questions = JSON.parse(JSON.stringify(rawQuestions));
+            state.currentIndex = 0;
+            state.userAnswers = {};
+            state.flagged = {};
+            state.timeRemaining = 5400; // 90 mins
+            state.testFinished = false;
+
+            // UI Switches
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-result').classList.add('hidden');
+            document.getElementById('view-test').classList.remove('hidden');
+            document.getElementById('test-header-status').classList.remove('hidden');
+
+            const modeBadge = document.getElementById('mode-badge');
+            if (state.mode === 'practice') {
+                modeBadge.textContent = 'Mode Latihan';
+                modeBadge.className = 'px-3 py-1 text-xs font-semibold rounded-full bg-brand-800 text-brand-100 border border-brand-700 hidden sm:inline-block';
+            } else {
+                modeBadge.textContent = 'Mode Simulasi';
+                modeBadge.className = 'px-3 py-1 text-xs font-semibold rounded-full bg-amber-900 text-amber-200 border border-amber-700 hidden sm:inline-block';
+            }
+
+            document.getElementById('q-total-display').textContent = state.questions.length;
+            document.getElementById('res-max-score').textContent = `Skala 100 - 800 Poin`;
+
+            startTimer();
+            renderCurrentQuestion();
+            updateProgressBar();
+        }
+
+        function startTimer() {
+            clearInterval(state.timerInterval);
+            updateTimerDisplay();
+
+            state.timerInterval = setInterval(() => {
+                if (state.timeRemaining > 0) {
+                    state.timeRemaining--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(state.timerInterval);
+                    alert("Waktu pengerjaan 90 menit telah habis! Ujian otomatis dikumpulkan.");
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(state.timeRemaining / 60);
+            const seconds = state.timeRemaining % 60;
+            const formatted = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            document.getElementById('timer-display').textContent = formatted;
+        }
+
+        /* ==========================================================================
+           4. DYNAMIC QUESTION RENDERER
+           ========================================================================== */
+        function renderCurrentQuestion() {
+            const q = state.questions[state.currentIndex];
+            const passage = passagesData[q.passageId];
+
+            // Render Passage Text
+            document.getElementById('passage-title').textContent = passage.title;
+            document.getElementById('passage-container').innerHTML = passage.text;
+
+            // Header Meta
+            document.getElementById('q-number-display').textContent = state.currentIndex + 1;
+            document.getElementById('q-indicator-tag').textContent = `Indikator: ${q.indicator}`;
+
+            const formatTag = document.getElementById('q-format-tag');
+            if (q.format === 'single') formatTag.textContent = "Pilihan Ganda (Satu Jawaban)";
+            else if (q.format === 'mcma') formatTag.textContent = "Pilihan Ganda Kompleks (Banyak Jawaban)";
+            else if (q.format === 'category') formatTag.textContent = "Pernyataan / Tabel Kategori";
+
+            document.getElementById('question-text').innerHTML = q.question;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const userAns = state.userAnswers[q.id];
+
+            // RENDER BASED ON FORMAT TYPE
+            if (q.format === 'single') {
+                renderSingleChoice(q, userAns, optionsContainer);
+            } else if (q.format === 'mcma') {
+                renderMcmaChoice(q, userAns, optionsContainer);
+            } else if (q.format === 'category') {
+                renderCategoryTable(q, userAns, optionsContainer);
+            }
+
+            // Flag Button
+            const isFlagged = !!state.flagged[q.id];
+            const btnFlag = document.getElementById('btn-flag');
+            const flagText = document.getElementById('flag-text');
+            if (isFlagged) {
+                btnFlag.className = "px-3.5 py-2 rounded-xl border border-amber-500 bg-amber-400 text-slate-900 text-xs font-bold transition flex items-center gap-1.5 shadow-sm";
+                flagText.textContent = "Ditandai Ragu";
+            } else {
+                btnFlag.className = "px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-800 text-xs font-semibold hover:bg-amber-100 transition flex items-center gap-1.5";
+                flagText.textContent = "Tandai Ragu";
+            }
+
+            // Prev & Next Controls
+            document.getElementById('btn-prev').disabled = (state.currentIndex === 0);
+            
+            const btnNext = document.getElementById('btn-next');
+            if (state.currentIndex === state.questions.length - 1) {
+                btnNext.innerHTML = `<span>Selesai Tes</span> <i class="fa-solid fa-check-circle"></i>`;
+                btnNext.onclick = confirmSubmitTest;
+            } else {
+                btnNext.innerHTML = `<span>Selanjutnya</span> <i class="fa-solid fa-arrow-right"></i>`;
+                btnNext.onclick = nextQuestion;
+            }
+
+            // Practice Mode Explanation Box
+            const practiceExpBox = document.getElementById('practice-explanation');
+            if (state.mode === 'practice' && isQuestionAnswered(q.id)) {
+                let ansSummary = "";
+                if (q.format === 'single') {
+                    ansSummary = `Pilihan <span class="font-bold text-emerald-700">${['A','B','C','D','E'][q.answer]}</span>`;
+                } else if (q.format === 'mcma') {
+                    ansSummary = q.answer.map(idx => ['A','B','C','D','E'][idx]).join(', ');
+                } else if (q.format === 'category') {
+                    ansSummary = "Kategori Terverifikasi";
+                }
+
+                document.getElementById('practice-explanation-content').innerHTML = `
+                    <p><strong>Kunci Jawaban Tepat:</strong> ${ansSummary}</p>
+                    <p><strong>Kutipan Pendukung:</strong> <em class="bg-amber-100 px-1 py-0.5 rounded text-amber-900">"${q.quote || 'Sesuai analisis bacaan'}"</em></p>
+                    <p class="pt-1 text-slate-600">${q.explanation}</p>
+                `;
+                practiceExpBox.classList.remove('hidden');
+            } else {
+                practiceExpBox.classList.add('hidden');
+            }
+
+            document.getElementById('passage-container').scrollTop = 0;
+        }
+
+        /* Single Choice Render */
+        function renderSingleChoice(q, userAns, container) {
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            q.options.forEach((optText, optIdx) => {
+                const isSelected = userAns === optIdx;
+                
+                let btnStyle = "border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:bg-slate-50";
+                let badgeStyle = "bg-slate-100 text-slate-600 border-slate-200";
+
+                if (isSelected) {
+                    btnStyle = "border-brand-600 bg-brand-50/70 text-brand-900 font-semibold shadow-sm";
+                    badgeStyle = "bg-brand-600 text-white border-brand-600";
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-3.5 rounded-xl border-2 transition-all flex items-start gap-3 text-xs sm:text-sm ${btnStyle}`;
+                btn.onclick = () => {
+                    state.userAnswers[q.id] = optIdx;
+                    renderCurrentQuestion();
+                    updateProgressBar();
+                };
+
+                btn.innerHTML = `
+                    <span class="w-6 h-6 rounded-lg border text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 ${badgeStyle}">
+                        ${letters[optIdx]}
+                    </span>
+                    <span class="leading-relaxed flex-grow">${optText}</span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        /* MCMA Multi Choice Render - Tanpa Pembocoran Kunci Saat Mengklik */
+        function renderMcmaChoice(q, userAns, container) {
+            const selectedArr = Array.isArray(userAns) ? userAns : [];
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+
+            q.options.forEach((optText, optIdx) => {
+                const isSelected = selectedArr.includes(optIdx);
+
+                let btnStyle = "border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:bg-slate-50";
+                let iconStyle = "border-slate-300 text-transparent";
+
+                if (isSelected) {
+                    btnStyle = "border-brand-600 bg-brand-50/70 text-brand-900 font-semibold shadow-sm";
+                    iconStyle = "border-brand-600 bg-brand-600 text-white";
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-3.5 rounded-xl border-2 transition-all flex items-start gap-3 text-xs sm:text-sm ${btnStyle}`;
+                btn.onclick = () => {
+                    let newArr = [...selectedArr];
+                    if (newArr.includes(optIdx)) {
+                        newArr = newArr.filter(i => i !== optIdx);
+                    } else {
+                        newArr.push(optIdx);
+                    }
+                    if (newArr.length === 0) {
+                        delete state.userAnswers[q.id];
+                    } else {
+                        state.userAnswers[q.id] = newArr;
+                    }
+                    renderCurrentQuestion();
+                    updateProgressBar();
+                };
+
+                btn.innerHTML = `
+                    <div class="w-5 h-5 rounded border-2 flex items-center justify-center text-xs shrink-0 mt-0.5 transition ${iconStyle}">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <span class="leading-relaxed flex-grow">
+                        <strong class="mr-1">${letters[optIdx]}.</strong> ${optText}
+                    </span>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        /* Categorization Matrix Table Render - Murni Interaktif Tanpa Status Benar/Salah Langsung */
+        function renderCategoryTable(q, userAns, container) {
+            const userMap = userAns || {};
+
+            const table = document.createElement('div');
+            table.className = "overflow-x-auto border border-slate-200 rounded-2xl bg-white shadow-sm";
+
+            let html = `
+                <table class="w-full text-xs sm:text-sm text-left border-collapse">
+                    <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                        <tr>
+                            <th class="p-3.5">Pernyataan / Item</th>
+                            ${q.categories.map(cat => `<th class="p-3.5 text-center min-w-[110px]">${cat}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+            `;
+
+            q.items.forEach(item => {
+                const selectedCat = userMap[item.id]; // Undefined initially
+
+                html += `
+                    <tr>
+                        <td class="p-3.5 text-slate-800 font-medium">${item.text}</td>
+                        ${q.categories.map(cat => {
+                            const isChecked = (selectedCat === cat);
+                            
+                            let radioStyle = "border-slate-300 bg-white";
+                            let iconMarkup = "";
+
+                            if (isChecked) {
+                                radioStyle = "border-brand-600 bg-brand-600 text-white";
+                                iconMarkup = '<i class="fa-solid fa-check text-[10px]"></i>';
+                            }
+
+                            return `
+                                <td class="p-3.5 text-center cursor-pointer hover:bg-slate-50 transition" onclick="selectCategoryItem(${q.id}, '${item.id}', '${cat}')">
+                                    <div class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 ${radioStyle} transition">
+                                        ${iconMarkup}
+                                    </div>
+                                </td>
+                            `;
+                        }).join('')}
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table>`;
+            table.innerHTML = html;
+            container.appendChild(table);
+        }
+
+        function selectCategoryItem(qId, itemId, category) {
+            if (!state.userAnswers[qId]) {
+                state.userAnswers[qId] = {};
+            }
+            state.userAnswers[qId][itemId] = category;
+            renderCurrentQuestion();
+            updateProgressBar();
+        }
+
+        function isQuestionAnswered(qId) {
+            const q = state.questions.find(item => item.id === qId);
+            const ans = state.userAnswers[qId];
+            if (ans === undefined) return false;
+            
+            if (q.format === 'single') return ans !== undefined;
+            if (q.format === 'mcma') return Array.isArray(ans) && ans.length > 0;
+            if (q.format === 'category') {
+                // Must answer all items in the matrix to be marked answered
+                return Object.keys(ans).length === q.items.length;
+            }
+            return false;
+        }
+
+        function toggleFlag() {
+            const q = state.questions[state.currentIndex];
+            state.flagged[q.id] = !state.flagged[q.id];
+            renderCurrentQuestion();
+        }
+
+        function nextQuestion() {
+            if (state.currentIndex < state.questions.length - 1) {
+                state.currentIndex++;
+                renderCurrentQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (state.currentIndex > 0) {
+                state.currentIndex--;
+                renderCurrentQuestion();
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            state.currentIndex = idx;
+            renderCurrentQuestion();
+            toggleQuestionGrid();
+        }
+
+        function updateProgressBar() {
+            const answeredCount = state.questions.filter(q => isQuestionAnswered(q.id)).length;
+            const percentage = (answeredCount / state.questions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${percentage}%`;
+            document.getElementById('progress-text').textContent = `${answeredCount}/${state.questions.length}`;
+        }
+
+        /* ==========================================================================
+           5. QUESTION NAV GRID MODAL RENDER
+           ========================================================================== */
+        function toggleQuestionGrid() {
+            const modal = document.getElementById('modal-grid');
+            if (modal.classList.contains('hidden')) {
+                renderGridButtons();
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function renderGridButtons() {
+            const container = document.getElementById('grid-buttons-container');
+            container.innerHTML = '';
+
+            state.questions.forEach((q, idx) => {
+                const isCurrent = (idx === state.currentIndex);
+                const isAnswered = isQuestionAnswered(q.id);
+                const isFlagged = !!state.flagged[q.id];
+
+                let btnClass = "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200";
+
+                if (isAnswered) {
+                    btnClass = "bg-brand-600 text-white border-brand-600";
+                }
+                if (isFlagged) {
+                    btnClass = "bg-amber-400 text-slate-900 border-amber-500 font-bold";
+                }
+                if (isCurrent) {
+                    btnClass += " ring-2 ring-offset-2 ring-brand-800 font-bold";
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `h-10 rounded-xl border text-xs font-semibold flex items-center justify-center transition relative ${btnClass}`;
+                btn.textContent = idx + 1;
+                btn.onclick = () => jumpToQuestion(idx);
+
+                container.appendChild(btn);
+            });
+        }
+
+        /* ==========================================================================
+           6. EVALUATION & SCORING SYSTEM (100 - 800 Scale)
+           ========================================================================== */
+        function confirmSubmitTest() {
+            const answeredCount = state.questions.filter(q => isQuestionAnswered(q.id)).length;
+            const unanswered = state.questions.length - answeredCount;
+
+            let msg = "Apakah Anda yakin ingin mengakhiri dan mengumpulkan ujian 30 nomor ini?";
+            if (unanswered > 0) {
+                msg = `Masih terdapat ${unanswered} nomor yang belum dijawab lengkap. Yakin ingin mengumpulkan?`;
+            }
+
+            if (confirm(msg)) {
+                submitTest();
+            }
+        }
+
+        function submitTest() {
+            clearInterval(state.timerInterval);
+            state.testFinished = true;
+
+            let correctCount = 0;
+            let wrongCount = 0;
+            let emptyCount = 0;
+
+            state.questions.forEach(q => {
+                const userAns = state.userAnswers[q.id];
+                if (!isQuestionAnswered(q.id)) {
+                    emptyCount++;
+                } else {
+                    let isCorrect = false;
+
+                    if (q.format === 'single') {
+                        isCorrect = (userAns === q.answer);
+                    } else if (q.format === 'mcma') {
+                        const userArr = [...userAns].sort();
+                        const targetArr = [...q.answer].sort();
+                        isCorrect = JSON.stringify(userArr) === JSON.stringify(targetArr);
+                    } else if (q.format === 'category') {
+                        let catCorrect = true;
+                        q.items.forEach(item => {
+                            if (userAns[item.id] !== item.correct) catCorrect = false;
+                        });
+                        isCorrect = catCorrect;
+                    }
+
+                    if (isCorrect) correctCount++;
+                    else wrongCount++;
+                }
+            });
+
+            // Conversion to 100 - 800 Scale
+            // Formula: Score = 100 + (correctCount / totalQuestions) * 700
+            const totalScore = Math.round(100 + (correctCount / state.questions.length) * 700);
+            const accuracyPercent = Math.round((correctCount / state.questions.length) * 100);
+
+            // Hide test header
+            document.getElementById('test-header-status').classList.add('hidden');
+            document.getElementById('view-test').classList.add('hidden');
+            document.getElementById('view-result').classList.remove('hidden');
+
+            // Render Scores
+            document.getElementById('res-score').textContent = totalScore;
+            document.getElementById('res-correct').textContent = correctCount;
+            document.getElementById('res-wrong').textContent = wrongCount;
+            document.getElementById('res-empty').textContent = emptyCount;
+            document.getElementById('res-accuracy').textContent = `${accuracyPercent}%`;
+
+            // Categorization logic based on 100-800 scale
+            let categoryLabel = "";
+            let categoryStyle = "";
+            let evalMsg = "";
+
+            if (totalScore >= 700) {
+                categoryLabel = "Istimewa / Sangat Memadai";
+                categoryStyle = "bg-purple-100 text-purple-800 border border-purple-300";
+                evalMsg = "Penguasaan materi sangat luar biasa! Anda menunjukkan pemahaman teks, analisis inferensial, dan evaluasi kritis tingkat tinggi.";
+            } else if (totalScore >= 600) {
+                categoryLabel = "Memadai / Baik";
+                categoryStyle = "bg-emerald-100 text-emerald-800 border border-emerald-300";
+                evalMsg = "Hasil memadai dan sangat baik. Anda telah memahami ide utama dan detail teks dengan akurasi yang tinggi.";
+            } else if (totalScore >= 450) {
+                categoryLabel = "Cukup";
+                categoryStyle = "bg-amber-100 text-amber-800 border border-amber-300";
+                evalMsg = "Tingkat pemahaman cukup. Disarankan untuk lebih teliti pada jenis soal Pilihan Ganda Kompleks dan tabel kategori.";
+            } else if (totalScore >= 300) {
+                categoryLabel = "Kurang";
+                categoryStyle = "bg-orange-100 text-orange-800 border border-orange-300";
+                evalMsg = "Pemahaman masih kurang. Perlu memperbanyak kosakata (vocabulary) dan teknik pemahaman teks bahasa Inggris.";
+            } else {
+                categoryLabel = "Sangat Kurang";
+                categoryStyle = "bg-rose-100 text-rose-800 border border-rose-300";
+                evalMsg = "Memerlukan latihan dasar dan pendampingan intensif untuk memahami struktur soal TKA Bahasa Inggris.";
+            }
+
+            const badgeElem = document.getElementById('res-category-badge');
+            badgeElem.textContent = categoryLabel;
+            badgeElem.className = `px-2.5 py-0.5 rounded-full text-xs font-extrabold ml-1 inline-block ${categoryStyle}`;
+
+            document.getElementById('res-evaluation-text').innerHTML = `Akurasi Jawaban: <span class="font-bold text-brand-700">${accuracyPercent}%</span>. ${evalMsg}`;
+
+            renderExplanationsList();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderExplanationsList() {
+            const listContainer = document.getElementById('explanations-list');
+            listContainer.innerHTML = '';
+
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+
+            state.questions.forEach((q, idx) => {
+                const userAns = state.userAnswers[q.id];
+                const answered = isQuestionAnswered(q.id);
+                const passage = passagesData[q.passageId];
+
+                let isCorrect = false;
+                if (answered) {
+                    if (q.format === 'single') isCorrect = (userAns === q.answer);
+                    else if (q.format === 'mcma') {
+                        isCorrect = JSON.stringify([...userAns].sort()) === JSON.stringify([...q.answer].sort());
+                    } else if (q.format === 'category') {
+                        let cOk = true;
+                        q.items.forEach(it => { if (userAns[it.id] !== it.correct) cOk = false; });
+                        isCorrect = cOk;
+                    }
+                }
+
+                let statusBadge = `<span class="px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-full text-xs font-bold"><i class="fa-solid fa-check"></i> Benar (+23.3 Poin)</span>`;
+                let borderStyle = "border-emerald-200 bg-white";
+
+                if (!answered) {
+                    statusBadge = `<span class="px-3 py-1 bg-slate-100 text-slate-700 border border-slate-300 rounded-full text-xs font-bold"><i class="fa-solid fa-minus"></i> Belum Diisi</span>`;
+                    borderStyle = "border-slate-200 bg-white";
+                } else if (!isCorrect) {
+                    statusBadge = `<span class="px-3 py-1 bg-rose-100 text-rose-800 border border-rose-300 rounded-full text-xs font-bold"><i class="fa-solid fa-xmark"></i> Kurang Tepat</span>`;
+                    borderStyle = "border-rose-200 bg-white";
+                }
+
+                const card = document.createElement('div');
+                card.className = `rounded-3xl border ${borderStyle} p-5 sm:p-6 shadow-sm space-y-4`;
+
+                let answersMarkup = "";
+                if (q.format === 'single' || q.format === 'mcma') {
+                    answersMarkup = `
+                        <div class="grid grid-cols-1 gap-2 pt-1">
+                            ${q.options.map((opt, optIdx) => {
+                                let optBg = "bg-slate-50 border-slate-200 text-slate-700";
+                                let icon = "";
+
+                                const isTarget = q.format === 'single' ? (optIdx === q.answer) : q.answer.includes(optIdx);
+                                const isUserSelected = q.format === 'single' ? (userAns === optIdx) : (Array.isArray(userAns) && userAns.includes(optIdx));
+
+                                if (isTarget) {
+                                    optBg = "bg-emerald-50 border-emerald-400 text-emerald-900 font-semibold";
+                                    icon = `<i class="fa-solid fa-circle-check text-emerald-600 ml-auto"></i>`;
+                                } else if (isUserSelected && !isTarget) {
+                                    optBg = "bg-rose-50 border-rose-300 text-rose-900 font-semibold";
+                                    icon = `<i class="fa-solid fa-circle-xmark text-rose-500 ml-auto"></i>`;
+                                }
+
+                                return `
+                                    <div class="p-3 rounded-xl border text-xs sm:text-sm flex items-center gap-3 ${optBg}">
+                                        <span class="font-bold shrink-0 w-5">${letters[optIdx]}.</span>
+                                        <span class="leading-relaxed">${opt}</span>
+                                        ${icon}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                } else if (q.format === 'category') {
+                    answersMarkup = `
+                        <div class="overflow-x-auto border border-slate-200 rounded-xl bg-slate-50 p-3 text-xs">
+                            <p class="font-bold mb-2 text-slate-700">Kunci Pengelompokan / Pernyataan:</p>
+                            <ul class="space-y-1.5">
+                                ${q.items.map(it => `
+                                    <li class="flex justify-between border-b border-slate-200 pb-1">
+                                        <span class="text-slate-800">${it.text}</span>
+                                        <span class="font-bold text-emerald-700 ml-2 shrink-0">${it.correct}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="font-black text-slate-900 text-base">Soal #${idx + 1}</span>
+                            <span class="text-xs text-brand-800 bg-brand-50 px-2.5 py-0.5 rounded-full font-bold border border-brand-200">${q.format.toUpperCase()}</span>
+                        </div>
+                        ${statusBadge}
+                    </div>
+
+                    <div class="text-xs text-slate-500 italic">${q.indicator}</div>
+                    <div class="text-xs text-brand-700 font-bold uppercase tracking-wider">${passage.title}</div>
+                    <div class="text-slate-800 font-medium text-sm sm:text-base leading-relaxed">${q.question}</div>
+
+                    ${answersMarkup}
+
+                    <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-2">
+                        <div class="font-bold text-brand-900 flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb text-accent-500"></i> Pembahasan & Analisis Soal:
+                        </div>
+                        <div class="text-slate-700 leading-relaxed space-y-1">
+                            <p><strong>Kutipan Teks Pendukung:</strong> <em class="bg-amber-100 px-1 py-0.5 rounded text-amber-900">"${q.quote || 'Sesuai konteks bacaan'}"</em></p>
+                            <p class="text-slate-600 pt-1">${q.explanation}</p>
+                        </div>
+                    </div>
+                `;
+
+                listContainer.appendChild(card);
+            });
+        }
+
+        /* ==========================================================================
+           7. UTILITY CONTROLS
+           ========================================================================== */
+        function resetAndRestart() {
+            document.getElementById('view-result').classList.add('hidden');
+            document.getElementById('view-home').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHomeConfirm() {
+            if (!state.testFinished && (state.timeRemaining < 5400)) {
+                if (confirm("Latihan sedang berlangsung. Apakah Anda yakin ingin kembali ke beranda?")) {
+                    clearInterval(state.timerInterval);
+                    document.getElementById('test-header-status').classList.add('hidden');
+                    document.getElementById('view-test').classList.add('hidden');
+                    document.getElementById('view-result').classList.add('hidden');
+                    document.getElementById('view-home').classList.remove('hidden');
+                }
+            } else {
+                document.getElementById('test-header-status').classList.add('hidden');
+                document.getElementById('view-test').classList.add('hidden');
+                document.getElementById('view-result').classList.add('hidden');
+                document.getElementById('view-home').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
+```
