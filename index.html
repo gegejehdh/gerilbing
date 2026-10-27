@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="id" class="h-full bg-slate-50">
+<html lang="id" class="h-full bg-slate-50" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TKA ENGLISH PRACTICE 2025 - 30 Soal Baru (Acuan Resmi TKA 2025)</title>
+    <title>TKA ENGLISH PRACTICE 2025 - 3 Paket Pilihan Soal Baru (Pro Edition)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -70,123 +71,161 @@
         }
     </style>
 </head>
-<body class="h-full text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="h-full text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-950 antialiased flex flex-col min-h-screen transition-colors duration-300">
 
     <div id="app" class="min-h-screen flex flex-col justify-between">
         <!-- HEADER DYNAMIC -->
-        <header id="navbar" class="bg-brand-900 text-white shadow-md sticky top-0 z-30 transition-all duration-300">
+        <header id="navbar" class="bg-brand-900 dark:bg-slate-900 text-white shadow-md sticky top-0 z-30 transition-all duration-300 border-b border-brand-800 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="goHomeConfirm()">
                     <div class="bg-accent-500 text-brand-900 p-2 rounded-xl font-black text-xl leading-none shadow">
                         TKA
                     </div>
                     <div>
-                        <h1 class="font-extrabold text-lg leading-tight tracking-wide">TKA ENGLISH 2025</h1>
-                        <p class="text-xs text-brand-100 hidden sm:block">Paket 30 Soal Baru Standar Resmi SMA/MA/SMK</p>
+                        <h1 class="font-extrabold text-lg leading-tight tracking-wide" id="nav-title">TKA ENGLISH 2025</h1>
+                        <p class="text-xs text-brand-100 dark:text-slate-400 hidden sm:block">Standar Resmi Asesmen SMA/MA/SMK</p>
                     </div>
                 </div>
 
-                <!-- Test Header Status -->
-                <div id="test-header-status" class="hidden flex items-center space-x-3 sm:space-x-4">
-                    <span id="mode-badge" class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-800 text-brand-100 border border-brand-700 hidden sm:inline-block">
-                        Mode Latihan
-                    </span>
-
-                    <!-- Countdown Timer -->
-                    <div class="flex items-center space-x-2 bg-brand-950 px-3 py-1.5 rounded-xl border border-brand-700 text-accent-400 font-mono font-bold text-sm sm:text-base">
-                        <i class="fa-regular fa-clock"></i>
-                        <span id="timer-display">90:00</span>
-                    </div>
-
-                    <!-- Finish Button -->
-                    <button onclick="confirmSubmitTest()" class="bg-accent-500 hover:bg-accent-400 text-brand-900 font-extrabold px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow-md transform active:scale-95">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Kumpulkan</span>
+                <!-- Right Header Controls -->
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-brand-800 dark:bg-slate-800 text-accent-400 hover:bg-brand-700 dark:hover:bg-slate-700 transition" title="Ganti Tema">
+                        <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
                     </button>
+
+                    <!-- Test Header Status (Hidden by default) -->
+                    <div id="test-header-status" class="hidden flex items-center space-x-3 sm:space-x-4">
+                        <span id="mode-badge" class="px-3 py-1 text-xs font-semibold rounded-full bg-brand-800 text-brand-100 border border-brand-700 hidden sm:inline-block">
+                            Mode Latihan
+                        </span>
+
+                        <!-- Countdown Timer -->
+                        <div class="flex items-center space-x-2 bg-brand-950 dark:bg-slate-950 px-3 py-1.5 rounded-xl border border-brand-700 dark:border-slate-800 text-accent-400 font-mono font-bold text-sm sm:text-base">
+                            <i class="fa-regular fa-clock"></i>
+                            <span id="timer-display">90:00</span>
+                        </div>
+
+                        <!-- Finish Button -->
+                        <button onclick="confirmSubmitTest()" class="bg-accent-500 hover:bg-accent-400 text-brand-900 font-extrabold px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow-md transform active:scale-95">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Kumpulkan</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- MAIN CONTAINER -->
         <main class="flex-grow">
-            <!-- 1. LANDING PAGE / HOME VIEW -->
+            <!-- 1. LANDING PAGE / HOME VIEW (PILIHAN 3 PAKET SOAL + STATISTIK RIWAYAT) -->
             <section id="view-home" class="max-w-5xl mx-auto px-4 py-8 sm:py-12 animate-fadeIn">
                 <!-- Hero Card -->
-                <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-8 relative overflow-hidden">
+                <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl mb-8 relative overflow-hidden border border-brand-800 dark:border-slate-800">
                     <div class="absolute -right-10 -bottom-10 opacity-10 text-white pointer-events-none">
                         <i class="fa-solid fa-graduation-cap text-[240px]"></i>
                     </div>
                     <div class="relative z-10 max-w-2xl">
                         <span class="inline-block px-3 py-1 bg-accent-500/20 text-accent-400 border border-accent-500/30 rounded-full text-xs font-semibold mb-4">
-                            Model Standar TKA 2025 - 30 Nomor Baru
+                            Pusat Simulasi 3 Paket Soal Terbaru TKA 2025
                         </span>
                         <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-3 leading-tight">
-                            Simulasi 30 Soal TKA Bahasa Inggris
+                            Pilih Paket Simulasi TKA Bahasa Inggris
                         </h2>
-                        <p class="text-brand-100 text-sm sm:text-base leading-relaxed mb-6">
-                            Latihan komprehensif dengan teks dan pertanyaan baru: Pilihan Ganda, Pilihan Ganda Kompleks (MCMA), serta Tabel Pernyataan Benar/Salah (Kategori) tanpa kunci terisi otomatis.
+                        <p class="text-brand-100 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                            Tersedia 3 paket latihan komprehensif (masing-masing 30 soal) mencakup Pilihan Ganda, Pilihan Ganda Kompleks (MCMA), serta Tabel Pernyataan Benar/Salah sesuai kisi-kisi resmi. Dilengkapi sistem penyimpanan skor otomatis!
                         </p>
-                        <div class="flex flex-wrap gap-4">
-                            <button onclick="showStartModal()" class="bg-accent-500 hover:bg-accent-400 text-brand-900 font-extrabold px-6 py-3.5 rounded-xl text-base shadow-lg hover:shadow-xl transition flex items-center gap-2 transform active:scale-95">
-                                <i class="fa-solid fa-circle-play text-lg"></i> Mulai Ujian (30 Soal)
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Info Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-                        <div class="p-3 bg-brand-50 text-brand-600 rounded-xl text-xl shrink-0">
-                            <i class="fa-solid fa-layer-group"></i>
+                <!-- 3 Paket Cards Grid -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-black text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-brand-600 dark:text-brand-500"></i> Pilih Paket Latihan Anda:
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- PAKET 1 -->
+                        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:border-brand-500 dark:hover:border-brand-500 transition group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-3 py-1 bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 font-bold text-xs rounded-full border border-brand-200 dark:border-brand-800 inline-block">Paket 1</span>
+                                    <span id="best-score-1" class="text-xs font-bold text-slate-400 dark:text-slate-500">Belum ada skor</span>
+                                </div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-brand-600 transition">Paket A: Fabel & Literasi Digital</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                                    Fokus pada teks naratif klasik, panduan keamanan digital/infografis, ekosistem alam, dan eksposisi energi terbarukan.
+                                </p>
+                            </div>
+                            <button onclick="openModeModal(1)" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2 transform active:scale-95">
+                                <i class="fa-solid fa-play"></i> Mulai Paket 1 (30 Soal)
+                            </button>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 mb-1">30 Soal Murni Baru</h3>
-                            <p class="text-xs text-slate-600">Disesuaikan dengan kisi-kisi resmi tanpa mengulang soal referensi lama.</p>
-                        </div>
-                    </div>
 
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-                        <div class="p-3 bg-amber-50 text-amber-600 rounded-xl text-xl shrink-0">
-                            <i class="fa-solid fa-square-check"></i>
+                        <!-- PAKET 2 -->
+                        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:border-emerald-500 transition group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-3 py-1 bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold text-xs rounded-full border border-emerald-200 dark:border-emerald-800 inline-block">Paket 2</span>
+                                    <span id="best-score-2" class="text-xs font-bold text-slate-400 dark:text-slate-500">Belum ada skor</span>
+                                </div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-emerald-600 transition">Paket B: Teknologi & Lingkungan</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                                    Fokus pada literasi kecerdasan buatan (AI), studi kelautan, konservasi satwa langka, dan teks prosedur ilmiah.
+                                </p>
+                            </div>
+                            <button onclick="openModeModal(2)" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2 transform active:scale-95">
+                                <i class="fa-solid fa-play"></i> Mulai Paket 2 (30 Soal)
+                            </button>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 mb-1">Interaktif Kosong</h3>
-                            <p class="text-xs text-slate-600">Soal tabel Benar/Salah & Kategori benar-benar netral (kosong) sampai diisi pengguna.</p>
-                        </div>
-                    </div>
 
-                    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl text-xl shrink-0">
-                            <i class="fa-solid fa-stopwatch"></i>
+                        <!-- PAKET 3 -->
+                        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between hover:border-amber-500 transition group">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="px-3 py-1 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-bold text-xs rounded-full border border-amber-200 dark:border-amber-800 inline-block">Paket 3</span>
+                                    <span id="best-score-3" class="text-xs font-bold text-slate-400 dark:text-slate-500">Belum ada skor</span>
+                                </div>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-amber-600 transition">Paket C: Budaya & Etika Global</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                                    Fokus pada pelestarian warisan budaya tradisional, komunikasi lintas budaya, etika sosial, dan laporan ekonomi kreatif.
+                                </p>
+                            </div>
+                            <button onclick="openModeModal(3)" class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2 transform active:scale-95">
+                                <i class="fa-solid fa-play"></i> Mulai Paket 3 (30 Soal)
+                            </button>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 mb-1">Waktu 90 Menit</h3>
-                            <p class="text-xs text-slate-600">Alokasi waktu ideal untuk pengerjaan 30 nomor teks panjang dan analisis.</p>
-                        </div>
+
                     </div>
+                </div>
+
+                <!-- Reset Stats Button -->
+                <div class="text-center">
+                    <button onclick="resetHistoryData()" class="text-xs text-slate-400 hover:text-rose-500 transition underline">
+                        <i class="fa-solid fa-trash-can mr-1"></i> Hapus Riwayat Skor Tersimpan
+                    </button>
                 </div>
             </section>
 
             <!-- 2. TEST INTERFACE VIEW -->
             <section id="view-test" class="hidden max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-6 animate-fadeIn">
                 <!-- Top Progress Bar Container -->
-                <div class="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200 shadow-sm mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-slate-800 shadow-sm mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                     <div class="flex items-center gap-3 w-full sm:w-auto">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Progres:</span>
-                        <div class="w-full sm:w-48 bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
+                        <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Progres:</span>
+                        <div class="w-full sm:w-48 bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden border border-slate-200 dark:border-slate-700">
                             <div id="progress-bar-fill" class="bg-brand-600 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
                         </div>
-                        <span id="progress-text" class="text-xs font-black text-brand-900 min-w-[50px]">0/30</span>
+                        <span id="progress-text" class="text-xs font-black text-brand-900 dark:text-brand-300 min-w-[50px]">0/30</span>
                     </div>
 
                     <!-- Quick Navigation Action Buttons -->
                     <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
-                        <button onclick="toggleFlag()" id="btn-flag" class="px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-800 text-xs font-semibold hover:bg-amber-100 transition flex items-center gap-1.5">
+                        <button onclick="toggleFlag()" id="btn-flag" class="px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-xs font-semibold hover:bg-amber-100 dark:hover:bg-amber-900 transition flex items-center gap-1.5">
                             <i class="fa-regular fa-bookmark"></i>
                             <span id="flag-text">Tandai Ragu</span>
                         </button>
-                        <button onclick="toggleQuestionGrid()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-slate-50 text-slate-700 text-xs font-semibold hover:bg-slate-100 transition flex items-center gap-1.5">
+                        <button onclick="toggleQuestionGrid()" class="px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center gap-1.5">
                             <i class="fa-solid fa-grip-vertical"></i>
                             <span>Daftar Soal</span>
                         </button>
@@ -197,41 +236,41 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                     
                     <!-- Left Column: Reading Passage Container -->
-                    <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col max-h-[70vh] lg:max-h-[75vh]">
-                        <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center justify-between shrink-0">
-                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                    <div class="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col max-h-[70vh] lg:max-h-[75vh]">
+                        <div class="bg-slate-100 dark:bg-slate-800 px-4 py-3 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between shrink-0">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-2">
                                 <i class="fa-solid fa-file-lines text-brand-600"></i> Reading Passage / Text
                             </span>
-                            <span id="passage-title" class="text-xs font-bold text-brand-800 bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200">
+                            <span id="passage-title" class="text-xs font-bold text-brand-800 dark:text-brand-300 bg-brand-50 dark:bg-brand-950 px-2.5 py-1 rounded-lg border border-brand-200 dark:border-brand-800">
                                 Text
                             </span>
                         </div>
-                        <div id="passage-container" class="p-4 sm:p-6 overflow-y-auto passage-content text-sm sm:text-base text-slate-700 leading-relaxed select-text space-y-3">
+                        <div id="passage-container" class="p-4 sm:p-6 overflow-y-auto passage-content text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed select-text space-y-3">
                             <!-- Reading text dynamically injected here -->
                         </div>
                     </div>
 
                     <!-- Right Column: Question & Options Container -->
                     <div class="lg:col-span-6 flex flex-col space-y-4">
-                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
                             <div>
                                 <!-- Question Header -->
-                                <div class="flex flex-col gap-2 mb-4 pb-3 border-b border-slate-100">
+                                <div class="flex flex-col gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
                                     <div class="flex items-center justify-between">
-                                        <span class="text-xs font-extrabold text-brand-700 uppercase tracking-wider">
-                                            Soal Nomor <span id="q-number-display" class="text-lg text-brand-900 font-black">1</span> Dari <span id="q-total-display">30</span>
+                                        <span class="text-xs font-extrabold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
+                                            Soal Nomor <span id="q-number-display" class="text-lg text-brand-900 dark:text-white font-black">1</span> Dari <span id="q-total-display">30</span>
                                         </span>
-                                        <span id="q-format-tag" class="text-[11px] font-bold px-2.5 py-1 bg-brand-50 text-brand-800 rounded-md border border-brand-200">
+                                        <span id="q-format-tag" class="text-[11px] font-bold px-2.5 py-1 bg-brand-50 dark:bg-brand-950 text-brand-800 dark:text-brand-300 rounded-md border border-brand-200 dark:border-brand-800">
                                             Pilihan Ganda
                                         </span>
                                     </div>
-                                    <span id="q-indicator-tag" class="text-[11px] text-slate-600 italic">
+                                    <span id="q-indicator-tag" class="text-[11px] text-slate-500 dark:text-slate-400 italic">
                                         Indikator
                                     </span>
                                 </div>
 
                                 <!-- Question Text -->
-                                <div id="question-text" class="text-slate-900 font-medium text-sm sm:text-base mb-6 leading-relaxed">
+                                <div id="question-text" class="text-slate-900 dark:text-slate-100 font-medium text-sm sm:text-base mb-6 leading-relaxed">
                                     <!-- Question prompt here -->
                                 </div>
 
@@ -240,12 +279,18 @@
                                     <!-- Options injected here -->
                                 </div>
 
-                                <!-- Instant Explanation Box Removed for Pure Practice/Testing -->
+                                <!-- Practice Mode Instant Explanation Box -->
+                                <div id="practice-explanation" class="hidden p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-xs sm:text-sm space-y-1 mb-4 animate-fadeIn">
+                                    <div class="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-info text-amber-600 dark:text-amber-400"></i> Kunci & Pembahasan Latihan:
+                                    </div>
+                                    <div id="practice-explanation-content" class="text-slate-700 dark:text-slate-300 space-y-1"></div>
+                                </div>
                             </div>
 
                             <!-- Bottom Navigation Controls -->
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
-                                <button onclick="prevQuestion()" id="btn-prev" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-semibold text-xs sm:text-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800 mt-4">
+                                <button onclick="prevQuestion()" id="btn-prev" class="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs sm:text-sm hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
                                     <i class="fa-solid fa-arrow-left"></i> Sebelumnya
                                 </button>
 
@@ -262,50 +307,50 @@
             <!-- 3. RESULT & EXPLANATION VIEW -->
             <section id="view-result" class="hidden max-w-5xl mx-auto px-4 py-8 animate-fadeIn">
                 <!-- Result Summary Banner -->
-                <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-8 mb-8">
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-6 sm:p-8 mb-8">
                     <div class="text-center max-w-xl mx-auto mb-8">
-                        <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs mb-2">
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold text-xs mb-2">
                             Ujian Selesai
                         </span>
-                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Hasil Evaluasi 30 Soal TKA Bahasa Inggris</h2>
-                        <p class="text-slate-500 text-xs sm:text-sm mt-1">Laporan pencapaian skor dan analisis kompetensi berdasarkan standar TKA SMA/SMK.</p>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white" id="result-title-heading">Hasil Evaluasi TKA Bahasa Inggris</h2>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Laporan pencapaian skor dan analisis kompetensi berdasarkan standar TKA SMA/SMK.</p>
                     </div>
 
                     <!-- Main Score Badges -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                        <div class="bg-brand-50 border border-brand-100 p-4 rounded-2xl text-center">
-                            <span class="block text-xs font-bold text-brand-700 uppercase">Skor TKA</span>
-                            <span id="res-score" class="text-3xl sm:text-4xl font-black text-brand-900 mt-1">100</span>
-                            <span id="res-max-score" class="text-[10px] text-brand-600 font-medium">Skala 100 - 800 Poin</span>
+                        <div class="bg-brand-50 dark:bg-slate-800 border border-brand-100 dark:border-slate-700 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-brand-700 dark:text-brand-400 uppercase">Skor TKA</span>
+                            <span id="res-score" class="text-3xl sm:text-4xl font-black text-brand-900 dark:text-white mt-1">100</span>
+                            <span id="res-max-score" class="text-[10px] text-brand-600 dark:text-brand-400 font-medium">Skala 100 - 800 Poin</span>
                         </div>
-                        <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl text-center">
-                            <span class="block text-xs font-bold text-emerald-700 uppercase">Benar</span>
-                            <span id="res-correct" class="text-3xl sm:text-4xl font-black text-emerald-600 mt-1">0</span>
-                            <span class="text-[10px] text-emerald-600 font-medium">+23.3 Poin / Soal</span>
+                        <div class="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/60 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">Benar</span>
+                            <span id="res-correct" class="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 mt-1">0</span>
+                            <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">+23.3 Poin / Soal</span>
                         </div>
-                        <div class="bg-rose-50 border border-rose-100 p-4 rounded-2xl text-center">
-                            <span class="block text-xs font-bold text-rose-700 uppercase">Salah / Kurang</span>
-                            <span id="res-wrong" class="text-3xl sm:text-4xl font-black text-rose-600 mt-1">0</span>
-                            <span class="text-[10px] text-rose-600 font-medium">Evaluasi Ulang</span>
+                        <div class="bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-900/60 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-rose-700 dark:text-rose-400 uppercase">Salah / Kurang</span>
+                            <span id="res-wrong" class="text-3xl sm:text-4xl font-black text-rose-600 dark:text-rose-400 mt-1">0</span>
+                            <span class="text-[10px] text-rose-600 dark:text-rose-400 font-medium">Evaluasi Ulang</span>
                         </div>
-                        <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-center">
-                            <span class="block text-xs font-bold text-slate-600 uppercase">Kosong</span>
-                            <span id="res-empty" class="text-3xl sm:text-4xl font-black text-slate-700 mt-1">0</span>
-                            <span class="text-[10px] text-slate-500 font-medium">Belum Diisi</span>
+                        <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded-2xl text-center">
+                            <span class="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase">Kosong</span>
+                            <span id="res-empty" class="text-3xl sm:text-4xl font-black text-slate-700 dark:text-slate-300 mt-1">0</span>
+                            <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Belum Diisi</span>
                         </div>
                     </div>
 
                     <!-- Evaluation Details -->
-                    <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 mb-6">
+                    <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 mb-6">
                         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
-                                <h4 class="font-extrabold text-slate-900 text-sm mb-1">Kategori Kemampuan Akademik: <span id="res-category-badge" class="px-2.5 py-0.5 rounded-full text-xs font-black bg-brand-100 text-brand-800 ml-1">Kategori</span></h4>
-                                <p id="res-evaluation-text" class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1">
-                                    Akurasi Jawaban: <span id="res-accuracy" class="font-bold text-brand-700">0%</span>
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm mb-1">Kategori Kemampuan Akademik: <span id="res-category-badge" class="px-2.5 py-0.5 rounded-full text-xs font-black bg-brand-100 text-brand-800 ml-1">Kategori</span></h4>
+                                <p id="res-evaluation-text" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+                                    Akurasi Jawaban: <span id="res-accuracy" class="font-bold text-brand-700 dark:text-brand-400">0%</span>
                                 </p>
                             </div>
                             <button onclick="resetAndRestart()" class="w-full sm:w-auto px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow transition flex items-center justify-center gap-2 transform active:scale-95 shrink-0">
-                                <i class="fa-solid fa-rotate-right"></i> Ulangi Latihan
+                                <i class="fa-solid fa-rotate-right"></i> Pilih Paket Lain
                             </button>
                         </div>
                     </div>
@@ -313,7 +358,7 @@
 
                 <!-- Explanation Section Header -->
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+                    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                         <i class="fa-solid fa-book-open text-brand-600"></i>
                         Kunci Jawaban & Pembahasan Lengkap (30 Soal)
                     </h3>
@@ -327,9 +372,9 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="bg-white border-t border-slate-200 py-6 mt-12">
-            <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-1">
-                <p class="font-bold text-slate-700">TKA ENGLISH PRACTICE 2025 &copy; Paket 30 Soal Baru Standar TKA SMA/MA/SMK</p>
+        <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-12">
+            <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                <p class="font-bold text-slate-700 dark:text-slate-300">TKA ENGLISH PRACTICE 2025 &copy; 3 Paket Soal Standar TKA SMA/MA/SMK (Pro Edition)</p>
                 <p>Materi Pembahasan Mengikuti Panduan Pemahaman Tekstual, Inferensial & Evaluasi.</p>
             </div>
         </footer>
@@ -337,44 +382,44 @@
 
     <!-- MODAL: START TEST OPTIONS -->
     <div id="modal-start" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fadeIn">
-            <h3 class="text-xl font-black text-slate-900 mb-2">Pilih Mode Pengerjaan (30 Soal)</h3>
-            <p class="text-xs text-slate-500 mb-6">Pilih mode pengerjaan yang sesuai dengan kebutuhan belajarmu saat ini.</p>
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 animate-fadeIn">
+            <h3 class="text-xl font-black text-slate-900 dark:text-white mb-2" id="modal-package-title">Pilih Mode Pengerjaan</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Pilih mode pengerjaan yang sesuai dengan kebutuhan belajarmu saat ini.</p>
 
             <div class="space-y-4 mb-6">
                 <!-- Option 1: Practice Mode -->
-                <label class="block p-4 border-2 border-slate-200 rounded-2xl hover:border-brand-500 cursor-pointer transition relative group">
+                <label class="block p-4 border-2 border-slate-200 dark:border-slate-700 rounded-2xl hover:border-brand-500 dark:hover:border-brand-500 cursor-pointer transition relative group">
                     <input type="radio" name="select-mode" value="practice" checked class="sr-only peer">
-                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
+                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 dark:peer-checked:bg-brand-950/40 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
                     <div class="flex items-start gap-3 relative z-10">
-                        <div class="p-2.5 bg-brand-100 text-brand-700 rounded-xl shrink-0">
+                        <div class="p-2.5 bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-300 rounded-xl shrink-0">
                             <i class="fa-solid fa-laptop-code text-lg"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Mode Latihan Interaktif</h4>
-                            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Pembahasan dapat dicek langsung setelah kamu memilih/mengisi jawaban.</p>
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Mode Latihan Interaktif</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">Pembahasan dapat dicek langsung setelah kamu memilih jawaban.</p>
                         </div>
                     </div>
                 </label>
 
                 <!-- Option 2: Simulation Mode -->
-                <label class="block p-4 border-2 border-slate-200 rounded-2xl hover:border-brand-500 cursor-pointer transition relative group">
+                <label class="block p-4 border-2 border-slate-200 dark:border-slate-700 rounded-2xl hover:border-brand-500 dark:hover:border-brand-500 cursor-pointer transition relative group">
                     <input type="radio" name="select-mode" value="simulation" class="sr-only peer">
-                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
+                    <div class="peer-checked:border-brand-600 peer-checked:bg-brand-50/50 dark:peer-checked:bg-brand-950/40 absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
                     <div class="flex items-start gap-3 relative z-10">
-                        <div class="p-2.5 bg-amber-100 text-amber-700 rounded-xl shrink-0">
+                        <div class="p-2.5 bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 rounded-xl shrink-0">
                             <i class="fa-solid fa-stopwatch text-lg"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Mode Simulasi Ujian</h4>
-                            <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Timer 90 menit berjalan. Hasil dan pembahasan disajikan setelah pengumpulan.</p>
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Mode Simulasi Ujian</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">Timer 90 menit berjalan. Hasil & pembahasan disajikan setelah pengumpulan.</p>
                         </div>
                     </div>
                 </label>
             </div>
 
             <div class="flex items-center justify-end gap-3">
-                <button onclick="closeStartModal()" class="px-4 py-2 text-slate-600 text-xs font-bold hover:bg-slate-100 rounded-xl transition">Batal</button>
+                <button onclick="closeStartModal()" class="px-4 py-2 text-slate-600 dark:text-slate-400 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition">Batal</button>
                 <button onclick="initiateTest()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow transition">Mulai Ujian</button>
             </div>
         </div>
@@ -382,9 +427,9 @@
 
     <!-- MODAL: QUESTION NAVIGATION GRID -->
     <div id="modal-grid" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 max-h-[90vh] flex flex-col animate-fadeIn">
-            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-                <h3 class="font-bold text-slate-800 text-base flex items-center gap-2">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 max-h-[90vh] flex flex-col animate-fadeIn">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
+                <h3 class="font-bold text-slate-800 dark:text-white text-base flex items-center gap-2">
                     <i class="fa-solid fa-th text-brand-600"></i> Navigasi 30 Soal
                 </h3>
                 <button onclick="toggleQuestionGrid()" class="text-slate-400 hover:text-slate-600 p-1">
@@ -392,10 +437,10 @@
                 </button>
             </div>
 
-            <div class="text-xs text-slate-500 mb-4 flex flex-wrap gap-4">
+            <div class="text-xs text-slate-500 dark:text-slate-400 mb-4 flex flex-wrap gap-4">
                 <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-brand-600 inline-block"></span> Terjawab</span>
                 <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span> Ragu-ragu</span>
-                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-100 border border-slate-300 inline-block"></span> Belum Isi</span>
+                <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 inline-block"></span> Belum Isi</span>
             </div>
 
             <!-- Grid Numbers -->
@@ -403,21 +448,21 @@
                 <!-- Dynamic numbers injected here -->
             </div>
 
-            <button onclick="toggleQuestionGrid()" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition">
+            <button onclick="toggleQuestionGrid()" class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold rounded-xl transition">
                 Tutup Navigasi
             </button>
         </div>
     </div>
 
-    <!-- JAVASCRIPT APPLICATION LOGIC & 30 NEW TKA QUESTIONS -->
+    <!-- JAVASCRIPT APPLICATION LOGIC & LOCAL STORAGE PRO FEATURES -->
     <script>
         /* ==========================================================================
-           1. 30 NEW AUTHENTIC TKA READING PASSAGES & QUESTION BANK
+           PAKET 1, 2, DAN 3 DATA (90 SOAL TOTAL)
            ========================================================================== */
-        const passagesData = {
+        const passagesData1 = {
             doc_fable_falcon: {
                 title: "Text 1: The King and the Trained Falcon (Narrative)",
-                text: `<p class="font-bold text-brand-900 mb-2">The King and the Trained Falcon</p>
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The King and the Trained Falcon</p>
                 <p>Long ago, a powerful king owned a trained hunting falcon that he treasured above all his possessions. The falcon wore a golden cup attached to its leg so the king could easily provide water during long journeys through arid mountains.</p>
                 <p>One scorching afternoon, after hours of riding, the king became overwhelmed with extreme thirst. He noticed water dripping steadily down a rocky cliff from an unseen spring above. Taking the golden cup from his falcon’s leg, he filled it with the cold dripping water and raised it to his lips.</p>
                 <p>Just as he was about to drink, the falcon suddenly fluttered its wings forcefully and knocked the cup from his hand, spilling every drop onto the dry ground. Annoyed, the king scooped up another cupful, but again the bird struck the cup away.</p>
@@ -426,9 +471,9 @@
             },
             doc_digital_literacy: {
                 title: "Infographic: Digital Literacy in Modern Schools (Procedure/Guide)",
-                text: `<div class="bg-brand-50/50 p-4 rounded-xl border border-brand-200 text-xs sm:text-sm space-y-2">
-                    <p class="font-bold text-brand-900 text-base">5 Key Steps to Practice Cyber Safety & Digital Literacy</p>
-                    <ol class="list-decimal pl-4 space-y-1.5 font-medium text-slate-700">
+                text: `<div class="bg-brand-50/50 dark:bg-brand-950/40 p-4 rounded-xl border border-brand-200 dark:border-brand-800/60 text-xs sm:text-sm space-y-2">
+                    <p class="font-bold text-brand-900 dark:text-brand-300 text-base">5 Key Steps to Practice Cyber Safety & Digital Literacy</p>
+                    <ol class="list-decimal pl-4 space-y-1.5 font-medium text-slate-700 dark:text-slate-300">
                         <li><strong>Verify Source Credibility:</strong> Check whether news articles come from verified educational or journalistic publishers before sharing.</li>
                         <li><strong>Create Strong Multi-Factor Passwords:</strong> Combine uppercase letters, numbers, and symbols across different school accounts.</li>
                         <li><strong>Evaluate Online Information Critically:</strong> Compare information across multiple trustworthy sources to detect bias or misinformation.</li>
@@ -439,7 +484,7 @@
             },
             doc_ant_pigeon: {
                 title: "Text 3: The Clever Ant and the Pigeon (Narrative)",
-                text: `<p class="font-bold text-brand-900 mb-2">The Clever Ant and the Pigeon</p>
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The Clever Ant and the Pigeon</p>
                 <p>On a hot summer day, a tiny ant was searching for water along a slippery riverbank. While attempting to sip from the rushing current, he slipped and was swept away by the swift stream. Desperate for help, the ant struggled helplessly in the deep water.</p>
                 <p>Sitting on a tree branch overlooking the river, a friendly pigeon noticed the ant drowning. Feeling deep compassion, the pigeon quickly plucked a broad leaf and dropped it directly into the water near the ant. The ant climbed onto the floating leaf and safely drifted back to dry land.</p>
                 <p>Not long after, a hunter crept silently through the woods, carrying a net to trap the sleeping pigeon. Seeing the imminent danger to his savior, the ant crawled rapidly onto the hunter's exposed heel and bit him as hard as he could.</p>
@@ -447,534 +492,280 @@
             },
             doc_renewable_energy: {
                 title: "Text 4: Solar & Wind Power Transition (Analytical Exposition)",
-                text: `<p class="font-bold text-brand-900 mb-2">Accelerating the Global Clean Energy Transition</p>
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Accelerating the Global Clean Energy Transition</p>
                 <p>The transition toward renewable energy sources like solar photovoltaic panels and wind turbines is no longer just an environmental goal; it is an economic necessity. Traditional fossil fuels release massive amounts of carbon dioxide, driving severe global weather disruptions and deteriorating public health.</p>
                 <p>However, critics frequently point out that solar and wind technologies suffer from intermittency—solar panels produce no electricity at night, and wind turbines rely on variable weather patterns. To overcome these limitations, engineers are deploying massive battery storage networks and smart grids that store excess energy during peak generation hours for later use.</p>
                 <p>In conclusion, despite the high initial infrastructure costs, investing in clean energy creates long-term economic resilience, lowers healthcare costs, and protects delicate ecosystems worldwide.</p>`
             },
             doc_coral_reefs: {
                 title: "Text 5: Ocean Ecosystem Preservation (Informative Text)",
-                text: `<p class="font-bold text-brand-900 mb-2">The Ecological Importance of Coral Reefs</p>
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The Ecological Importance of Coral Reefs</p>
                 <p>Coral reefs cover less than 1% of the ocean floor, yet they support nearly 25% of all marine species, functioning as vibrant underwater cities. These intricate structures protect coastal communities from devastating storms by absorbing wave energy and slowing surging tides.</p>
                 <p>Regrettably, ocean warming caused by climate change leads to severe coral bleaching. When ocean temperatures remain unnaturally high, corals expel the colorful algae living inside their tissues, turning completely white and starving. Marine biologists emphasize that enforcing marine protected areas and curbing industrial ocean pollution are indispensable steps to prevent total coral reef collapse.</p>`
             }
         };
 
-        const rawQuestions = [
-            // --- PASSAGE 1: KING & FALCON (Q1 - Q6) ---
-            {
-                id: 1,
-                passageId: "doc_fable_falcon",
-                format: "single",
-                indicator: "Pemahaman Tekstual: Menyusun ringkasan cerita naratif",
-                question: "Which option best summarizes the plot of 'The King and the Trained Falcon'?",
-                options: [
-                    "A king gets lost in the mountains, loses his falcon, and finds water at a local village spring.",
-                    "A king tries to drink dripping water, but his falcon knocks the cup away to prevent him from consuming deadly snake venom.",
-                    "A hunting falcon attacks its owner out of wild instinct, forcing the king to defend himself with a dagger.",
-                    "A king travels through dry mountains, feeds his thirsty falcon with poisoned water, and regrets his choice.",
-                    "A falcon escapes its golden cup cage, leads the king up a dangerous cliff, and helps him slay a giant viper."
-                ],
-                answer: 1,
-                quote: "The falcon had knocked the cup away... he discovered a giant venomous viper... the falcon sacrificed itself to save his life.",
-                explanation: "Ringkasan alur utama mengikuti fakta bahwa sang raja hendak minum air dari tebing, tetapi elangnya berulang kali membuang cangkir tersebut untuk menyelamatkan raja dari racun ular yang mencemari mata air."
-            },
-            {
-                id: 2,
-                passageId: "doc_fable_falcon",
-                format: "mcma",
-                indicator: "Pemahaman Tekstual: Menyimpulkan pesan moral cerita naratif",
-                question: "Which moral lessons are strongly conveyed in this story? (Select ALL correct answers!)",
-                options: [
-                    "Never make hasty decisions or act violently while blinded by anger.",
-                    "Always trust the intentions of loyal companions, even if their actions seem strange.",
-                    "Avoid traveling through dry mountain ranges without carrying excess water.",
-                    "Regret comes too late when anger drives impulsive choices.",
-                    "Wild animals can never truly adapt to living with human royalty."
-                ],
-                answer: [0, 1, 3],
-                quote: "He vowed never again to make rash decisions in anger... overwhelmed with remorse...",
-                explanation: "Pesan moral cerita meliputi larangan mengambil keputusan terburu-buru saat marah (A), pentingnya percaya pada niat baik sahabat/hewan setia (B), dan kesadaran bahwa penyesalan datang terlambat akibat tindakan impulsif (D)."
-            },
-            {
-                id: 3,
-                passageId: "doc_fable_falcon",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Menganalisis penyebab tindakan tokoh",
-                question: "Why did the king react with violence towards his beloved falcon?",
-                options: [
-                    "He believed the falcon was trying to steal his golden cup.",
-                    "He was exhausted, severely dehydrated, and overwhelmed by sudden frustration.",
-                    "He noticed the falcon was infected with snake venom.",
-                    "He wanted to test if another falcon could replace it.",
-                    "The falcon flew away with his hunting equipment."
-                ],
-                answer: 1,
-                quote: "Blinded by intense thirst and anger, the king drew his dagger...",
-                explanation: "Raja bertindak brutal karena staminanya terkuras, mengalami dehidrasi berat, dan terpancing emosi yang intens saat minumannya terus-menerus ditumpahkan."
-            },
-            {
-                id: 4,
-                passageId: "doc_fable_falcon",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
-                question: "Determine whether each statement below is TRUE or FALSE based on the text.",
-                categories: ["TRUE", "FALSE"],
-                items: [
-                    { id: "p1_1", text: "The golden cup on the falcon's leg was used to carry drinking water during trips.", correct: "TRUE" },
-                    { id: "p1_2", text: "The king discovered that the water was contaminated by a dead poisonous viper.", correct: "TRUE" },
-                    { id: "p1_3", text: "The falcon intentionally knocked the cup away because it wanted to drink first.", correct: "FALSE" }
-                ],
-                explanation: "Pernyataan 1 & 2 terbukti benar pada paragraf 1 dan 4. Pernyataan 3 salah karena elang melakukannya demi menyelamatkan raja dari racun ular."
-            },
-            {
-                id: 5,
-                passageId: "doc_fable_falcon",
-                format: "mcma",
-                indicator: "Evaluasi & Apresiasi: Menilai karakter tokoh utama",
-                question: "Which traits accurately describe the king at different stages of the story? (Select ALL correct answers!)",
-                options: [
-                    "Impulsive when driven by rage and physical discomfort.",
-                    "Cruel and heartless toward animals throughout his entire life.",
-                    "Capable of deep remorse and self-reflection after realizing his mistake.",
-                    "Careless about his personal health and hygiene.",
-                    "Loving toward his hunting falcon prior to the incident."
-                ],
-                answer: [0, 2, 4],
-                quote: "treasured above all his possessions... blinded by intense thirst and anger... overwhelmed with remorse...",
-                explanation: "Sifat raja meliputi: Impulsif/emosional saat marah (A), mampu menyesali kesalahan secara mendalam (C), dan sangat menyayangi elangnya sebelum insiden tersebut (E)."
-            },
-            {
-                id: 6,
-                passageId: "doc_fable_falcon",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Memprediksi tindakan masa depan tokoh",
-                question: "What would the king most likely do in future challenging situations based on his vow?",
-                options: [
-                    "He would completely stop keeping trained animals for hunting.",
-                    "He would pause to analyze situations calmly before reacting in anger.",
-                    "He would avoid drinking water from mountain springs altogether.",
-                    "He would delegate all decision-making duties to his advisors.",
-                    "He would carry multiple golden cups on every journey."
-                ],
-                answer: 1,
-                quote: "He vowed never again to make rash decisions in anger.",
-                explanation: "Berdasarkan ikrar untuk tidak bertindak terburu-buru saat marah, di masa depan raja akan lebih bersikap tenang dan berpikir jernih sebelum mengambil keputusan."
-            },
-
-            // --- PASSAGE 2: DIGITAL LITERACY INFOGRAPHIC (Q7 - Q12) ---
-            {
-                id: 7,
-                passageId: "doc_digital_literacy",
-                format: "single",
-                indicator: "Pemahaman Tekstual: Mengidentifikasi langkah eksplisit infografis",
-                question: "According to the infographic, how should students verify whether online news is accurate?",
-                options: [
-                    "By counting how many users liked or shared the news post.",
-                    "By checking whether the source belongs to a verified educational or news publisher.",
-                    "By asking friends in online chat forums for their opinions.",
-                    "By creating multi-factor passwords for their accounts.",
-                    "By reporting the author of the post directly to internet service providers."
-                ],
-                answer: 1,
-                quote: "Step 1: Check whether news articles come from verified educational or journalistic publishers...",
-                explanation: "Petunjuk eksplisit nomor 1 mewajibkan verifikasi penerbit berita melalui lembaga pendidikan atau jurnalistik terverifikasi."
-            },
-            {
-                id: 8,
-                passageId: "doc_digital_literacy",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Pengelompokan Kategori Tindakan",
-                question: "Classify each digital action below as either 'Safe Online Habit' or 'Unsafe Online Practice'.",
-                categories: ["Safe Online Habit", "Unsafe Online Practice"],
-                items: [
-                    { id: "p2_1", text: "Comparing information across multiple reputable sources before sharing.", correct: "Safe Online Habit" },
-                    { id: "p2_2", text: "Posting your home address and phone number on public student forums.", correct: "Unsafe Online Practice" },
-                    { id: "p2_3", text: "Using the same simple password for all educational logins.", correct: "Unsafe Online Practice" }
-                ],
-                explanation: "Membandingkan sumber terpercaya (Safe). Membagikan alamat/telepon dan menggunakan sandi tunggal yang lemah (Unsafe)."
-            },
-            {
-                id: 9,
-                passageId: "doc_digital_literacy",
-                format: "mcma",
-                indicator: "Pemahaman Inferensial: Menyimpulkan tujuan penulisan infografis",
-                question: "What are the main intentions of the author in publishing this infographic? (Select ALL correct answers!)",
-                options: [
-                    "To guide students toward responsible and safe internet usage.",
-                    "To persuade schools to ban all digital devices in classrooms.",
-                    "To reduce the spread of misinformation and cyber threats among youth.",
-                    "To promote commercial security software products to families.",
-                    "To build critical thinking skills when consuming online data."
-                ],
-                answer: [0, 2, 4],
-                quote: "5 Key Steps to Practice Cyber Safety & Digital Literacy...",
-                explanation: "Tujuan utama infografis adalah memandu penggunaan internet secara aman (A), menekan penyebaran disinformasi & ancaman siber (C), serta membentuk pola pikir kritis (E)."
-            },
-            {
-                id: 10,
-                passageId: "doc_digital_literacy",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Implikasi tidak mematuhi panduan",
-                question: "What is a likely consequence if a student neglects Step 4 (Protect Personal Identifiable Data)?",
-                options: [
-                    "Their computer hardware will physically stop functioning.",
-                    "They might become vulnerable to identity theft or online scam attempts.",
-                    "Their academic grades will automatically decrease.",
-                    "They will no longer be allowed to use school library books.",
-                    "Their social media accounts will receive automatic verification badges."
-                ],
-                answer: 1,
-                quote: "Avoid sharing phone numbers, home addresses, or passwords in public educational forums.",
-                explanation: "Mengabaikan perlindungan data pribadi dapat mengakibatkan pencurian identitas, kejahatan siber, atau penipuan daring."
-            },
-            {
-                id: 11,
-                passageId: "doc_digital_literacy",
-                format: "mcma",
-                indicator: "Evaluasi & Apresiasi: Penerapan langkah dalam kehidupan nyata",
-                question: "Which scenario(s) demonstrate proper application of the infographic's recommendations? (Select ALL correct answers!)",
-                options: [
-                    "Anita combines numbers, symbols, and capital letters for her school portal password.",
-                    "Budi immediately forwards a sensational headline without checking its publisher.",
-                    "Citra reports abusive comment threads on a school learning app to her teacher.",
-                    "Deni uses his birthday as a universal password across five separate applications.",
-                    "Eka cross-checks a viral scientific claim with two official research websites."
-                ],
-                answer: [0, 2, 4],
-                quote: "Steps 2, 3, and 5 cover strong passwords, critical evaluation, and reporting cyberbullying.",
-                explanation: "Penerapan yang benar ditunjukkan oleh Anita (sandi kuat - Opsi A), Citra (melaporkan perundungan siber - Opsi C), dan Eka (verifikasi silang berita - Opsi E)."
-            },
-            {
-                id: 12,
-                passageId: "doc_digital_literacy",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
-                question: "Determine whether each statement regarding password security is TRUE or FALSE according to the guide.",
-                categories: ["TRUE", "FALSE"],
-                items: [
-                    { id: "p2_4", text: "Passwords should combine uppercase letters, numbers, and symbols.", correct: "TRUE" },
-                    { id: "p2_5", text: "It is safe to share account passwords in student study forums.", correct: "FALSE" }
-                ],
-                explanation: "Langkah ke-2 secara spesifik mewajibkan kombinasi karakter unik dan melarang pembagian sandi di forum publik."
-            },
-
-            // --- PASSAGE 3: CLEVER ANT & PIGEON (Q13 - Q18) ---
-            {
-                id: 13,
-                passageId: "doc_ant_pigeon",
-                format: "single",
-                indicator: "Pemahaman Tekstual: Menyusun urutan kejadian kronologis",
-                question: "Which sequence correctly reflects the chronological order of events in 'The Clever Ant and the Pigeon'?",
-                options: [
-                    "Hunter traps pigeon -> Ant bites hunter -> Leaf drops in water -> Pigeon flies away.",
-                    "Ant falls into river -> Pigeon drops leaf to save ant -> Hunter tries to net pigeon -> Ant bites hunter's heel -> Pigeon escapes.",
-                    "Pigeon sees hunter -> Ant jumps onto leaf -> Hunter drops net -> Ant swims across rushing stream.",
-                    "Ant bites hunter -> Pigeon drops leaf into river -> Ant climbs tree branch -> Hunter leaves forest.",
-                    "Hunter catches ant -> Pigeon scares hunter away -> Ant falls in river -> Pigeon drops leaf."
-                ],
-                answer: 1,
-                quote: "Sequence: Ant slipped -> Pigeon dropped leaf -> Hunter arrived -> Ant bit heel -> Pigeon flew away.",
-                explanation: "Urutan kronologis cerita yang tepat adalah: Semut jatuh ke sungai -> Burung merpati menjatuhkan daun -> Pemburu datang membawa jaring -> Semut menggigit tumit pemburu -> Merpati terbang bebas."
-            },
-            {
-                id: 14,
-                passageId: "doc_ant_pigeon",
-                format: "mcma",
-                indicator: "Pemahaman Tekstual: Menyimpulkan pesan moral naratif",
-                question: "What main messages are reflected in the story of the ant and the pigeon? (Select ALL correct answers!)",
-                options: [
-                    "No act of kindness, no matter how small, is ever wasted.",
-                    "One good deed deserves another in return.",
-                    "Always stay away from rivers during hot summer afternoons.",
-                    "Size does not limit your ability to help someone in danger.",
-                    "Hunters should never be allowed in forest reserves."
-                ],
-                answer: [0, 1, 3],
-                quote: "The ant bit the hunter's heel to save his savior... creatures remained devoted allies.",
-                explanation: "Pesan moral fabel meliputi: Kebaikan sekecil apapun tidak pernah sia-sia (A), Kebaikan dibalas dengan kebaikan (B), dan Ukuran tubuh tidak membatasi kemampuan menolong (D)."
-            },
-            {
-                id: 15,
-                passageId: "doc_ant_pigeon",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
-                question: "Determine whether each statement below is TRUE or FALSE based on the narrative.",
-                categories: ["TRUE", "FALSE"],
-                items: [
-                    { id: "p3_1", text: "The pigeon used a broad leaf to rescue the drowning ant.", correct: "TRUE" },
-                    { id: "p3_2", text: "The hunter successfully captured the pigeon in his net.", correct: "FALSE" },
-                    { id: "p3_3", text: "The ant bit the hunter's heel to distract him and create noise.", correct: "TRUE" }
-                ],
-                explanation: "Pernyataan 1 & 3 benar. Pernyataan 2 salah karena pemburu gagal menangkap burung merpati akibat jeritannya yang memicu peringatan."
-            },
-            {
-                id: 16,
-                passageId: "doc_ant_pigeon",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Memahami motivasi tindakan semut",
-                question: "Why did the ant decide to bite the hunter's heel despite being tiny and fragile?",
-                options: [
-                    "The ant was hungry and mistook the heel for food.",
-                    "The ant wanted to avenge all ants that had been stepped on.",
-                    "The ant felt a deep sense of gratitude and urgency to save the pigeon.",
-                    "The pigeon chirped loudly to command the ant to attack.",
-                    "The hunter attempted to crush the ant's nest."
-                ],
-                answer: 2,
-                quote: "Seeing the imminent danger to his savior, the ant crawled rapidly...",
-                explanation: "Semut bertindak cepat karena dorongan rasa terima kasih yang mendalam dan tekad untuk menyelamatkan penolongnya."
-            },
-            {
-                id: 17,
-                passageId: "doc_ant_pigeon",
-                format: "mcma",
-                indicator: "Evaluasi & Apresiasi: Menilai hubungan antar karakter",
-                question: "Which dynamics best describe the relationship between the ant and the pigeon? (Select ALL correct answers!)",
-                options: [
-                    "Mutual respect built on selfless actions.",
-                    "A rivalry over limited forest food resources.",
-                    "Reciprocal empathy across different species.",
-                    "A temporary partnership driven purely by financial gain.",
-                    "Loyal friendship forged through crisis."
-                ],
-                answer: [0, 2, 4],
-                quote: "From that day on, the two creatures remained devoted allies.",
-                explanation: "Hubungan kedua hewan didasari oleh rasa saling menghormati (A), empati timbal balik (C), serta persahabatan yang kokoh setelah melewati ancaman bahaya (E)."
-            },
-            {
-                id: 18,
-                passageId: "doc_ant_pigeon",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Hasil alternatif jika semut tidak bertindak",
-                question: "What would have most likely happened if the ant had ignored the hunter?",
-                options: [
-                    "The hunter would have accidentally fallen into the river.",
-                    "The pigeon would have been trapped in the hunter's net.",
-                    "The pigeon would have dropped another leaf onto the hunter.",
-                    "The hunter would have adopted the pigeon as a pet.",
-                    "The rushing stream would have flooded the entire forest."
-                ],
-                answer: 1,
-                quote: "carrying a net to trap the sleeping pigeon... dropped his trap net when bitten.",
-                explanation: "Tanpa gigitan semut yang memicu jeritan pemburu, burung merpati yang sedang tertidur pasti akan tertangkap di dalam jaring."
-            },
-
-            // --- PASSAGE 4: RENEWABLE ENERGY EXPOSITION (Q19 - Q24) ---
-            {
-                id: 19,
-                passageId: "doc_renewable_energy",
-                format: "single",
-                indicator: "Pemahaman Tekstual: Gagasan utama teks eksposisi",
-                question: "What is the primary thesis statement presented in Text 4?",
-                options: [
-                    "Fossil fuel prices will remain lower than clean energy indefinitely.",
-                    "Transitioning to renewable energy is both an environmental and economic necessity.",
-                    "Wind turbines are unsuitable for generating electricity in modern cities.",
-                    "Battery storage networks are too expensive to be deployed globally.",
-                    "Global weather disruptions are unrelated to carbon emissions."
-                ],
-                answer: 1,
-                quote: "The transition toward renewable energy... is no longer just an environmental goal; it is an economic necessity.",
-                explanation: "Tesis utama artikel secara tegas menyatakan bahwa transisi energi terbarukan merupakan kebutuhan lingkungan sekaligus ekonomi."
-            },
-            {
-                id: 20,
-                passageId: "doc_renewable_energy",
-                format: "mcma",
-                indicator: "Pemahaman Tekstual: Tantangan dan solusi energi terbarukan",
-                question: "According to the text, what solutions address the intermittency of solar and wind power? (Select ALL correct answers!)",
-                options: [
-                    "Deploying large-scale battery storage networks.",
-                    "Increasing the burning of coal during cloudy days.",
-                    "Integrating smart grid systems to store excess energy.",
-                    "Banning all electrical usage during nighttime hours.",
-                    "Utilizing stored energy during peak demand times."
-                ],
-                answer: [0, 2, 4],
-                quote: "engineers are deploying massive battery storage networks and smart grids that store excess energy...",
-                explanation: "Solusi tantangan intermittency meliputi: Jaringan baterai penyimpanan berskala besar (A), integrasi jaringan pintar/smart grid (C), dan pemanfaatan cadangan energi saat beban puncak (E)."
-            },
-            {
-                id: 21,
-                passageId: "doc_renewable_energy",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
-                question: "Determine whether each claim below is TRUE or FALSE according to Text 4.",
-                categories: ["TRUE", "FALSE"],
-                items: [
-                    { id: "p4_1", text: "Solar panels can generate equal amounts of electricity at night.", correct: "FALSE" },
-                    { id: "p4_2", text: "Fossil fuel combustion releases massive amounts of carbon dioxide.", correct: "TRUE" },
-                    { id: "p4_3", text: "Clean energy investments help lower long-term national healthcare costs.", correct: "TRUE" }
-                ],
-                explanation: "Pernyataan 1 salah (panel surya tidak menghasilkan listrik malam hari). Pernyataan 2 & 3 benar sesuai paragraf 1 dan 3."
-            },
-            {
-                id: 22,
-                passageId: "doc_renewable_energy",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Menafsirkan makna implisit teks",
-                question: "Why does the author mention 'lowering healthcare costs' in the conclusion?",
-                options: [
-                    "Because solar panels are used to power all modern hospital equipment directly.",
-                    "Because reduced carbon pollution improves air quality and decreases respiratory illnesses.",
-                    "Because wind turbine companies fund public health insurance programs.",
-                    "Because fossil fuel companies will pay for hospital bills.",
-                    "Because battery storage systems reduce physical stress for workers."
-                ],
-                answer: 1,
-                quote: "Fossil fuels release CO2... deteriorating public health. Clean energy lowers healthcare costs...",
-                explanation: "Pengurangan polusi akibat energi bersih memperbaiki kualitas udara, yang berdampak langsung pada menurunnya angka penyakit pernapasan dan biaya kesehatan."
-            },
-            {
-                id: 23,
-                passageId: "doc_renewable_energy",
-                format: "mcma",
-                indicator: "Evaluasi & Apresiasi: Penilaian argumen penulis",
-                question: "Which evidence-based arguments does the author use to support renewable energy adoption? (Select ALL correct answers!)",
-                options: [
-                    "Clean energy creates long-term economic resilience.",
-                    "Renewable installations require zero upfront financial capital.",
-                    "Fossil fuels drive severe global weather disruptions.",
-                    "Smart grids eliminate the need for electrical wires.",
-                    "Ecosystems receive better protection when carbon emissions decrease."
-                ],
-                answer: [0, 2, 4],
-                quote: "fossil fuels drive severe weather... investing creates resilience... protects delicate ecosystems.",
-                explanation: "Argumen pendukung yang valid adalah ketahanan ekonomi jangka panjang (A), dampak buruk fosil pada cuaca ekstrem (C), dan perlindungan ekosistem dari emisi karbon (E)."
-            },
-            {
-                id: 24,
-                passageId: "doc_renewable_energy",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Pengelompokan Jenis Energi",
-                question: "Categorize each energy source listed below as either 'Renewable' or 'Non-Renewable'.",
-                categories: ["Renewable Energy", "Non-Renewable Energy"],
-                items: [
-                    { id: "p4_4", text: "Solar Photovoltaic Power", correct: "Renewable Energy" },
-                    { id: "p4_5", text: "Traditional Coal Burning", correct: "Non-Renewable Energy" },
-                    { id: "p4_6", text: "Wind Turbine Generation", correct: "Renewable Energy" }
-                ],
-                explanation: "Energi surya dan angin tergolong Renewable. Pembakaran batu bara tergolong Non-Renewable."
-            },
-
-            // --- PASSAGE 5: CORAL REEF ECOSYSTEMS (Q25 - Q30) ---
-            {
-                id: 25,
-                passageId: "doc_coral_reefs",
-                format: "single",
-                indicator: "Pemahaman Tekstual: Mengidentifikasi fakta spesifik teks",
-                question: "Despite covering less than 1% of the ocean floor, coral reefs support what percentage of marine species?",
-                options: [
-                    "Nearly 10%",
-                    "Nearly 25%",
-                    "Approximately 50%",
-                    "Over 75%",
-                    "Exactly 90%"
-                ],
-                answer: 1,
-                quote: "Coral reefs cover less than 1% of the ocean floor, yet they support nearly 25% of all marine species...",
-                explanation: "Teks menyebutkan secara eksplisit bahwa terumbu karang menopang hampir 25% dari seluruh spesies laut."
-            },
-            {
-                id: 26,
-                passageId: "doc_coral_reefs",
-                format: "mcma",
-                indicator: "Pemahaman Tekstual: Penyebab dan proses coral bleaching",
-                question: "Based on Text 5, what triggers the process of coral bleaching? (Select ALL correct answers!)",
-                options: [
-                    "Unnaturally high ocean water temperatures.",
-                    "Excessive wave energy during coastal storms.",
-                    "Corals expelling the colorful algae living in their tissues.",
-                    "Ocean warming caused by climate change.",
-                    "Absorbing too many marine nutrients from deep waters."
-                ],
-                answer: [0, 2, 3],
-                quote: "ocean warming caused by climate change... ocean temperatures remain unnaturally high, corals expel colorful algae...",
-                explanation: "Penyebab & proses bleaching meliputi: Suhu air laut yang tinggi (A), karang mengeluarkan alga dari jaringannya (C), serta pemanasan global akibat perubahan iklim (D)."
-            },
-            {
-                id: 27,
-                passageId: "doc_coral_reefs",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Evaluasi Kebenaran Pernyataan (Benar / Salah)",
-                question: "Determine whether each statement below is TRUE or FALSE according to Text 5.",
-                categories: ["TRUE", "FALSE"],
-                items: [
-                    { id: "p5_1", text: "Coral reefs help protect coastal communities by absorbing harsh wave energy.", correct: "TRUE" },
-                    { id: "p5_2", text: "Bleached corals turn completely white and begin to starve.", correct: "TRUE" },
-                    { id: "p5_3", text: "Industrial ocean pollution has zero impact on coral reef survival.", correct: "FALSE" }
-                ],
-                explanation: "Pernyataan 1 & 2 benar sesuai paragraf 1 dan 2. Pernyataan 3 salah karena polusi industri merupakan ancaman utama yang wajib ditekan."
-            },
-            {
-                id: 28,
-                passageId: "doc_coral_reefs",
-                format: "single",
-                indicator: "Pemahaman Inferensial: Implikasi hilangnya terumbu karang bagi manusia",
-                question: "How would coastal human settlements most likely be affected if coral reefs vanished?",
-                options: [
-                    "Coastal towns would suffer increased destruction from surging storm waves and erosion.",
-                    "Coastal towns would experience an increase in freshwater drinking supplies.",
-                    "Ocean tides would completely cease moving worldwide.",
-                    "Fishing industries would experience an immediate surge in fish populations.",
-                    "Seaside weather would permanently remain calm and sunny."
-                ],
-                answer: 0,
-                quote: "These structures protect coastal communities from devastating storms by absorbing wave energy...",
-                explanation: "Tanpa terumbu karang yang meredam gelombang, pemukiman pesisir akan mengalami tingkat kerusakan parah akibat hantaman ombak badai dan erosi."
-            },
-            {
-                id: 29,
-                passageId: "doc_coral_reefs",
-                format: "mcma",
-                indicator: "Evaluasi & Apresiasi: Solusi pelestarian terumbu karang",
-                question: "Which conservation measures are recommended by marine biologists in the text? (Select ALL correct answers!)",
-                options: [
-                    "Enforcing marine protected conservation areas.",
-                    "Building artificial concrete walls across all ocean floors.",
-                    "Curbing industrial ocean pollution.",
-                    "Relocating all marine species to freshwater lakes.",
-                    "Reducing activities that drive global ocean warming."
-                ],
-                answer: [0, 2, 4],
-                quote: "enforcing marine protected areas and curbing industrial ocean pollution... climate change...",
-                explanation: "Rekomendasi biolog meliputi: Menegakkan kawasan konservasi laut terindungi (A), menekan polusi industri laut (C), serta mengurangi penyebab pemanasan suhu laut (E)."
-            },
-            {
-                id: 30,
-                passageId: "doc_coral_reefs",
-                format: "category",
-                indicator: "Pemahaman Tekstual: Klasifikasi Fungsi Ekologis Terumbu Karang",
-                question: "Classify each statement as either an 'Ecological Benefit' or an 'Environmental Threat' to coral reefs.",
-                categories: ["Ecological Benefit", "Environmental Threat"],
-                items: [
-                    { id: "p5_4", text: "Providing habitat shelter for 25% of ocean marine species.", correct: "Ecological Benefit" },
-                    { id: "p5_5", text: "Uncontrolled industrial runoff polluting coastal waters.", correct: "Environmental Threat" },
-                    { id: "p5_6", text: "Absorbing high wave impact during severe tropical storms.", correct: "Ecological Benefit" }
-                ],
-                explanation: "Menyediakan habitat dan meredam gelombang badai adalah Ecological Benefit. Polusi limbah industri adalah Environmental Threat."
-            }
+        const rawQuestions1 = [
+            { id: 1, passageId: "doc_fable_falcon", format: "single", indicator: "Pemahaman Tekstual: Ringkasan naratif", question: "Which option best summarizes the plot of 'The King and the Trained Falcon'?", options: ["A king gets lost in the mountains, loses his falcon, and finds water at a local village spring.", "A king tries to drink dripping water, but his falcon knocks the cup away to prevent him from consuming deadly snake venom.", "A hunting falcon attacks its owner out of wild instinct, forcing the king to defend himself with a dagger.", "A king travels through dry mountains, feeds his thirsty falcon with poisoned water, and regrets his choice.", "A falcon escapes its golden cup cage, leads the king up a dangerous cliff, and helps him slay a giant viper."], answer: 1, quote: "The falcon had knocked the cup away... he discovered a giant venomous viper...", explanation: "Ringkasan alur utama mengisahkan elang yang berulang kali menumpahkan cangkir air demi menyelamatkan raja dari racun ular." },
+            { id: 2, passageId: "doc_fable_falcon", format: "mcma", indicator: "Pesan Moral", question: "Which moral lessons are strongly conveyed in this story? (Select ALL correct answers!)", options: ["Never make hasty decisions or act violently while blinded by anger.", "Always trust the intentions of loyal companions, even if their actions seem strange.", "Avoid traveling through dry mountain ranges without carrying excess water.", "Regret comes too late when anger drives impulsive choices.", "Wild animals can never truly adapt to living with human royalty."], answer: [0, 1, 3], quote: "He vowed never again to make rash decisions in anger...", explanation: "Pesan moral meliputi larangan bertindak terburu-buru saat marah (A), percaya pada niat baik sahabat (B), dan penyesalan akibat keputusan impulsif (D)." },
+            { id: 3, passageId: "doc_fable_falcon", format: "single", indicator: "Analisis Tokoh", question: "Why did the king react with violence towards his beloved falcon?", options: ["He believed the falcon was trying to steal his golden cup.", "He was exhausted, severely dehydrated, and overwhelmed by sudden frustration.", "He noticed the falcon was infected with snake venom.", "He wanted to test if another falcon could replace it.", "The falcon flew away with his hunting equipment."], answer: 1, quote: "Blinded by intense thirst and anger, the king drew his dagger...", explanation: "Raja bertindak brutal karena kelelahan, dehidrasi berat, dan emosi yang meluap." },
+            { id: 4, passageId: "doc_fable_falcon", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE based on the text.", categories: ["TRUE", "FALSE"], items: [{ id: "p1_1", text: "The golden cup on the falcon's leg was used to carry drinking water during trips.", correct: "TRUE" }, { id: "p1_2", text: "The king discovered that the water was contaminated by a dead poisonous viper.", correct: "TRUE" }, { id: "p1_3", text: "The falcon intentionally knocked the cup away because it wanted to drink first.", correct: "FALSE" }], explanation: "Pernyataan 1 & 2 benar, pernyataan 3 salah." },
+            { id: 5, passageId: "doc_fable_falcon", format: "mcma", indicator: "Karakter Tokoh", question: "Which traits accurately describe the king at different stages of the story? (Select ALL correct answers!)", options: ["Impulsive when driven by rage and physical discomfort.", "Cruel and heartless toward animals throughout his entire life.", "Capable of deep remorse and self-reflection after realizing his mistake.", "Careless about his personal health and hygiene.", "Loving toward his hunting falcon prior to the incident."], answer: [0, 2, 4], quote: "treasured above all his possessions... blinded by intense thirst and anger...", explanation: "Sifat raja mencakup impulsif saat marah (A), mampu menyesal (C), dan sangat menyayangi elangnya sebelumnya (E)." },
+            { id: 6, passageId: "doc_fable_falcon", format: "single", indicator: "Inferensi Masa Depan", question: "What would the king most likely do in future challenging situations based on his vow?", options: ["He would completely stop keeping trained animals for hunting.", "He would pause to analyze situations calmly before reacting in anger.", "He would avoid drinking water from mountain springs altogether.", "He would delegate all decision-making duties to his advisors.", "He would carry multiple golden cups on every journey."], answer: 1, quote: "He vowed never again to make rash decisions in anger.", explanation: "Raja akan lebih tenang dan berpikir jernih sebelum mengambil keputusan." },
+            { id: 7, passageId: "doc_digital_literacy", format: "single", indicator: "Literasi Digital", question: "According to the infographic, how should students verify whether online news is accurate?", options: ["By counting how many users liked or shared the news post.", "By checking whether the source belongs to a verified educational or news publisher.", "By asking friends in online chat forums for their opinions.", "By creating multi-factor passwords for their accounts.", "By reporting the author of the post directly to internet service providers."], answer: 1, quote: "Step 1: Check whether news articles come from verified educational or journalistic publishers...", explanation: "Verifikasi berita melalui penerbit edukasi atau jurnalistik terverifikasi." },
+            { id: 8, passageId: "doc_digital_literacy", format: "category", indicator: "Klasifikasi Tindakan", question: "Classify each digital action below as either 'Safe Online Habit' or 'Unsafe Online Practice'.", categories: ["Safe Online Habit", "Unsafe Online Practice"], items: [{ id: "p2_1", text: "Comparing information across multiple reputable sources before sharing.", correct: "Safe Online Habit" }, { id: "p2_2", text: "Posting your home address and phone number on public student forums.", correct: "Unsafe Online Practice" }, { id: "p2_3", text: "Using the same simple password for all educational logins.", correct: "Unsafe Online Practice" }], explanation: "Membandingkan sumber terpercaya adalah aman, menyebar alamat dan sandi lemah adalah tidak aman." },
+            { id: 9, passageId: "doc_digital_literacy", format: "mcma", indicator: "Tujuan Penulisan", question: "What are the main intentions of the author in publishing this infographic? (Select ALL correct answers!)", options: ["To guide students toward responsible and safe internet usage.", "To persuade schools to ban all digital devices in classrooms.", "To reduce the spread of misinformation and cyber threats among youth.", "To promote commercial security software products to families.", "To build critical thinking skills when consuming online data."], answer: [0, 2, 4], quote: "5 Key Steps to Practice Cyber Safety & Digital Literacy...", explanation: "Tujuan utama meliputi panduan internet aman (A), menekan disinformasi (C), dan membangun pemikiran kritis (E)." },
+            { id: 10, passageId: "doc_digital_literacy", format: "single", indicator: "Implikasi", question: "What is a likely consequence if a student neglects Step 4 (Protect Personal Identifiable Data)?", options: ["Their computer hardware will physically stop functioning.", "They might become vulnerable to identity theft or online scam attempts.", "Their academic grades will automatically decrease.", "They will no longer be allowed to use school library books.", "Their social media accounts will receive automatic verification badges."], answer: 1, quote: "Avoid sharing phone numbers, home addresses, or passwords in public educational forums.", explanation: "Mengabaikan data pribadi memicu risiko pencurian identitas atau penipuan daring." },
+            { id: 11, passageId: "doc_digital_literacy", format: "mcma", indicator: "Penerapan Nyata", question: "Which scenario(s) demonstrate proper application of the infographic's recommendations? (Select ALL correct answers!)", options: ["Anita combines numbers, symbols, and capital letters for her school portal password.", "Budi immediately forwards a sensational headline without checking its publisher.", "Citra reports abusive comment threads on a school learning app to her teacher.", "Deni uses his birthday as a universal password across five separate applications.", "Eka cross-checks a viral scientific claim with two official research websites."], answer: [0, 2, 4], quote: "Steps 2, 3, and 5 cover strong passwords, critical evaluation, and reporting cyberbullying.", explanation: "Penerapan benar ada pada Anita (sandi kuat), Citra (melapor perundungan), dan Eka (cross-check berita)." },
+            { id: 12, passageId: "doc_digital_literacy", format: "category", indicator: "Keamanan Sandi", question: "Determine whether each statement regarding password security is TRUE or FALSE according to the guide.", categories: ["TRUE", "FALSE"], items: [{ id: "p2_4", text: "Passwords should combine uppercase letters, numbers, and symbols.", correct: "TRUE" }, { id: "p2_5", text: "It is safe to share account passwords in student study forums.", correct: "FALSE" }], explanation: "Kombinasi huruf/angka/simbol wajib (True), berbagi sandi di forum dilarang (False)." },
+            { id: 13, passageId: "doc_ant_pigeon", format: "single", indicator: "Urutan Kronologis", question: "Which sequence correctly reflects the chronological order of events in 'The Clever Ant and the Pigeon'?", options: ["Hunter traps pigeon -> Ant bites hunter -> Leaf drops in water -> Pigeon flies away.", "Ant falls into river -> Pigeon drops leaf to save ant -> Hunter tries to net pigeon -> Ant bites hunter's heel -> Pigeon escapes.", "Pigeon sees hunter -> Ant jumps onto leaf -> Hunter drops net -> Ant swims across rushing stream.", "Ant bites hunter -> Pigeon drops leaf into river -> Ant climbs tree branch -> Hunter leaves forest.", "Hunter catches ant -> Pigeon scares hunter away -> Ant falls in river -> Pigeon drops leaf."], answer: 1, quote: "Sequence: Ant slipped -> Pigeon dropped leaf -> Hunter arrived -> Ant bit heel -> Pigeon flew away.", explanation: "Urutan: Semut jatuh -> Merpati beri daun -> Pemburu datang -> Semut gigit tumit -> Merpati terbang." },
+            { id: 14, passageId: "doc_ant_pigeon", format: "mcma", indicator: "Pesan Moral Fabel", question: "What main messages are reflected in the story of the ant and the pigeon? (Select ALL correct answers!)", options: ["No act of kindness, no matter how small, is ever wasted.", "One good deed deserves another in return.", "Always stay away from rivers during hot summer afternoons.", "Size does not limit your ability to help someone in danger.", "Hunters should never be allowed in forest reserves."], answer: [0, 1, 3], quote: "The ant bit the hunter's heel to save his savior...", explanation: "Kebaikan tidak pernah sia-sia (A), kebaikan dibalas kebaikan (B), ukuran tubuh bukan batasan menolong (D)." },
+            { id: 15, passageId: "doc_ant_pigeon", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE based on the narrative.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_1", text: "The pigeon used a broad leaf to rescue the drowning ant.", correct: "TRUE" }, { id: "p3_2", text: "The hunter successfully captured the pigeon in his net.", correct: "FALSE" }, { id: "p3_3", text: "The ant bit the hunter's heel to distract him and create noise.", correct: "TRUE" }], explanation: "Pernyataan 1 & 3 benar, pernyataan 2 salah." },
+            { id: 16, passageId: "doc_ant_pigeon", format: "single", indicator: "Motivasi Tokoh", question: "Why did the ant decide to bite the hunter's heel despite being tiny and fragile?", options: ["The ant was hungry and mistook the heel for food.", "The ant wanted to avenge all ants that had been stepped on.", "The ant felt a deep sense of gratitude and urgency to save the pigeon.", "The pigeon chirped loudly to command the ant to attack.", "The hunter attempted to crush the ant's nest."], answer: 2, quote: "Seeing the imminent danger to his savior, the ant crawled rapidly...", explanation: "Semut tergerak oleh rasa terima kasih dan urgensi menyelamatkan penolongnya." },
+            { id: 17, passageId: "doc_ant_pigeon", format: "mcma", indicator: "Hubungan Antar Tokoh", question: "Which dynamics best describe the relationship between the ant and the pigeon? (Select ALL correct answers!)", options: ["Mutual respect built on selfless actions.", "A rivalry over limited forest food resources.", "Reciprocal empathy across different species.", "A temporary partnership driven purely by financial gain.", "Loyal friendship forged through crisis."], answer: [0, 2, 4], quote: "From that day on, the two creatures remained devoted allies.", explanation: "Saling menghormati (A), empati timbal balik (C), dan persahabatan setia (E)." },
+            { id: 18, passageId: "doc_ant_pigeon", format: "single", indicator: "Inferensi Alternatif", question: "What would have most likely happened if the ant had ignored the hunter?", options: ["The hunter would have accidentally fallen into the river.", "The pigeon would have been trapped in the hunter's net.", "The pigeon would have dropped another leaf onto the hunter.", "The hunter would have adopted the pigeon as a pet.", "The rushing stream would have flooded the entire forest."], answer: 1, quote: "carrying a net to trap the sleeping pigeon... dropped his trap net when bitten.", explanation: "Tanpa gigitan semut, merpati yang tertidur pasti tertangkap jaring." },
+            { id: 19, passageId: "doc_renewable_energy", format: "single", indicator: "Gagasan Utama", question: "What is the primary thesis statement presented in Text 4?", options: ["Fossil fuel prices will remain lower than clean energy indefinitely.", "Transitioning to renewable energy is both an environmental and economic necessity.", "Wind turbines are unsuitable for generating electricity in modern cities.", "Battery storage networks are too expensive to be deployed globally.", "Global weather disruptions are unrelated to carbon emissions."], answer: 1, quote: "The transition toward renewable energy... is no longer just an environmental goal; it is an economic necessity.", explanation: "Transisi energi terbarukan adalah kebutuhan lingkungan sekaligus ekonomi." },
+            { id: 20, passageId: "doc_renewable_energy", format: "mcma", indicator: "Solusi Energi", question: "According to the text, what solutions address the intermittency of solar and wind power? (Select ALL correct answers!)", options: ["Deploying large-scale battery storage networks.", "Increasing the burning of coal during cloudy days.", "Integrating smart grid systems to store excess energy.", "Banning all electrical usage during nighttime hours.", "Utilizing stored energy during peak demand times."], answer: [0, 2, 4], quote: "engineers are deploying massive battery storage networks and smart grids...", explanation: "Solusi mencakup baterai penyimpanan skala besar (A), smart grid (C), dan penggunaan energi cadangan (E)." },
+            { id: 21, passageId: "doc_renewable_energy", format: "category", indicator: "Klaim Teks", question: "Determine whether each claim below is TRUE or FALSE according to Text 4.", categories: ["TRUE", "FALSE"], items: [{ id: "p4_1", text: "Solar panels can generate equal amounts of electricity at night.", correct: "FALSE" }, { id: "p4_2", text: "Fossil fuel combustion releases massive amounts of carbon dioxide.", correct: "TRUE" }, { id: "p4_3", text: "Clean energy investments help lower long-term national healthcare costs.", correct: "TRUE" }], explanation: "Pernyataan 1 salah, pernyataan 2 & 3 benar." },
+            { id: 22, passageId: "doc_renewable_energy", format: "single", indicator: "Makna Implisit", question: "Why does the author mention 'lowering healthcare costs' in the conclusion?", options: ["Because solar panels are used to power all modern hospital equipment directly.", "Because reduced carbon pollution improves air quality and decreases respiratory illnesses.", "Because wind turbine companies fund public health insurance programs.", "Because fossil fuel companies will pay for hospital bills.", "Because battery storage systems reduce physical stress for workers."], answer: 1, quote: "Fossil fuels release CO2... deteriorating public health. Clean energy lowers healthcare costs...", explanation: "Pengurangan polusi memperbaiki kualitas udara dan menurunkan penyakit pernapasan." },
+            { id: 23, passageId: "doc_renewable_energy", format: "mcma", indicator: "Argumen Penulis", question: "Which evidence-based arguments does the author use to support renewable energy adoption? (Select ALL correct answers!)", options: ["Clean energy creates long-term economic resilience.", "Renewable installations require zero upfront financial capital.", "Fossil fuels drive severe global weather disruptions.", "Smart grids eliminate the need for electrical wires.", "Ecosystems receive better protection when carbon emissions decrease."], answer: [0, 2, 4], quote: "fossil fuels drive severe weather... investing creates resilience...", explanation: "Argumen sahih meliputi ketahanan ekonomi (A), dampak cuaca buruk bahan bakar fosil (C), dan perlindungan ekosistem (E)." },
+            { id: 24, passageId: "doc_renewable_energy", format: "category", indicator: "Klasifikasi Energi", question: "Categorize each energy source listed below as either 'Renewable' or 'Non-Renewable'.", categories: ["Renewable Energy", "Non-Renewable Energy"], items: [{ id: "p4_4", text: "Solar Photovoltaic Power", correct: "Renewable Energy" }, { id: "p4_5", text: "Traditional Coal Burning", correct: "Non-Renewable Energy" }, { id: "p4_6", text: "Wind Turbine Generation", correct: "Renewable Energy" }], explanation: "Surya dan angin adalah terbarukan (renewable), batu bara tidak terbarukan (non-renewable)." },
+            { id: 25, passageId: "doc_coral_reefs", format: "single", indicator: "Fakta Spesifik", question: "Despite covering less than 1% of the ocean floor, coral reefs support what percentage of marine species?", options: ["Nearly 10%", "Nearly 25%", "Approximately 50%", "Over 75%", "Exactly 90%"], answer: 1, quote: "Coral reefs cover less than 1% of the ocean floor, yet they support nearly 25% of all marine species...", explanation: "Terumbu karang menopang hampir 25% dari seluruh spesies laut." },
+            { id: 26, passageId: "doc_coral_reefs", format: "mcma", indicator: "Coral Bleaching", question: "Based on Text 5, what triggers the process of coral bleaching? (Select ALL correct answers!)", options: ["Unnaturally high ocean water temperatures.", "Excessive wave energy during coastal storms.", "Corals expelling the colorful algae living in their tissues.", "Ocean warming caused by climate change.", "Absorbing too many marine nutrients from deep waters."], answer: [0, 2, 3], quote: "ocean warming caused by climate change... corals expel colorful algae...", explanation: "Pemicu bleaching meliputi suhu air tinggi (A), karang mengeluarkan alga (C), dan pemanasan global (D)." },
+            { id: 27, passageId: "doc_coral_reefs", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE according to Text 5.", categories: ["TRUE", "FALSE"], items: [{ id: "p5_1", text: "Coral reefs help protect coastal communities by absorbing harsh wave energy.", correct: "TRUE" }, { id: "p5_2", text: "Bleached corals turn completely white and begin to starve.", correct: "TRUE" }, { id: "p5_3", text: "Industrial ocean pollution has zero impact on coral reef survival.", correct: "FALSE" }], explanation: "Pernyataan 1 & 2 benar, pernyataan 3 salah." },
+            { id: 28, passageId: "doc_coral_reefs", format: "single", indicator: "Implikasi Ekosistem", question: "How would coastal human settlements most likely be affected if coral reefs vanished?", options: ["Coastal towns would suffer increased destruction from surging storm waves and erosion.", "Coastal towns would experience an increase in freshwater drinking supplies.", "Ocean tides would completely cease moving worldwide.", "Fishing industries would experience an immediate surge in fish populations.", "Seaside weather would permanently remain calm and sunny."], answer: 0, quote: "These structures protect coastal communities from devastating storms by absorbing wave energy...", explanation: "Tanpa terumbu karang, pemukiman pesisir akan mengalami kerusakan parah akibat hantaman ombak." },
+            { id: 29, passageId: "doc_coral_reefs", format: "mcma", indicator: "Konservasi", question: "Which conservation measures are recommended by marine biologists in the text? (Select ALL correct answers!)", options: ["Enforcing marine protected conservation areas.", "Building artificial concrete walls across all ocean floors.", "Curbing industrial ocean pollution.", "Relocating all marine species to freshwater lakes.", "Reducing activities that drive global ocean warming."], answer: [0, 2, 4], quote: "enforcing marine protected areas and curbing industrial ocean pollution...", explanation: "Rekomendasi meliputi kawasan konservasi laut (A), menekan polusi industri (C), dan mengurangi pemanasan global (E)." },
+            { id: 30, passageId: "doc_coral_reefs", format: "category", indicator: "Fungsi Ekologis", question: "Classify each statement as either an 'Ecological Benefit' or an 'Environmental Threat' to coral reefs.", categories: ["Ecological Benefit", "Environmental Threat"], items: [{ id: "p5_4", text: "Providing habitat shelter for 25% of ocean marine species.", correct: "Ecological Benefit" }, { id: "p5_5", text: "Uncontrolled industrial runoff polluting coastal waters.", correct: "Environmental Threat" }, { id: "p5_6", text: "Absorbing high wave impact during severe tropical storms.", correct: "Ecological Benefit" }], explanation: "Penyediaan habitat dan peredam ombak adalah Benefit, polusi industri adalah Threat." }
         ];
 
         /* ==========================================================================
-           2. APPLICATION STATE MANAGEMENT
+           PAKET 2 DATA (Soal 31 - 60)
+           ========================================================================== */
+        const passagesData2 = {
+            doc_ai_education: {
+                title: "Text 1: Artificial Intelligence in Modern Education (Analytical Exposition)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The Integration of Artificial Intelligence in Classrooms</p>
+                <p>Artificial Intelligence (AI) has rapidly transformed educational landscapes across the globe. Intelligent tutoring systems can now diagnose individual student weaknesses, tailoring exercises and feedback in real-time to match personal learning speeds.</p>
+                <p>However, critics warn against over-reliance on automated tools, arguing that excessive dependence on AI may diminish crucial human mentorship, empathy, and face-to-face peer collaboration. Furthermore, data privacy concerns regarding student learning metrics remain a pressing challenge for institutions.</p>
+                <p>In conclusion, while AI offers unprecedented personalization, it must be deployed as a supportive assistant rather than a complete replacement for human educators.</p>`
+            },
+            doc_deep_ocean: {
+                title: "Text 2: Deep Sea Exploration & Hydrothermal Vents (Informative Text)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Mysteries of Hydrothermal Vents</p>
+                <p>Deep beneath the ocean surface, thousands of meters underwater where sunlight cannot penetrate, lie hydrothermal vents spewing mineral-rich superheated water. Despite crushing pressure and near-freezing temperatures surrounding them, these vents sustain thriving ecosystems.</p>
+                <p>Unlike surface organisms relying on photosynthesis, vent creatures such as giant tube worms and extremophile bacteria survive through chemosynthesis, converting toxic hydrogen sulfide into organic energy. Scientists study these remarkable environments to understand the potential origins of life on Earth and other planetary bodies.</p>`
+            },
+            doc_saving_orangutan: {
+                title: "Text 3: Rainforest Conservation & Orangutan Habitats (Recount/Report)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Protecting Sumatran & Bornean Orangutans</p>
+                <p>Orangutans play an indispensable role in maintaining healthy tropical rainforest ecosystems by dispersing seeds across vast distances. Unfortunately, rapid deforestation driven by palm oil plantations and illegal logging has critically endangered their natural habitats.</p>
+                <p>Dedicated wildlife rescue centers across Indonesia rehabilitate displaced orangutans, training them in essential survival skills before reintroducing them into protected national parks. Conservationists emphasize that strict enforcement of anti-poaching laws and sustainable agricultural certification are vital to guarantee their survival.</p>`
+            },
+            doc_urban_gardening: {
+                title: "Text 4: Urban Agriculture & Rooftop Farming (Procedure/Guide)",
+                text: `<div class="bg-brand-50/50 dark:bg-brand-950/40 p-4 rounded-xl border border-brand-200 dark:border-brand-800/60 text-xs sm:text-sm space-y-2">
+                    <p class="font-bold text-brand-900 dark:text-brand-300 text-base">4 Steps to Establish a Productive Rooftop Garden</p>
+                    <ol class="list-decimal pl-4 space-y-1.5 font-medium text-slate-700 dark:text-slate-300">
+                        <li><strong>Assess Structural Load Capacity:</strong> Ensure the building roof can safely support soil weight, planters, and water reservoirs.</li>
+                        <li><strong>Install Waterproofing Membranes:</strong> Prevent water seepage and structural moisture damage to the building below.</li>
+                        <li><strong>Select Suitable Climate Crops:</strong> Choose leafy greens, herbs, and drought-resistant vegetables that thrive in urban sunlight.</li>
+                        <li><strong>Implement Drip Irrigation Systems:</strong> Conserve water usage and ensure steady hydration directly to plant roots.</li>
+                    </ol>
+                </div>`
+            },
+            doc_sleep_science: {
+                title: "Text 5: The Science of Adolescent Sleep Patterns (Informative Text)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Understanding Teenagers' Biological Clocks</p>
+                <p>Biological sleep rhythms undergo a natural shift during adolescence, causing teenagers to experience delayed melatonin release. Consequently, adolescents naturally feel alert later at night and struggle to wake up early for morning classes.</p>
+                <p>Sleep specialists note that chronic sleep deprivation impairs cognitive focus, memory consolidation, and emotional regulation. Schools and parents are increasingly urged to recognize these biological realities to support student wellness and academic performance.</p>`
+            }
+        };
+
+        const rawQuestions2 = [
+            { id: 31, passageId: "doc_ai_education", format: "single", indicator: "Gagasan Utama", question: "What is the main thesis of the text regarding AI in education?", options: ["AI should completely replace human teachers in modern classrooms.", "AI offers personalization benefits but must be balanced with human mentorship and privacy safeguards.", "AI systems are entirely ineffective at diagnosing student learning weaknesses.", "Data privacy issues are completely resolved across all educational institutions.", "Students should be banned from using AI tools during school examinations."], answer: 1, quote: "AI offers unprecedented personalization, it must be deployed as a supportive assistant...", explanation: "AI memberikan personalisasi hebat namun harus diimbangi pengawasan manusia dan privasi." },
+            { id: 32, passageId: "doc_ai_education", format: "mcma", indicator: "Tantangan AI", question: "Which points represent challenges or criticisms of AI in education mentioned in the text? (Select ALL correct answers!)", options: ["Risk of diminishing human mentorship and peer collaboration.", "Guaranteed elimination of all school operational costs.", "Concerns regarding student learning metrics and data privacy.", "Excessive reliance on automated teaching tools.", "Instant improvement in physical athletic performance."], answer: [0, 2, 3], quote: "diminish crucial human mentorship... data privacy concerns... excessive dependence...", explanation: "Tantangan AI meliputi berkurangnya bimbingan manusia (A), privasi data (C), dan ketergantungan berlebihan (D)." },
+            { id: 33, passageId: "doc_ai_education", format: "category", indicator: "Klasifikasi AI", question: "Classify each feature as either an 'Advantage' or a 'Challenge' of AI in education.", categories: ["Advantage", "Challenge"], items: [{ id: "p2_s1", text: "Tailoring exercises and feedback to match personal learning speeds.", correct: "Advantage" }, { id: "p2_s2", text: "Managing student data privacy and security risks.", correct: "Challenge" }, { id: "p2_s3", text: "Diminishing face-to-face peer collaboration and empathy.", correct: "Challenge" }], explanation: "Personalisasi belajar adalah Advantage, isu privasi dan hilangnya kolaborasi adalah Challenge." },
+            { id: 34, passageId: "doc_ai_education", format: "single", indicator: "Peran AI", question: "How should AI be utilized according to the author's final conclusion?", options: ["As an absolute dictator of school curriculums.", "As a supportive assistant alongside human educators.", "As a replacement for school buildings and libraries.", "As an entertainment tool for after-school gaming.", "As a financial auditor for school budgets."], answer: 1, quote: "...it must be deployed as a supportive assistant rather than a complete replacement for human educators.", explanation: "AI harus digunakan sebagai asisten pendukung, bukan pengganti guru." },
+            { id: 35, passageId: "doc_ai_education", format: "mcma", indicator: "Perspektif Seimbang", question: "Which balanced perspectives are highlighted in the passage? (Select ALL correct answers!)", options: ["AI provides customized learning speeds for individual students.", "Human mentorship remains crucial for emotional and social growth.", "Technology completely removes the need for student discipline.", "Privacy risks require careful institutional safeguarding.", "AI tutoring makes traditional textbooks instantly illegal."], answer: [0, 1, 3], quote: "tailoring exercises... human mentorship... data privacy concerns...", explanation: "Perspektif mencakup personalisasi (A), bimbingan manusia (B), dan perlindungan privasi (D)." },
+            { id: 36, passageId: "doc_ai_education", format: "single", indicator: "Inferensi Ketergantungan", question: "What might happen if schools relied 100% on AI without human teachers?", options: ["Students would develop exceptional interpersonal empathy.", "Students might lack social-emotional guidance and interpersonal empathy.", "School operational budgets would increase infinitely.", "Internet connections would become completely unnecessary.", "All students would achieve identical test scores."], answer: 1, quote: "...diminish crucial human mentorship, empathy, and face-to-face peer collaboration.", explanation: "Tanpa guru manusia, siswa akan kehilangan bimbingan sosial-emosional." },
+            { id: 37, passageId: "doc_deep_ocean", format: "single", indicator: "Kemosintesis", question: "How do hydrothermal vent ecosystems survive without sunlight?", options: ["Through artificial lighting installed by marine researchers.", "Through chemosynthesis, converting toxic hydrogen sulfide into energy.", "By absorbing heat energy directly from volcanic surface lava.", "By consuming floating debris descending from surface waters.", "By hibernating during periods of extreme water pressure."], answer: 1, quote: "...survive through chemosynthesis, converting toxic hydrogen sulfide into organic energy.", explanation: "Makhluk vent bertahan melalui kemosintesis hidrogen sulfida." },
+            { id: 38, passageId: "doc_deep_ocean", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE based on Text 2.", categories: ["TRUE", "FALSE"], items: [{ id: "p2_s4", text: "Hydrothermal vents emit mineral-rich superheated water deep underwater.", correct: "TRUE" }, { id: "p2_s5", text: "Giant tube worms rely on standard photosynthesis like surface plants.", correct: "FALSE" }, { id: "p2_s6", text: "Scientists study hydrothermal vents to explore the origins of life.", correct: "TRUE" }], explanation: "Pernyataan 1 & 3 benar, pernyataan 2 salah." },
+            { id: 39, passageId: "doc_deep_ocean", format: "mcma", indicator: "Ekstremofil", question: "What extreme conditions do hydrothermal vent organisms successfully endure? (Select ALL correct answers!)", options: ["Crushing water pressure.", "Intense blazing sunlight.", "Near-freezing ambient temperatures surrounding the vents.", "Exposure to toxic hydrogen sulfide compounds.", "Constant dry air conditions."], answer: [0, 2, 3], quote: "Despite crushing pressure and near-freezing temperatures... converting toxic hydrogen sulfide...", explanation: "Kondisi ekstrem meliputi tekanan tinggi (A), suhu mendekati titik beku (C), dan hidrogen sulfida (D)." },
+            { id: 40, passageId: "doc_deep_ocean", format: "single", indicator: "Tujuan Ilmiah", question: "Why are astrobiologists and scientists deeply interested in extremophile bacteria?", options: ["To harvest minerals for commercial jewelry production.", "To investigate how life might exist in harsh extraterrestrial environments.", "To generate cheap electricity for coastal cities.", "To replace traditional aquarium fish species.", "To warm up cold ocean currents."], answer: 1, quote: "...understand the potential origins of life on Earth and other planetary bodies.", explanation: "Ilmuwan menyelidiki bagaimana kehidupan bertahan di lingkungan luar bumi yang ekstrem." },
+            { id: 41, passageId: "doc_deep_ocean", format: "mcma", indicator: "Signifikansi Riset", question: "Which inferences can be drawn about deep-sea research? (Select ALL correct answers!)", options: ["Earth's oceans still hold hidden biological wonders.", "Life can thrive in conditions previously thought completely uninhabitable.", "Surface photosynthesis is the only biological energy source in existence.", "Chemosynthesis expands our understanding of biological adaptability.", "Deep sea vents require daily maintenance by human divers."], answer: [0, 1, 3], quote: "...sustain thriving ecosystems... chemosynthesis... origins of life...", explanation: "Kesimpulan meliputi keajaiban laut (A), kehidupan di tempat tak terduga (B), dan perluasan kemosintesis (D)." },
+            { id: 42, passageId: "doc_deep_ocean", format: "category", indicator: "Klasifikasi Energi Biologis", question: "Classify each biological process as either 'Photosynthesis' or 'Chemosynthesis'.", categories: ["Photosynthesis", "Chemosynthesis"], items: [{ id: "p2_s7", text: "Utilizing sunlight in surface plants to generate organic matter.", correct: "Photosynthesis" }, { id: "p2_s8", text: "Converting toxic hydrogen sulfide near deep-sea vents into energy.", correct: "Chemosynthesis" }], explanation: "Cahaya matahari adalah fotosintesis, konversi hidrogen sulfida adalah kemosintesis." },
+            { id: 43, passageId: "doc_saving_orangutan", format: "single", indicator: "Peran Ekologis", question: "How do orangutans directly contribute to tropical rainforest health?", options: ["By constructing artificial dams along riverbanks.", "By dispersing seeds across vast distances through the forest.", "By pollinating night-blooming flowers exclusively.", "By preventing illegal loggers from entering national parks.", "By regulating soil mineral acidity."], answer: 1, quote: "Orangutans play an indispensable role... by dispersing seeds across vast distances.", explanation: "Orangutan menjaga kesehatan hutan melalui penyebaran biji." },
+            { id: 44, passageId: "doc_saving_orangutan", format: "mcma", indicator: "Ancaman Konservasi", question: "What primary factors threaten orangutan survival in the wild? (Select ALL correct answers!)", options: ["Rapid deforestation for palm oil plantations.", "Natural volcanic eruptions in Sumatra and Borneo.", "Illegal commercial logging operations.", "Strict anti-poaching wildlife regulations.", "Loss of natural forest habitats."], answer: [0, 2, 4], quote: "rapid deforestation driven by palm oil plantations and illegal logging...", explanation: "Ancaman meliputi deforestasi sawit (A), pembalakan liar (C), dan hilangnya habitat (E)." },
+            { id: 45, passageId: "doc_saving_orangutan", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on the text.", categories: ["TRUE", "FALSE"], items: [{ id: "p2_s9", text: "Wildlife rescue centers train displaced orangutans in survival skills before release.", correct: "TRUE" }, { id: "p2_10", text: "Palm oil expansion has expanded orangutan wild populations safely.", correct: "FALSE" }, { id: "p2_11", text: "Conservationists emphasize strict enforcement of anti-poaching laws.", correct: "TRUE" }], explanation: "Pernyataan 1 & 3 benar, pernyataan 2 salah." },
+            { id: 46, passageId: "doc_saving_orangutan", format: "single", indicator: "Mitigasi", question: "What is an essential step required by conservationists to guarantee orangutan survival?", options: ["Moving all orangutans to European urban zoos permanently.", "Enforcing anti-poaching laws and sustainable agricultural certification.", "Converting all rainforests into agricultural crop fields.", "Replacing wild fruit trees with artificial feeding stations.", "Banning human travel across all Indonesian islands."], answer: 1, quote: "...strict enforcement of anti-poaching laws and sustainable agricultural certification are vital...", explanation: "Langkah esensial adalah penegakan hukum perburuan dan sertifikasi pertanian berkelanjutan." },
+            { id: 47, passageId: "doc_saving_orangutan", format: "mcma", indicator: "Pusat Rehabilitasi", question: "What responsibilities do wildlife rescue centers fulfill? (Select ALL correct answers!)", options: ["Rehabilitating displaced orangutans.", "Providing survival skills training before release.", "Operating commercial palm oil mills.", "Reintroducing animals into protected national parks.", "Exporting endangered species for private collection."], answer: [0, 1, 3], quote: "rehabilitate displaced orangutans, training them in essential survival skills before reintroducing...", explanation: "Pusat rehabilitasi merawat satwa terlantar (A), melatih bertahan hidup (B), dan melepasliarkan (D)." },
+            { id: 48, passageId: "doc_saving_orangutan", format: "single", indicator: "Dampak Kepunahan", question: "What would likely happen to the rainforest if orangutans went extinct?", options: ["Plant diversity and forest regeneration rates would suffer due to a lack of seed dispersal.", "Rainforest trees would grow faster without animal interference.", "Rainfall frequency would double across tropical regions.", "Soil erosion would completely stop within a decade.", "Other primate species would instantly replace their ecological role."], answer: 0, quote: "Orangutans play an indispensable role... by dispersing seeds...", explanation: "Tanpa penyebaran biji, keragaman dan regenerasi hutan akan terganggu." },
+            { id: 49, passageId: "doc_urban_gardening", format: "single", indicator: "Langkah Prosedur", question: "According to the guide, what must be evaluated first before setting up a rooftop garden?", options: ["The market price of organic vegetables.", "The structural load capacity of the building roof.", "The color scheme of the exterior walls.", "The number of neighborhood volunteers available.", "The daily weather forecast for rainfall."], answer: 1, quote: "Step 1: Assess Structural Load Capacity: Ensure the building roof can safely support soil weight...", explanation: "Langkah pertama adalah menilai kapasitas beban struktural atap." },
+            { id: 50, passageId: "doc_urban_gardening", format: "category", indicator: "Klasifikasi Kebun Atap", question: "Classify each gardening action as either 'Structural Preparation' or 'Plant Management'.", categories: ["Structural Preparation", "Plant Management"], items: [{ id: "p2_12", text: "Installing waterproofing membranes to prevent moisture damage.", correct: "Structural Preparation" }, { id: "p2_13", text: "Selecting suitable climate crops like leafy greens and herbs.", correct: "Structural Preparation" ? "Plant Management" : "Plant Management" }, { id: "p2_14", text: "Implementing drip irrigation systems for steady hydration.", correct: "Plant Management" }], explanation: "Membran kedap air adalah Structural Prep, pemilihan tanaman dan irigasi tetes adalah Plant Management." },
+            { id: 51, passageId: "doc_urban_gardening", format: "mcma", indicator: "Irigasi Tetes", question: "What are the key benefits of implementing drip irrigation systems on rooftop gardens? (Select ALL correct answers!)", options: ["Conserving water usage efficiently.", "Delivering steady hydration directly to plant roots.", "Heating up rooftop soil during winter snowstorms.", "Preventing water waste through direct delivery.", "Eliminating the need for structural load assessments."], answer: [0, 1, 3], quote: "Conserve water usage and ensure steady hydration directly to plant roots.", explanation: "Manfaat irigasi tetes meliputi penghematan air (A), suplai ke akar langsung (B), dan mencegah pemborosan (D)." },
+            { id: 52, passageId: "doc_urban_gardening", format: "single", indicator: "Risiko Kelalaian", question: "What is a likely consequence if Step 2 (Waterproofing Membranes) is ignored?", options: ["Plants will grow too rapidly and break planters.", "Water seepage could cause structural moisture damage to the building below.", "Sunlight exposure will decrease instantly.", "The rooftop soil will turn into sand.", "Building elevators will stop functioning."], answer: 1, quote: "Prevent water seepage and structural moisture damage to the building below.", explanation: "Kelalaian membran kedap air memicu kebocoran dan kerusakan bangunan di bawahnya." },
+            { id: 53, passageId: "doc_urban_gardening", format: "mcma", indicator: "Praktik Tepat", question: "Which practices align with successful urban rooftop farming? (Select ALL correct answers!)", options: ["Choosing drought-resistant vegetables suited for urban sunlight.", "Placing heavy soil containers without checking roof weight limits.", "Installing proper waterproofing to protect building integrity.", "Using water-efficient drip irrigation methods.", "Ignoring local climate conditions entirely."], answer: [0, 2, 3], quote: "Steps 1, 2, 3, and 4 cover weight limits, waterproofing, crop selection, and irrigation.", explanation: "Praktik yang benar meliputi pemilihan tanaman tahan cuaca (A), kedap air (C), dan irigasi tetes (D)." },
+            { id: 54, passageId: "doc_urban_gardening", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on the guide.", categories: ["TRUE", "FALSE"], items: [{ id: "p2_15", text: "Rooftop gardens require assessing weight limits for soil and water.", correct: "TRUE" }, { id: "p2_16", text: "Waterproofing membranes are unnecessary for urban rooftop farms.", correct: "FALSE" }], explanation: "Pernyataan 1 benar, pernyataan 2 salah." },
+            { id: 55, passageId: "doc_sleep_science", format: "single", indicator: "Sains Tidur", question: "What biological factor causes adolescents to feel alert later at night?", options: ["Excessive consumption of artificial energy drinks.", "A natural biological shift resulting in delayed melatonin release.", "Increased homework assignments during evening hours.", "Exposure to classroom fluorescent lighting.", "Decreased physical activity during school hours."], answer: 1, quote: "Biological sleep rhythms undergo a natural shift... causing teenagers to experience delayed melatonin release.", explanation: "Pergeseran biologis alami menyebabkan pelepasan melatonin yang tertunda." },
+            { id: 56, passageId: "doc_sleep_science", format: "mcma", indicator: "Dampak Kurang Tidur", question: "According to sleep specialists, what functions are impaired by chronic sleep deprivation? (Select ALL correct answers!)", options: ["Cognitive focus and attention span.", "Memory consolidation processes.", "Emotional regulation and mood stability.", "Permanent eye color pigmentation.", "Skeletal bone density growth."], answer: [0, 1, 2], quote: "chronic sleep deprivation impairs cognitive focus, memory consolidation, and emotional regulation.", explanation: "Kurang tidur mengganggu fokus (A), konsolidasi memori (B), dan regulasi emosi (C)." },
+            { id: 57, passageId: "doc_sleep_science", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on Text 5.", categories: ["TRUE", "FALSE"], items: [{ id: "p2_17", text: "Teenagers naturally struggle to wake up early for morning classes due to biological shifts.", correct: "TRUE" }, { id: "p2_18", text: "Chronic sleep deprivation improves cognitive focus in students.", correct: "FALSE" }, { id: "p2_19", text: "Schools and parents are urged to support adolescent wellness.", correct: "TRUE" }], explanation: "Pernyataan 1 & 3 benar, pernyataan 2 salah." },
+            { id: 58, passageId: "doc_sleep_science", format: "single", indicator: "Tanggung Jawab Sekolah", question: "How should schools respond to adolescent sleep science findings?", options: ["By increasing morning detention hours for sleepy students.", "By recognizing biological realities and supporting student wellness and schedules.", "By banning all evening extracurricular activities permanently.", "By forcing students to sleep inside school libraries.", "By ignoring student fatigue as a minor discipline issue."], answer: 1, quote: "Schools and parents are increasingly urged to recognize these biological realities to support student wellness...", explanation: "Sekolah diimbau mengenali realitas biologis untuk mendukung kesejahteraan siswa." },
+            { id: 59, passageId: "doc_sleep_science", format: "mcma", indicator: "Validitas Ilmiah", question: "Which conclusions are supported by adolescent sleep science? (Select ALL correct answers!)", options: ["Teenager sleep patterns are driven by natural biology, not pure laziness.", "Early school start times conflict directly with adolescent circadian rhythms.", "Adequate sleep is strictly optional for high school academic success.", "Sleep deprivation negatively affects emotional stability and learning.", "Melatonin release timing changes during puberty."], answer: [0, 1, 3, 4], quote: "natural shift... delayed melatonin release... impairs cognitive focus...", explanation: "Kesimpulan meliputi biologi alami (A), konflik jadwal pagi (B), gangguan emosi/belajar (D), dan perubahan melatonin (E)." },
+            { id: 60, passageId: "doc_sleep_science", format: "category", indicator: "Klasifikasi Biologis", question: "Classify each outcome as either 'Cognitive/Emotional Impairment' or 'Normal Biological Factor'.", categories: ["Cognitive/Emotional Impairment", "Normal Biological Factor"], items: [{ id: "p2_20", text: "Delayed melatonin release during adolescent puberty.", correct: "Normal Biological Factor" }, { id: "p2_21", text: "Impaired memory consolidation and emotional volatility.", correct: "Cognitive/Emotional Impairment" }, { id: "p2_22", text: "Reduced classroom attention span and cognitive focus.", correct: "Cognitive/Emotional Impairment" }], explanation: "Pelepasan melatonin tertunda adalah faktor biologis, gangguan memori/fokus adalah impairment kognitif/emosional." }
+        ];
+
+        /* ==========================================================================
+           PAKET 3 DATA (Soal 61 - 90)
+           ========================================================================== */
+        const passagesData3 = {
+            doc_traditional_music: {
+                title: "Text 1: Preservation of Traditional Bamboo Instruments (Informative)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Preserving Indigenous Bamboo Orchestras</p>
+                <p>Traditional bamboo musical instruments, such as the Angklung and Calung, represent profound cultural heritage reflecting communal harmony and artistic ingenuity. Unlike modern digital synthesizers, bamboo instruments rely entirely on acoustic resonance and precise artisanal craftsmanship.</p>
+                <p>However, globalization and Western pop culture dominance have led younger generations to overlook traditional ensembles. Cultural preservationists are currently introducing interactive digital archives and school extracurricular workshops to revitalize interest among modern youth.</p>`
+            },
+            doc_cross_cultural: {
+                title: "Text 2: Cross-Cultural Communication in Global Workplaces (Exposition)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">Navigating Cross-Cultural Communication</p>
+                <p>In today's interconnected global economy, cross-cultural competence is an indispensable professional skill. Multinational teams bring together individuals from diverse linguistic backgrounds, social norms, and communication styles.</p>
+                <p>Misunderstandings frequently arise when team members misinterpret indirect phrasing or non-verbal cues. Cultivating active listening, empathy, and cultural intelligence enables professionals to build trust and resolve conflicts harmoniously across borders.</p>`
+            },
+            doc_mangrove_forests: {
+                title: "Text 3: Mangrove Ecosystems & Coastal Protection (Informative)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The Shield of Mangrove Forests</p>
+                <p>Mangrove forests thrive in coastal intertidal zones, forming dense root networks that anchor muddy shorelines against erosion. These resilient trees act as natural barriers against tropical storm surges and destructive tsunamis.</p>
+                <p>Furthermore, mangroves sequester carbon dioxide at rates significantly higher than tropical rainforests, earning them the title of 'blue carbon' champions. Community-led replanting initiatives are crucial to restore degraded coastlines worldwide.</p>`
+            },
+            doc_financial_literacy: {
+                title: "Text 4: Youth Financial Literacy & Saving Habits (Guide/Procedure)",
+                text: `<div class="bg-brand-50/50 dark:bg-brand-950/40 p-4 rounded-xl border border-brand-200 dark:border-brand-800/60 text-xs sm:text-sm space-y-2">
+                    <p class="font-bold text-brand-900 dark:text-brand-300 text-base">4 Golden Rules of Student Financial Management</p>
+                    <ol class="list-decimal pl-4 space-y-1.5 font-medium text-slate-700 dark:text-slate-300">
+                        <li><strong>Track Daily Pocket Money Income & Expenses:</strong> Record every transaction to understand personal spending patterns.</li>
+                        <li><strong>Apply the 50/30/20 Budgeting Rule:</strong> Allocate 50% for needs, 30% for wants, and at least 20% directly into savings.</li>
+                        <li><strong>Build an Emergency Fund Reserve:</strong> Set aside money for unexpected school project costs or sudden equipment repairs.</li>
+                        <li><strong>Avoid Impulsive Online Shopping:</strong> Wait 48 hours before purchasing non-essential items found on e-commerce apps.</li>
+                    </ol>
+                </div>`
+            },
+            doc_bee_population: {
+                title: "Text 5: Honeybee Decline & Agricultural Impact (Informative)",
+                text: `<p class="font-bold text-brand-900 dark:text-brand-300 mb-2">The Crisis of Declining Honeybee Populations</p>
+                <p>Honeybees are essential agricultural pollinators responsible for fertilizing nearly one-third of global food crops, including fruits, nuts, and vegetables. Unfortunately, pesticide overuse, habitat fragmentation, and climate shifts are causing alarming colony collapse disorder.</p>
+                <p>Agricultural scientists urge farmers to reduce harmful chemical pesticide usage and plant wildflowers along farm borders to secure pollinator habitats, safeguarding global food security for future generations.</p>`
+            }
+        };
+
+        const rawQuestions3 = [
+            { id: 61, passageId: "doc_traditional_music", format: "single", indicator: "Instrumen Tradisional", question: "What differentiates traditional bamboo instruments from modern digital synthesizers?", options: ["Bamboo instruments rely entirely on acoustic resonance and artisanal craftsmanship.", "Bamboo instruments require electricity and computer software to function.", "Modern synthesizers are handcrafted by village artisans.", "Bamboo instruments are louder than electronic stadium speakers.", "Modern synthesizers cannot produce musical melodies."], answer: 0, quote: "Unlike modern digital synthesizers, bamboo instruments rely entirely on acoustic resonance and precise artisanal craftsmanship.", explanation: "Instrumen bambu mengandalkan resonansi akustik dan kerajinan tangan pengrajin." },
+            { id: 62, passageId: "doc_traditional_music", format: "mcma", indicator: "Tantangan Budaya", question: "What factors contribute to younger generations overlooking traditional ensembles? (Select ALL correct answers!)", options: ["The dominance of globalization and Western pop culture.", "Lack of interest among modern youth without modern intervention.", "Strict government bans on playing musical instruments in public.", "The absence of digital archives and school workshops previously.", "Excessive popularity of bamboo instruments in Western nations."], answer: [0, 1, 3], quote: "globalization and Western pop culture dominance have led younger generations to overlook traditional ensembles...", explanation: "Faktor meliputi globalisasi (A), kurangnya minat pemuda (B), dan minimnya arsip digital/workshop sebelumnya (D)." },
+            { id: 63, passageId: "doc_traditional_music", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE based on Text 1.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_1", text: "Instruments like Angklung and Calung represent profound cultural heritage.", correct: "TRUE" }, { id: "p3_2", text: "Preservationists are introducing digital archives to revitalize interest.", correct: "TRUE" }, { id: "p3_3", text: "Modern youth prefer traditional bamboo over Western pop culture entirely.", correct: "FALSE" }], explanation: "Pernyataan 1 & 2 benar, pernyataan 3 salah." },
+            { id: 64, passageId: "doc_traditional_music", format: "single", indicator: "Revitalisasi Budaya", question: "How are cultural preservationists actively reviving interest in bamboo instruments among youth?", options: ["By replacing all school subjects with music lessons.", "By introducing interactive digital archives and school extracurricular workshops.", "By banning Western music broadcasts nationwide.", "By exporting all bamboo instruments to foreign museums.", "By requiring students to build digital synthesizers."], answer: 1, quote: "Cultural preservationists are currently introducing interactive digital archives and school extracurricular workshops...", explanation: "Pelestari budaya memperkenalkan arsip digital interaktif dan workshop sekolah." },
+            { id: 65, passageId: "doc_traditional_music", format: "mcma", indicator: "Nilai Budaya", question: "What values do traditional bamboo instruments symbolize? (Select ALL correct answers!)", options: ["Communal harmony among community members.", "Artistic ingenuity and traditional craftsmanship.", "Mass industrial factory production efficiency.", "Profound cultural heritage.", "Digital software engineering mastery."], answer: [0, 1, 3], quote: "...represent profound cultural heritage reflecting communal harmony and artistic ingenuity.", explanation: "Simbol budaya mencakup keharmonisan komunal (A), kecerdikan artistik (B), dan warisan mendalam (D)." },
+            { id: 66, passageId: "doc_traditional_music", format: "single", indicator: "Inferensi Kepunahan", question: "What would likely happen if preservation workshops and archives were never implemented?", options: ["Traditional bamboo music traditions might eventually face extinction among youth.", "Youth would automatically master bamboo instruments overnight.", "Western pop music would disappear completely.", "Digital synthesizers would be replaced by bamboo keyboards.", "School attendance rates would drop to zero."], answer: 0, quote: "globalization... led younger generations to overlook traditional ensembles.", explanation: "Tanpa pelestarian, musik bambu berisiko punah di kalangan pemuda." },
+            { id: 67, passageId: "doc_cross_cultural", format: "single", indicator: "Kompetensi Global", question: "According to Text 2, what skill is deemed indispensable in today's global economy?", options: ["Advanced software coding mastery.", "Cross-cultural competence.", "Fluent bilingual translation speed.", "Traditional musical performance.", "Financial stock market trading."], answer: 1, quote: "In today's interconnected global economy, cross-cultural competence is an indispensable professional skill.", explanation: "Kompetensi lintas budaya (cross-cultural competence) adalah keterampilan profesional yang esensial." },
+            { id: 68, passageId: "doc_cross_cultural", format: "category", indicator: "Tantangan Komunikasi", question: "Classify each factor as either a 'Communication Challenge' or a 'Resolution Strategy'.", categories: ["Communication Challenge", "Resolution Strategy"], items: [{ id: "p3_4", text: "Misinterpreting indirect phrasing or non-verbal cues.", correct: "Communication Challenge" }, { id: "p3_5", text: "Cultivating active listening, empathy, and cultural intelligence.", correct: "Resolution Strategy" }, { id: "p3_6", text: "Navigating diverse linguistic backgrounds and social norms.", correct: "Communication Challenge" }], explanation: "Salah tafsir isyarat adalah Challenge, active listening dan empati adalah Resolution Strategy." },
+            { id: 69, passageId: "doc_cross_cultural", format: "mcma", indicator: "Kesalahpahaman Tim", question: "Why do misunderstandings frequently occur in multinational teams? (Select ALL correct answers!)", options: ["Differences in linguistic backgrounds.", "Varying social norms and communication styles.", "Misinterpreting indirect phrasing or non-verbal cues.", "Identical cultural upbringings across all members.", "Complete lack of professional technical training."], answer: [0, 1, 2], quote: "diverse linguistic backgrounds, social norms, and communication styles... misinterpret indirect phrasing...", explanation: "Kesalahpahaman timbul karena perbedaan bahasa (A), norma sosial (B), dan salah tafsir isyarat (C)." },
+            { id: 70, passageId: "doc_cross_cultural", format: "single", indicator: "Resolusi Konflik", question: "What enables professionals to resolve conflicts harmoniously across borders?", options: ["Rigid adherence to personal home-country habits.", "Active listening, empathy, and cultural intelligence.", "Avoiding international telephone calls entirely.", "Insisting that all colleagues speak one single dialect.", "Relying solely on automated translation apps."], answer: 1, quote: "Cultivating active listening, empathy, and cultural intelligence enables professionals to build trust...", explanation: "Mendengarkan aktif, empati, dan kecerdasan kultural membangun kepercayaan serta resolusi konflik." },
+            { id: 71, passageId: "doc_cross_cultural", format: "mcma", indicator: "Profesional Multinasional", question: "Which traits characterize successful multinational professionals? (Select ALL correct answers!)", options: ["High cultural intelligence and adaptability.", "Willingness to practice active listening.", "Inability to accept diverse social norms.", "Empathy toward different communication styles.", "Insistence on cultural uniformity."], answer: [0, 1, 3], quote: "Cultivating active listening, empathy, and cultural intelligence...", explanation: "Profesional sukses memiliki kecerdasan kultural (A), pendengar aktif (B), dan berempati (D)." },
+            { id: 72, passageId: "doc_cross_cultural", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on Text 2.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_7", text: "Multinational teams bring together individuals from diverse linguistic backgrounds.", correct: "TRUE" }, { id: "p3_8", text: "Cross-cultural competence is unnecessary in modern global workplaces.", correct: "FALSE" }], explanation: "Pernyataan 1 benar, pernyataan 2 salah." },
+            { id: 73, passageId: "doc_mangrove_forests", format: "single", indicator: "Proteksi Pesisir", question: "How do mangrove forests protect coastal shorelines?", options: ["By building concrete seawalls along deep ocean trenches.", "By anchoring muddy shorelines against erosion with dense root networks and acting as storm barriers.", "By absorbing all ocean saltwater into desert basins.", "By heating up coastal air to prevent tropical storms.", "By releasing oxygen bubbles to calm surface waves."], answer: 1, quote: "forming dense root networks that anchor muddy shorelines against erosion... natural barriers against tropical storm surges...", explanation: "Mangrove melindungi pantai melalui jaringan akar penahan abrasi dan penahan badai." },
+            { id: 74, passageId: "doc_mangrove_forests", format: "mcma", indicator: "Blue Carbon", question: "Why are mangrove forests celebrated as 'blue carbon' champions? (Select ALL correct answers!)", options: ["They sequester carbon dioxide at rates significantly higher than tropical rainforests.", "Their flowers bloom in bright blue coloration.", "They absorb massive amounts of atmospheric carbon into biomass and sediment.", "They purify ocean water into drinking water instantly.", "They provide vital coastal protection."], answer: [0, 2], quote: "sequester carbon dioxide at rates significantly higher than tropical rainforests, earning them the title of 'blue carbon' champions.",
+explanation: "Mangrove disebut juara karbon biru karena menyerap karbon lebih tinggi dari hutan hujan (A) dan menyimpannya di biomassa/sedimen (C)." },
+            { id: 75, passageId: "doc_mangrove_forests", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on Text 3.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_9", text: "Mangroves thrive in coastal intertidal zones.", correct: "TRUE" }, { id: "p3_10", text: "Community-led replanting initiatives help restore degraded coastlines.", correct: "TRUE" }, { id: "p3_11", text: "Mangrove forests accelerate coastal erosion and storm damage.", correct: "FALSE" }], explanation: "Pernyataan 1 & 2 benar, pernyataan 3 salah." },
+            { id: 76, passageId: "doc_mangrove_forests", format: "single", indicator: "Restorasi Mangrove", question: "What is the primary purpose of community-led mangrove replanting initiatives?", options: ["To harvest timber for commercial furniture factories.", "To restore degraded coastlines and protect vulnerable ecosystems.", "To build luxury beachfront hotels.", "To create artificial fishing ponds for aquaculture.", "To clear land for coastal agricultural expansion."], answer: 1, quote: "Community-led replanting initiatives are crucial to restore degraded coastlines worldwide.", explanation: "Inisiatif penanaman kembali bertujuan memulihkan garis pantai yang rusak." },
+            { id: 77, passageId: "doc_mangrove_forests", format: "mcma", indicator: "Kerusakan Mangrove", question: "What negative consequences occur when mangrove forests are destroyed? (Select ALL correct answers!)", options: ["Increased coastal vulnerability to storm surges and tsunamis.", "Accelerated shoreline erosion.", "Higher atmospheric carbon sequestration rates.", "Loss of natural marine nursery habitats.", "Improved stability for coastal communities."], answer: [0, 1, 3], quote: "anchor muddy shorelines against erosion... natural barriers against storm surges...", explanation: "Kerusakan mangrove memicu kerentanan badai (A), abrasi pantai (B), dan hilangnya habitat ikan (D)." },
+            { id: 78, passageId: "doc_mangrove_forests", format: "single", indicator: "Perbandingan Karbon", question: "How do mangroves compare to traditional tropical rainforests in carbon sequestration?", options: ["Mangroves absorb carbon significantly slower than rainforests.", "Mangroves sequester carbon dioxide at significantly higher rates.", "Both ecosystems store identical amounts of carbon.", "Rainforests absorb carbon while mangroves release it.", "Neither ecosystem absorbs atmospheric carbon."], answer: 1, quote: "sequester carbon dioxide at rates significantly higher than tropical rainforests...", explanation: "Mangrove menyerap karbon dioksida pada laju yang jauh lebih tinggi daripada hutan hujan." },
+            { id: 79, passageId: "doc_financial_literacy", format: "single", indicator: "Aturan 50/30/20", question: "According to the financial guide, how should students apply the 50/30/20 budgeting rule?", options: ["50% for savings, 30% for needs, and 20% for wants.", "50% for needs, 30% for wants, and at least 20% directly into savings.", "50% for online shopping, 30% for emergency funds, and 20% for food.", "50% for investments, 50% for entertainment.", "100% saved in e-commerce wallets."], answer: 1, quote: "Rule 2: Allocate 50% for needs, 30% for wants, and at least 20% directly into savings.", explanation: "Aturan 50/30/20 mengalokasikan 50% kebutuhan, 30% keinginan, dan min 20% tabungan." },
+            { id: 80, passageId: "doc_financial_literacy", format: "category", indicator: "Klasifikasi Anggaran", question: "Classify each budget allocation according to the 50/30/20 rule.", categories: ["Needs (50%)", "Wants (30%)", "Savings (20%)"], items: [{ id: "p3_12", text: "Basic school textbooks and nutritious daily meals.", correct: "Needs (50%)" }, { id: "p3_13", text: "Recreational hangout snacks and entertainment tickets.", correct: "Wants (30%)" }, { id: "p3_14", text: "Monthly deposit into a dedicated emergency savings account.", correct: "Savings (20%)" }], explanation: "Buku/makanan adalah Needs, jajan rekreasi adalah Wants, tabungan darurat adalah Savings." },
+            { id: 81, passageId: "doc_financial_literacy", format: "mcma", indicator: "Pencatatan Keuangan", question: "Why is tracking daily pocket money income and expenses important for students? (Select ALL correct answers!)", options: ["It helps understand personal spending patterns.", "It guarantees an immediate increase in monthly allowance.", "It identifies unnecessary impulsive purchases.", "It establishes disciplined financial habits.", "It eliminates the need for emergency funds."], answer: [0, 2, 3], quote: "Step 1: Record every transaction to understand personal spending patterns.", explanation: "Pencatatan membantu memahami pola belanja (A), mengenali belanja impulsif (C), dan membentuk disiplin (D)." },
+            { id: 82, passageId: "doc_financial_literacy", format: "single", indicator: "Aturan 48 Jam", question: "What is the primary psychological purpose of waiting 48 hours before purchasing non-essential items?", options: ["To allow e-commerce shipping prices to increase.", "To curb impulsive online shopping and assess true necessity.", "To ensure bank accounts have zero remaining balance.", "To wait for products to sell out completely.", "To collect reward points on mobile apps."], answer: 1, quote: "Step 4: Avoid Impulsive Online Shopping: Wait 48 hours before purchasing non-essential items...", explanation: "Aturan tunggu 48 jam bertujuan meredam belanja impulsif secara daring." },
+            { id: 83, passageId: "doc_financial_literacy", format: "mcma", indicator: "Literasi Keuangan", question: "Which actions demonstrate sound financial literacy among students? (Select ALL correct answers!)", options: ["Setting aside 20% of income into savings consistently.", "Spending 100% of pocket money on daily recreational wants.", "Maintaining a reserve fund for unexpected school project costs.", "Recording every financial transaction daily.", "Purchasing items immediately upon seeing online flash sales."], answer: [0, 2, 3], quote: "Steps 1, 2, and 3 cover saving 20%, emergency funds, and recording transactions.", explanation: "Praktik keuangan sehat mencakup menabung 20% (A), menyiapkan dana darurat (C), dan mencatat transaksi (D)." },
+            { id: 84, passageId: "doc_financial_literacy", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement is TRUE or FALSE based on the financial guide.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_15", text: "Emergency funds help cover unexpected school equipment repairs.", correct: "TRUE" }, { id: "p3_16", text: "Students should spend all pocket money instantly without saving.", correct: "FALSE" }], explanation: "Pernyataan 1 benar, pernyataan 2 salah." },
+            { id: 85, passageId: "doc_bee_population", format: "single", indicator: "Penyerbukan Lebah", question: "Why are honeybees considered vital to global agriculture?", options: ["They produce honey consumed exclusively by farmers.", "They pollinate nearly one-third of global food crops, including fruits and nuts.", "They protect farm fields from destructive insects.", "They regulate soil temperature during winter frosts.", "They generate electricity for agricultural machinery."], answer: 1, quote: "Honeybees are essential agricultural pollinators responsible for fertilizing nearly one-third of global food crops...", explanation: "Lebah menyerbuki hampir sepertiga tanaman pangan global." },
+            { id: 86, passageId: "doc_bee_population", format: "mcma", indicator: "Ancaman Lebah", question: "What threats are driving colony collapse disorder among honeybee populations? (Select ALL correct answers!)", options: ["Pesticide overuse in agriculture.", "Habitat fragmentation and destruction.", "Climate shifts and weather changes.", "Excessive honey production by wild colonies.", "Strict protection of wildflower borders."], answer: [0, 1, 2], quote: "pesticide overuse, habitat fragmentation, and climate shifts are causing alarming colony collapse disorder.", explanation: "Ancaman meliputi pestisida berlebih (A), fragmentasi habitat (B), dan pergeseran iklim (C)." },
+            { id: 87, passageId: "doc_bee_population", format: "category", indicator: "Evaluasi Benar/Salah", question: "Determine whether each statement below is TRUE or FALSE based on Text 5.", categories: ["TRUE", "FALSE"], items: [{ id: "p3_17", text: "Honeybees fertilize one-third of global food crops.", correct: "TRUE" }, { id: "p3_18", text: "Planting wildflowers along farm borders helps secure pollinator habitats.", correct: "TRUE" }, { id: "p3_19", text: "Chemical pesticide overuse has zero negative impact on honeybees.", correct: "FALSE" }], explanation: "Pernyataan 1 & 2 benar, pernyataan 3 salah." },
+            { id: 88, passageId: "doc_bee_population", format: "single", indicator: "Rekomendasi Sains", question: "What actionable step do agricultural scientists urge farmers to take to protect pollinators?", options: ["To remove all flowering plants from farm premises.", "To reduce chemical pesticide usage and plant wildflowers along farm borders.", "To replace live bees with automated mechanical drones.", "To export beehives to industrial urban centers.", "To increase nighttime farming operations."], answer: 1, quote: "urge farmers to reduce harmful chemical pesticide usage and plant wildflowers along farm borders...", explanation: "Ilmuwan mendesak pengurangan pestisida kimia dan penanaman bunga liar." },
+            { id: 89, passageId: "doc_bee_population", format: "mcma", indicator: "Dampak Kepunahan Lebah", question: "What consequences would humanity face if honeybee populations completely collapsed? (Select ALL correct answers!)", options: ["Severe decline in global food crop yields.", "Shortages of fruits, nuts, and vegetables.", "Immediate increase in honey production worldwide.", "Threats to global food security.", "Enhanced agricultural pollination."], answer: [0, 1, 3], quote: "fertilizing nearly one-third of global food crops... safeguarding global food security...", explanation: "Kepunahan lebah memicu penurunan panen (A), kelangkaan buah/sayur (B), dan ancaman ketahanan pangan (D)." },
+            { id: 90, passageId: "doc_bee_population", format: "category", indicator: "Klasifikasi Faktor Lebah", question: "Classify each factor as either a 'Threat to Honeybees' or a 'Conservation Measure'.", categories: ["Threat to Honeybees", "Conservation Measure"], items: [{ id: "p3_20", text: "Overuse of harmful chemical pesticides in crop fields.", correct: "Threat to Honeybees" }, { id: "p3_21", text: "Planting native wildflowers along agricultural farm borders.", correct: "Conservation Measure" }, { id: "p3_22", text: "Habitat fragmentation driven by rapid land development.", correct: "Threat to Honeybees" }], explanation: "Pestisida dan fragmentasi adalah Threat, penanaman bunga liar adalah Conservation Measure." }
+        ];
+
+        /* ==========================================================================
+           APPLICATION STATE & LOCAL STORAGE PRO CONTROLLER
            ========================================================================== */
         let state = {
+            activePackageId: 1,
             mode: 'practice', 
             questions: [],    
+            passages: {},
             currentIndex: 0,  
-            userAnswers: {},  // Map: questionId -> value (Single: idx, MCMA: Array of idxs, Category: Map of itemId->val)
+            userAnswers: {},  
             flagged: {},      
             timeRemaining: 5400, // 90 minutes
             timerInterval: null,
             testFinished: false
         };
 
-        /* ==========================================================================
-           3. LIFECYCLE & NAVIGATION LOGIC
-           ========================================================================== */
-        function showStartModal() {
+        // Initialize App & Load Saved Best Scores
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedScores();
+            initDarkMode();
+        });
+
+        function loadSavedScores() {
+            for (let i = 1; i <= 3; i++) {
+                const saved = localStorage.getItem(`tka_english_pkg_${i}_best`);
+                const badge = document.getElementById(`best-score-${i}`);
+                if (saved) {
+                    badge.textContent = `Skor Terbaik: ${saved} Poin`;
+                    badge.className = "text-xs font-bold text-emerald-600 dark:text-emerald-400";
+                } else {
+                    badge.textContent = "Belum ada skor";
+                    badge.className = "text-xs font-bold text-slate-400 dark:text-slate-500";
+                }
+            }
+        }
+
+        function resetHistoryData() {
+            if (confirm("Yakin ingin menghapus seluruh riwayat skor terbaik yang tersimpan?")) {
+                localStorage.removeItem('tka_english_pkg_1_best');
+                localStorage.removeItem('tka_english_pkg_2_best');
+                localStorage.removeItem('tka_english_pkg_3_best');
+                loadSavedScores();
+                alert("Riwayat skor berhasil dibersihkan!");
+            }
+        }
+
+        function initDarkMode() {
+            const isDark = localStorage.getItem('tka_dark_mode') === 'true';
+            if (isDark) {
+                document.getElementById('html-root').classList.add('dark');
+                document.getElementById('theme-icon').className = "fa-solid fa-sun text-sm";
+            }
+        }
+
+        function toggleDarkMode() {
+            const root = document.getElementById('html-root');
+            const icon = document.getElementById('theme-icon');
+            if (root.classList.contains('dark')) {
+                root.classList.remove('dark');
+                localStorage.setItem('tka_dark_mode', 'false');
+                icon.className = "fa-solid fa-moon text-sm";
+            } else {
+                root.classList.add('dark');
+                localStorage.setItem('tka_dark_mode', 'true');
+                icon.className = "fa-solid fa-sun text-sm";
+            }
+        }
+
+        function openModeModal(pkgId) {
+            state.activePackageId = pkgId;
+            const titles = {
+                1: "Paket 1: Fabel & Literasi Digital (30 Soal)",
+                2: "Paket 2: Teknologi & Lingkungan (30 Soal)",
+                3: "Paket 3: Budaya & Etika Global (30 Soal)"
+            };
+            document.getElementById('modal-package-title').textContent = titles[pkgId];
             document.getElementById('modal-start').classList.remove('hidden');
         }
 
@@ -987,19 +778,29 @@
             state.mode = selectedMode;
             closeStartModal();
 
-            // Initialize State
-            state.questions = JSON.parse(JSON.stringify(rawQuestions));
+            if (state.activePackageId === 1) {
+                state.questions = JSON.parse(JSON.stringify(rawQuestions1));
+                state.passages = passagesData1;
+            } else if (state.activePackageId === 2) {
+                state.questions = JSON.parse(JSON.stringify(rawQuestions2));
+                state.passages = passagesData2;
+            } else {
+                state.questions = JSON.parse(JSON.stringify(rawQuestions3));
+                state.passages = passagesData3;
+            }
+
             state.currentIndex = 0;
             state.userAnswers = {};
             state.flagged = {};
-            state.timeRemaining = 5400; // 90 mins
+            state.timeRemaining = 5400; 
             state.testFinished = false;
 
-            // UI Switches
             document.getElementById('view-home').classList.add('hidden');
             document.getElementById('view-result').classList.add('hidden');
             document.getElementById('view-test').classList.remove('hidden');
             document.getElementById('test-header-status').classList.remove('hidden');
+
+            document.getElementById('nav-title').textContent = `TKA ENGLISH 2025 - PAKET ${state.activePackageId}`;
 
             const modeBadge = document.getElementById('mode-badge');
             if (state.mode === 'practice') {
@@ -1041,18 +842,13 @@
             document.getElementById('timer-display').textContent = formatted;
         }
 
-        /* ==========================================================================
-           4. DYNAMIC QUESTION RENDERER
-           ========================================================================== */
         function renderCurrentQuestion() {
             const q = state.questions[state.currentIndex];
-            const passage = passagesData[q.passageId];
+            const passage = state.passages[q.passageId];
 
-            // Render Passage Text
             document.getElementById('passage-title').textContent = passage.title;
             document.getElementById('passage-container').innerHTML = passage.text;
 
-            // Header Meta
             document.getElementById('q-number-display').textContent = state.currentIndex + 1;
             document.getElementById('q-indicator-tag').textContent = `Indikator: ${q.indicator}`;
 
@@ -1068,7 +864,6 @@
 
             const userAns = state.userAnswers[q.id];
 
-            // RENDER BASED ON FORMAT TYPE
             if (q.format === 'single') {
                 renderSingleChoice(q, userAns, optionsContainer);
             } else if (q.format === 'mcma') {
@@ -1077,7 +872,6 @@
                 renderCategoryTable(q, userAns, optionsContainer);
             }
 
-            // Flag Button
             const isFlagged = !!state.flagged[q.id];
             const btnFlag = document.getElementById('btn-flag');
             const flagText = document.getElementById('flag-text');
@@ -1085,11 +879,10 @@
                 btnFlag.className = "px-3.5 py-2 rounded-xl border border-amber-500 bg-amber-400 text-slate-900 text-xs font-bold transition flex items-center gap-1.5 shadow-sm";
                 flagText.textContent = "Ditandai Ragu";
             } else {
-                btnFlag.className = "px-3.5 py-2 rounded-xl border border-amber-300 bg-amber-50 text-amber-800 text-xs font-semibold hover:bg-amber-100 transition flex items-center gap-1.5";
+                btnFlag.className = "px-3.5 py-2 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs font-semibold hover:bg-amber-100 dark:hover:bg-amber-900 transition flex items-center gap-1.5";
                 flagText.textContent = "Tandai Ragu";
             }
 
-            // Prev & Next Controls
             document.getElementById('btn-prev').disabled = (state.currentIndex === 0);
             
             const btnNext = document.getElementById('btn-next');
@@ -1101,12 +894,11 @@
                 btnNext.onclick = nextQuestion;
             }
 
-            // Practice Mode Explanation Box
             const practiceExpBox = document.getElementById('practice-explanation');
             if (state.mode === 'practice' && isQuestionAnswered(q.id)) {
                 let ansSummary = "";
                 if (q.format === 'single') {
-                    ansSummary = `Pilihan <span class="font-bold text-emerald-700">${['A','B','C','D','E'][q.answer]}</span>`;
+                    ansSummary = `Pilihan <span class="font-bold text-emerald-700 dark:text-emerald-400">${['A','B','C','D','E'][q.answer]}</span>`;
                 } else if (q.format === 'mcma') {
                     ansSummary = q.answer.map(idx => ['A','B','C','D','E'][idx]).join(', ');
                 } else if (q.format === 'category') {
@@ -1115,8 +907,8 @@
 
                 document.getElementById('practice-explanation-content').innerHTML = `
                     <p><strong>Kunci Jawaban Tepat:</strong> ${ansSummary}</p>
-                    <p><strong>Kutipan Pendukung:</strong> <em class="bg-amber-100 px-1 py-0.5 rounded text-amber-900">"${q.quote || 'Sesuai analisis bacaan'}"</em></p>
-                    <p class="pt-1 text-slate-600">${q.explanation}</p>
+                    <p><strong>Kutipan Pendukung:</strong> <em class="bg-amber-100 dark:bg-amber-900 px-1 py-0.5 rounded text-amber-900 dark:text-amber-200">"${q.quote || 'Sesuai analisis bacaan'}"</em></p>
+                    <p class="pt-1 text-slate-600 dark:text-slate-300">${q.explanation}</p>
                 `;
                 practiceExpBox.classList.remove('hidden');
             } else {
@@ -1126,17 +918,15 @@
             document.getElementById('passage-container').scrollTop = 0;
         }
 
-        /* Single Choice Render */
         function renderSingleChoice(q, userAns, container) {
             const letters = ['A', 'B', 'C', 'D', 'E'];
             q.options.forEach((optText, optIdx) => {
                 const isSelected = userAns === optIdx;
-                
-                let btnStyle = "border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:bg-slate-50";
-                let badgeStyle = "bg-slate-100 text-slate-600 border-slate-200";
+                let btnStyle = "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-brand-300 dark:hover:border-brand-700 hover:bg-slate-50 dark:hover:bg-slate-800";
+                let badgeStyle = "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700";
 
                 if (isSelected) {
-                    btnStyle = "border-brand-600 bg-brand-50/70 text-brand-900 font-semibold shadow-sm";
+                    btnStyle = "border-brand-600 dark:border-brand-500 bg-brand-50/70 dark:bg-brand-950/50 text-brand-900 dark:text-white font-semibold shadow-sm";
                     badgeStyle = "bg-brand-600 text-white border-brand-600";
                 }
 
@@ -1158,19 +948,17 @@
             });
         }
 
-        /* MCMA Multi Choice Render - Tanpa Pembocoran Kunci Saat Mengklik */
         function renderMcmaChoice(q, userAns, container) {
             const selectedArr = Array.isArray(userAns) ? userAns : [];
             const letters = ['A', 'B', 'C', 'D', 'E'];
 
             q.options.forEach((optText, optIdx) => {
                 const isSelected = selectedArr.includes(optIdx);
-
-                let btnStyle = "border-slate-200 bg-white text-slate-700 hover:border-brand-300 hover:bg-slate-50";
-                let iconStyle = "border-slate-300 text-transparent";
+                let btnStyle = "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-brand-300 dark:hover:border-brand-700 hover:bg-slate-50 dark:hover:bg-slate-800";
+                let iconStyle = "border-slate-300 dark:border-slate-700 text-transparent";
 
                 if (isSelected) {
-                    btnStyle = "border-brand-600 bg-brand-50/70 text-brand-900 font-semibold shadow-sm";
+                    btnStyle = "border-brand-600 dark:border-brand-500 bg-brand-50/70 dark:bg-brand-950/50 text-brand-900 dark:text-white font-semibold shadow-sm";
                     iconStyle = "border-brand-600 bg-brand-600 text-white";
                 }
 
@@ -1204,34 +992,30 @@
             });
         }
 
-        /* Categorization Matrix Table Render - Murni Interaktif Tanpa Status Benar/Salah Langsung */
         function renderCategoryTable(q, userAns, container) {
             const userMap = userAns || {};
-
             const table = document.createElement('div');
-            table.className = "overflow-x-auto border border-slate-200 rounded-2xl bg-white shadow-sm";
+            table.className = "overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 shadow-sm";
 
             let html = `
                 <table class="w-full text-xs sm:text-sm text-left border-collapse">
-                    <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-700">
                         <tr>
                             <th class="p-3.5">Pernyataan / Item</th>
                             ${q.categories.map(cat => `<th class="p-3.5 text-center min-w-[110px]">${cat}</th>`).join('')}
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100">
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
             `;
 
             q.items.forEach(item => {
-                const selectedCat = userMap[item.id]; // Undefined initially
-
+                const selectedCat = userMap[item.id];
                 html += `
                     <tr>
-                        <td class="p-3.5 text-slate-800 font-medium">${item.text}</td>
+                        <td class="p-3.5 text-slate-800 dark:text-slate-200 font-medium">${item.text}</td>
                         ${q.categories.map(cat => {
                             const isChecked = (selectedCat === cat);
-                            
-                            let radioStyle = "border-slate-300 bg-white";
+                            let radioStyle = "border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900";
                             let iconMarkup = "";
 
                             if (isChecked) {
@@ -1240,7 +1024,7 @@
                             }
 
                             return `
-                                <td class="p-3.5 text-center cursor-pointer hover:bg-slate-50 transition" onclick="selectCategoryItem(${q.id}, '${item.id}', '${cat}')">
+                                <td class="p-3.5 text-center cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition" onclick="selectCategoryItem(${q.id}, '${item.id}', '${cat}')">
                                     <div class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 ${radioStyle} transition">
                                         ${iconMarkup}
                                     </div>
@@ -1273,7 +1057,6 @@
             if (q.format === 'single') return ans !== undefined;
             if (q.format === 'mcma') return Array.isArray(ans) && ans.length > 0;
             if (q.format === 'category') {
-                // Must answer all items in the matrix to be marked answered
                 return Object.keys(ans).length === q.items.length;
             }
             return false;
@@ -1312,9 +1095,6 @@
             document.getElementById('progress-text').textContent = `${answeredCount}/${state.questions.length}`;
         }
 
-        /* ==========================================================================
-           5. QUESTION NAV GRID MODAL RENDER
-           ========================================================================== */
         function toggleQuestionGrid() {
             const modal = document.getElementById('modal-grid');
             if (modal.classList.contains('hidden')) {
@@ -1334,17 +1114,10 @@
                 const isAnswered = isQuestionAnswered(q.id);
                 const isFlagged = !!state.flagged[q.id];
 
-                let btnClass = "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200";
-
-                if (isAnswered) {
-                    btnClass = "bg-brand-600 text-white border-brand-600";
-                }
-                if (isFlagged) {
-                    btnClass = "bg-amber-400 text-slate-900 border-amber-500 font-bold";
-                }
-                if (isCurrent) {
-                    btnClass += " ring-2 ring-offset-2 ring-brand-800 font-bold";
-                }
+                let btnClass = "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700";
+                if (isAnswered) btnClass = "bg-brand-600 text-white border-brand-600";
+                if (isFlagged) btnClass = "bg-amber-400 text-slate-900 border-amber-500 font-bold";
+                if (isCurrent) btnClass += " ring-2 ring-offset-2 ring-brand-800 font-bold";
 
                 const btn = document.createElement('button');
                 btn.className = `h-10 rounded-xl border text-xs font-semibold flex items-center justify-center transition relative ${btnClass}`;
@@ -1355,9 +1128,6 @@
             });
         }
 
-        /* ==========================================================================
-           6. EVALUATION & SCORING SYSTEM (100 - 800 Scale)
-           ========================================================================== */
         function confirmSubmitTest() {
             const answeredCount = state.questions.filter(q => isQuestionAnswered(q.id)).length;
             const unanswered = state.questions.length - answeredCount;
@@ -1386,7 +1156,6 @@
                     emptyCount++;
                 } else {
                     let isCorrect = false;
-
                     if (q.format === 'single') {
                         isCorrect = (userAns === q.answer);
                     } else if (q.format === 'mcma') {
@@ -1406,47 +1175,51 @@
                 }
             });
 
-            // Conversion to 100 - 800 Scale
-            // Formula: Score = 100 + (correctCount / totalQuestions) * 700
             const totalScore = Math.round(100 + (correctCount / state.questions.length) * 700);
             const accuracyPercent = Math.round((correctCount / state.questions.length) * 100);
 
-            // Hide test header
+            // SAVE TO LOCAL STORAGE BEST SCORE
+            const storageKey = `tka_english_pkg_${state.activePackageId}_best`;
+            const prevBest = localStorage.getItem(storageKey);
+            if (!prevBest || totalScore > parseInt(prevBest)) {
+                localStorage.setItem(storageKey, totalScore);
+            }
+            loadSavedScores();
+
             document.getElementById('test-header-status').classList.add('hidden');
             document.getElementById('view-test').classList.add('hidden');
             document.getElementById('view-result').classList.remove('hidden');
 
-            // Render Scores
+            document.getElementById('result-title-heading').textContent = `Hasil Evaluasi Paket ${state.activePackageId} TKA Bahasa Inggris`;
             document.getElementById('res-score').textContent = totalScore;
             document.getElementById('res-correct').textContent = correctCount;
             document.getElementById('res-wrong').textContent = wrongCount;
             document.getElementById('res-empty').textContent = emptyCount;
             document.getElementById('res-accuracy').textContent = `${accuracyPercent}%`;
 
-            // Categorization logic based on 100-800 scale
             let categoryLabel = "";
             let categoryStyle = "";
             let evalMsg = "";
 
             if (totalScore >= 700) {
                 categoryLabel = "Istimewa / Sangat Memadai";
-                categoryStyle = "bg-purple-100 text-purple-800 border border-purple-300";
+                categoryStyle = "bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 border border-purple-300 dark:border-purple-800";
                 evalMsg = "Penguasaan materi sangat luar biasa! Anda menunjukkan pemahaman teks, analisis inferensial, dan evaluasi kritis tingkat tinggi.";
             } else if (totalScore >= 600) {
                 categoryLabel = "Memadai / Baik";
-                categoryStyle = "bg-emerald-100 text-emerald-800 border border-emerald-300";
+                categoryStyle = "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800";
                 evalMsg = "Hasil memadai dan sangat baik. Anda telah memahami ide utama dan detail teks dengan akurasi yang tinggi.";
             } else if (totalScore >= 450) {
                 categoryLabel = "Cukup";
-                categoryStyle = "bg-amber-100 text-amber-800 border border-amber-300";
+                categoryStyle = "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800";
                 evalMsg = "Tingkat pemahaman cukup. Disarankan untuk lebih teliti pada jenis soal Pilihan Ganda Kompleks dan tabel kategori.";
             } else if (totalScore >= 300) {
                 categoryLabel = "Kurang";
-                categoryStyle = "bg-orange-100 text-orange-800 border border-orange-300";
+                categoryStyle = "bg-orange-100 dark:bg-orange-950 text-orange-800 dark:text-orange-300 border border-orange-300 dark:border-orange-800";
                 evalMsg = "Pemahaman masih kurang. Perlu memperbanyak kosakata (vocabulary) dan teknik pemahaman teks bahasa Inggris.";
             } else {
                 categoryLabel = "Sangat Kurang";
-                categoryStyle = "bg-rose-100 text-rose-800 border border-rose-300";
+                categoryStyle = "bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-800";
                 evalMsg = "Memerlukan latihan dasar dan pendampingan intensif untuk memahami struktur soal TKA Bahasa Inggris.";
             }
 
@@ -1454,7 +1227,7 @@
             badgeElem.textContent = categoryLabel;
             badgeElem.className = `px-2.5 py-0.5 rounded-full text-xs font-extrabold ml-1 inline-block ${categoryStyle}`;
 
-            document.getElementById('res-evaluation-text').innerHTML = `Akurasi Jawaban: <span class="font-bold text-brand-700">${accuracyPercent}%</span>. ${evalMsg}`;
+            document.getElementById('res-evaluation-text').innerHTML = `Akurasi Jawaban: <span class="font-bold text-brand-700 dark:text-brand-400">${accuracyPercent}%</span>. ${evalMsg}`;
 
             renderExplanationsList();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1463,13 +1236,12 @@
         function renderExplanationsList() {
             const listContainer = document.getElementById('explanations-list');
             listContainer.innerHTML = '';
-
             const letters = ['A', 'B', 'C', 'D', 'E'];
 
             state.questions.forEach((q, idx) => {
                 const userAns = state.userAnswers[q.id];
                 const answered = isQuestionAnswered(q.id);
-                const passage = passagesData[q.passageId];
+                const passage = state.passages[q.passageId];
 
                 let isCorrect = false;
                 if (answered) {
@@ -1483,15 +1255,15 @@
                     }
                 }
 
-                let statusBadge = `<span class="px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-full text-xs font-bold"><i class="fa-solid fa-check"></i> Benar (+23.3 Poin)</span>`;
-                let borderStyle = "border-emerald-200 bg-white";
+                let statusBadge = `<span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full text-xs font-bold"><i class="fa-solid fa-check"></i> Benar (+23.3 Poin)</span>`;
+                let borderStyle = "border-emerald-200 dark:border-emerald-900/60 bg-white dark:bg-slate-900";
 
                 if (!answered) {
-                    statusBadge = `<span class="px-3 py-1 bg-slate-100 text-slate-700 border border-slate-300 rounded-full text-xs font-bold"><i class="fa-solid fa-minus"></i> Belum Diisi</span>`;
-                    borderStyle = "border-slate-200 bg-white";
+                    statusBadge = `<span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 rounded-full text-xs font-bold"><i class="fa-solid fa-minus"></i> Belum Diisi</span>`;
+                    borderStyle = "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900";
                 } else if (!isCorrect) {
-                    statusBadge = `<span class="px-3 py-1 bg-rose-100 text-rose-800 border border-rose-300 rounded-full text-xs font-bold"><i class="fa-solid fa-xmark"></i> Kurang Tepat</span>`;
-                    borderStyle = "border-rose-200 bg-white";
+                    statusBadge = `<span class="px-3 py-1 bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 border border-rose-300 dark:border-rose-800 rounded-full text-xs font-bold"><i class="fa-solid fa-xmark"></i> Kurang Tepat</span>`;
+                    borderStyle = "border-rose-200 dark:border-rose-900/60 bg-white dark:bg-slate-900";
                 }
 
                 const card = document.createElement('div');
@@ -1502,18 +1274,18 @@
                     answersMarkup = `
                         <div class="grid grid-cols-1 gap-2 pt-1">
                             ${q.options.map((opt, optIdx) => {
-                                let optBg = "bg-slate-50 border-slate-200 text-slate-700";
+                                let optBg = "bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300";
                                 let icon = "";
 
                                 const isTarget = q.format === 'single' ? (optIdx === q.answer) : q.answer.includes(optIdx);
                                 const isUserSelected = q.format === 'single' ? (userAns === optIdx) : (Array.isArray(userAns) && userAns.includes(optIdx));
 
                                 if (isTarget) {
-                                    optBg = "bg-emerald-50 border-emerald-400 text-emerald-900 font-semibold";
-                                    icon = `<i class="fa-solid fa-circle-check text-emerald-600 ml-auto"></i>`;
+                                    optBg = "bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 font-semibold";
+                                    icon = `<i class="fa-solid fa-circle-check text-emerald-600 dark:text-emerald-400 ml-auto"></i>`;
                                 } else if (isUserSelected && !isTarget) {
-                                    optBg = "bg-rose-50 border-rose-300 text-rose-900 font-semibold";
-                                    icon = `<i class="fa-solid fa-circle-xmark text-rose-500 ml-auto"></i>`;
+                                    optBg = "bg-rose-50 dark:bg-rose-950/50 border-rose-300 dark:border-rose-700 text-rose-900 dark:text-rose-200 font-semibold";
+                                    icon = `<i class="fa-solid fa-circle-xmark text-rose-500 dark:text-rose-400 ml-auto"></i>`;
                                 }
 
                                 return `
@@ -1528,13 +1300,13 @@
                     `;
                 } else if (q.format === 'category') {
                     answersMarkup = `
-                        <div class="overflow-x-auto border border-slate-200 rounded-xl bg-slate-50 p-3 text-xs">
-                            <p class="font-bold mb-2 text-slate-700">Kunci Pengelompokan / Pernyataan:</p>
+                        <div class="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800 p-3 text-xs">
+                            <p class="font-bold mb-2 text-slate-700 dark:text-slate-300">Kunci Pengelompokan / Pernyataan:</p>
                             <ul class="space-y-1.5">
                                 ${q.items.map(it => `
-                                    <li class="flex justify-between border-b border-slate-200 pb-1">
-                                        <span class="text-slate-800">${it.text}</span>
-                                        <span class="font-bold text-emerald-700 ml-2 shrink-0">${it.correct}</span>
+                                    <li class="flex justify-between border-b border-slate-200 dark:border-slate-700 pb-1">
+                                        <span class="text-slate-800 dark:text-slate-200">${it.text}</span>
+                                        <span class="font-bold text-emerald-700 dark:text-emerald-400 ml-2 shrink-0">${it.correct}</span>
                                     </li>
                                 `).join('')}
                             </ul>
@@ -1543,27 +1315,27 @@
                 }
 
                 card.innerHTML = `
-                    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+                    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
                         <div class="flex items-center gap-2">
-                            <span class="font-black text-slate-900 text-base">Soal #${idx + 1}</span>
-                            <span class="text-xs text-brand-800 bg-brand-50 px-2.5 py-0.5 rounded-full font-bold border border-brand-200">${q.format.toUpperCase()}</span>
+                            <span class="font-black text-slate-900 dark:text-white text-base">Soal #${idx + 1}</span>
+                            <span class="text-xs text-brand-800 dark:text-brand-300 bg-brand-50 dark:bg-brand-950 px-2.5 py-0.5 rounded-full font-bold border border-brand-200 dark:border-brand-800">${q.format.toUpperCase()}</span>
                         </div>
                         ${statusBadge}
                     </div>
 
-                    <div class="text-xs text-slate-500 italic">${q.indicator}</div>
-                    <div class="text-xs text-brand-700 font-bold uppercase tracking-wider">${passage.title}</div>
-                    <div class="text-slate-800 font-medium text-sm sm:text-base leading-relaxed">${q.question}</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 italic">${q.indicator}</div>
+                    <div class="text-xs text-brand-700 dark:text-brand-400 font-bold uppercase tracking-wider">${passage.title}</div>
+                    <div class="text-slate-800 dark:text-slate-100 font-medium text-sm sm:text-base leading-relaxed">${q.question}</div>
 
                     ${answersMarkup}
 
-                    <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-2">
-                        <div class="font-bold text-brand-900 flex items-center gap-2">
+                    <div class="mt-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm space-y-2">
+                        <div class="font-bold text-brand-900 dark:text-brand-200 flex items-center gap-2">
                             <i class="fa-solid fa-lightbulb text-accent-500"></i> Pembahasan & Analisis Soal:
                         </div>
-                        <div class="text-slate-700 leading-relaxed space-y-1">
-                            <p><strong>Kutipan Teks Pendukung:</strong> <em class="bg-amber-100 px-1 py-0.5 rounded text-amber-900">"${q.quote || 'Sesuai konteks bacaan'}"</em></p>
-                            <p class="text-slate-600 pt-1">${q.explanation}</p>
+                        <div class="text-slate-700 dark:text-slate-300 leading-relaxed space-y-1">
+                            <p><strong>Kutipan Teks Pendukung:</strong> <em class="bg-amber-100 dark:bg-amber-950 px-1 py-0.5 rounded text-amber-900 dark:text-amber-200">"${q.quote || 'Sesuai konteks bacaan'}"</em></p>
+                            <p class="text-slate-600 dark:text-slate-300 pt-1">${q.explanation}</p>
                         </div>
                     </div>
                 `;
@@ -1572,12 +1344,10 @@
             });
         }
 
-        /* ==========================================================================
-           7. UTILITY CONTROLS
-           ========================================================================== */
         function resetAndRestart() {
             document.getElementById('view-result').classList.add('hidden');
             document.getElementById('view-home').classList.remove('hidden');
+            loadSavedScores();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1589,15 +1359,16 @@
                     document.getElementById('view-test').classList.add('hidden');
                     document.getElementById('view-result').classList.add('hidden');
                     document.getElementById('view-home').classList.remove('hidden');
+                    loadSavedScores();
                 }
             } else {
                 document.getElementById('test-header-status').classList.add('hidden');
                 document.getElementById('view-test').classList.add('hidden');
                 document.getElementById('view-result').classList.add('hidden');
                 document.getElementById('view-home').classList.remove('hidden');
+                loadSavedScores();
             }
         }
     </script>
 </body>
 </html>
-```
